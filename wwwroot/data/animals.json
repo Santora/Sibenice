@@ -7,223 +7,7 @@
   },
   "words": [
     {
-      "text": "PES",
-      "difficulty": 1
-    },
-    {
-      "text": "KOČKA",
-      "difficulty": 1
-    },
-    {
-      "text": "KRÁLÍK",
-      "difficulty": 1
-    },
-    {
-      "text": "KŮŇ",
-      "difficulty": 1
-    },
-    {
-      "text": "KRÁVA",
-      "difficulty": 1
-    },
-    {
-      "text": "PRASE",
-      "difficulty": 1
-    },
-    {
-      "text": "OVCE",
-      "difficulty": 1
-    },
-    {
-      "text": "KOZA",
-      "difficulty": 1
-    },
-    {
-      "text": "OSEL",
-      "difficulty": 1
-    },
-    {
-      "text": "SLEPICE",
-      "difficulty": 1
-    },
-    {
-      "text": "KOHOUT",
-      "difficulty": 1
-    },
-    {
-      "text": "KACHNA",
-      "difficulty": 1
-    },
-    {
-      "text": "HUSA",
-      "difficulty": 1
-    },
-    {
-      "text": "HOLUB",
-      "difficulty": 1
-    },
-    {
-      "text": "VRABEC",
-      "difficulty": 1
-    },
-    {
-      "text": "SÝKORA",
-      "difficulty": 1
-    },
-    {
-      "text": "STRAKA",
-      "difficulty": 1
-    },
-    {
-      "text": "VRÁNA",
-      "difficulty": 1
-    },
-    {
-      "text": "SOVA",
-      "difficulty": 1
-    },
-    {
-      "text": "OREL",
-      "difficulty": 1
-    },
-    {
-      "text": "SOKOL",
-      "difficulty": 1
-    },
-    {
-      "text": "ČÁP",
-      "difficulty": 1
-    },
-    {
-      "text": "LABUŤ",
-      "difficulty": 1
-    },
-    {
-      "text": "RACEK",
-      "difficulty": 1
-    },
-    {
-      "text": "PAPOUŠEK",
-      "difficulty": 1
-    },
-    {
-      "text": "PAVOUK",
-      "difficulty": 1
-    },
-    {
-      "text": "MRAVENEC",
-      "difficulty": 1
-    },
-    {
-      "text": "VČELA",
-      "difficulty": 1
-    },
-    {
-      "text": "VOSA",
-      "difficulty": 1
-    },
-    {
-      "text": "ČMELÁK",
-      "difficulty": 1
-    },
-    {
-      "text": "MOTÝL",
-      "difficulty": 1
-    },
-    {
-      "text": "MOUCHA",
-      "difficulty": 1
-    },
-    {
-      "text": "KOMÁR",
-      "difficulty": 1
-    },
-    {
-      "text": "VÁŽKA",
-      "difficulty": 1
-    },
-    {
       "text": "BERUŠKA",
-      "difficulty": 1
-    },
-    {
-      "text": "BROUK",
-      "difficulty": 1
-    },
-    {
-      "text": "HLEMÝŽĎ",
-      "difficulty": 1
-    },
-    {
-      "text": "SLIMÁK",
-      "difficulty": 1
-    },
-    {
-      "text": "ŽÍŽALA",
-      "difficulty": 1
-    },
-    {
-      "text": "ŽÁBA",
-      "difficulty": 1
-    },
-    {
-      "text": "ROPUCHA",
-      "difficulty": 1
-    },
-    {
-      "text": "JEŠTĚRKA",
-      "difficulty": 1
-    },
-    {
-      "text": "HAD",
-      "difficulty": 1
-    },
-    {
-      "text": "KROKODÝL",
-      "difficulty": 1
-    },
-    {
-      "text": "ŽELVA",
-      "difficulty": 1
-    },
-    {
-      "text": "KAPR",
-      "difficulty": 1
-    },
-    {
-      "text": "PSTRUH",
-      "difficulty": 1
-    },
-    {
-      "text": "ŠTIKA",
-      "difficulty": 1
-    },
-    {
-      "text": "SUMEC",
-      "difficulty": 1
-    },
-    {
-      "text": "ŽRALOK",
-      "difficulty": 1
-    },
-    {
-      "text": "DELFÍN",
-      "difficulty": 1
-    },
-    {
-      "text": "VELRYBA",
-      "difficulty": 1
-    },
-    {
-      "text": "TULEŇ",
-      "difficulty": 1
-    },
-    {
-      "text": "MROŽ",
-      "difficulty": 1
-    },
-    {
-      "text": "VYDRA",
       "difficulty": 1
     },
     {
@@ -231,7 +15,103 @@
       "difficulty": 1
     },
     {
-      "text": "VLK",
+      "text": "BROUK",
+      "difficulty": 1
+    },
+    {
+      "text": "DELFÍN",
+      "difficulty": 1
+    },
+    {
+      "text": "HAD",
+      "difficulty": 1
+    },
+    {
+      "text": "HLEMÝŽĎ",
+      "difficulty": 1
+    },
+    {
+      "text": "HOLUB",
+      "difficulty": 1
+    },
+    {
+      "text": "HUSA",
+      "difficulty": 1
+    },
+    {
+      "text": "JELEN",
+      "difficulty": 1
+    },
+    {
+      "text": "JEZEVEC",
+      "difficulty": 1
+    },
+    {
+      "text": "JEŠTĚRKA",
+      "difficulty": 1
+    },
+    {
+      "text": "JEŽEK",
+      "difficulty": 1
+    },
+    {
+      "text": "KACHNA",
+      "difficulty": 1
+    },
+    {
+      "text": "KAPR",
+      "difficulty": 1
+    },
+    {
+      "text": "KOHOUT",
+      "difficulty": 1
+    },
+    {
+      "text": "KOMÁR",
+      "difficulty": 1
+    },
+    {
+      "text": "KOZA",
+      "difficulty": 1
+    },
+    {
+      "text": "KOČKA",
+      "difficulty": 1
+    },
+    {
+      "text": "KROKODÝL",
+      "difficulty": 1
+    },
+    {
+      "text": "KRTEK",
+      "difficulty": 1
+    },
+    {
+      "text": "KRÁLÍK",
+      "difficulty": 1
+    },
+    {
+      "text": "KRÁVA",
+      "difficulty": 1
+    },
+    {
+      "text": "KUNA",
+      "difficulty": 1
+    },
+    {
+      "text": "KŘEČEK",
+      "difficulty": 1
+    },
+    {
+      "text": "KŮŇ",
+      "difficulty": 1
+    },
+    {
+      "text": "LABUŤ",
+      "difficulty": 1
+    },
+    {
+      "text": "LEV",
       "difficulty": 1
     },
     {
@@ -243,39 +123,63 @@
       "difficulty": 1
     },
     {
-      "text": "JEZEVEC",
+      "text": "MOTÝL",
       "difficulty": 1
     },
     {
-      "text": "KUNA",
+      "text": "MOUCHA",
       "difficulty": 1
     },
     {
-      "text": "VEVERKA",
+      "text": "MRAVENEC",
       "difficulty": 1
     },
     {
-      "text": "JEŽEK",
+      "text": "MROŽ",
       "difficulty": 1
     },
     {
-      "text": "KRTEK",
+      "text": "OREL",
       "difficulty": 1
     },
     {
-      "text": "ZAJÍC",
+      "text": "OSEL",
       "difficulty": 1
     },
     {
-      "text": "SRNA",
+      "text": "OVCE",
       "difficulty": 1
     },
     {
-      "text": "JELEN",
+      "text": "PAPOUŠEK",
       "difficulty": 1
     },
     {
-      "text": "TYGR",
+      "text": "PAVOUK",
+      "difficulty": 1
+    },
+    {
+      "text": "PES",
+      "difficulty": 1
+    },
+    {
+      "text": "PRASE",
+      "difficulty": 1
+    },
+    {
+      "text": "PSTRUH",
+      "difficulty": 1
+    },
+    {
+      "text": "ROPUCHA",
+      "difficulty": 1
+    },
+    {
+      "text": "SLEPICE",
+      "difficulty": 1
+    },
+    {
+      "text": "SLIMÁK",
       "difficulty": 1
     },
     {
@@ -283,59 +187,119 @@
       "difficulty": 1
     },
     {
-      "text": "LEV",
+      "text": "SOKOL",
       "difficulty": 1
     },
     {
-      "text": "KŘEČEK",
+      "text": "SOVA",
       "difficulty": 1
     },
     {
-      "text": "LOS",
+      "text": "SRNA",
+      "difficulty": 1
+    },
+    {
+      "text": "STRAKA",
+      "difficulty": 1
+    },
+    {
+      "text": "SUMEC",
+      "difficulty": 1
+    },
+    {
+      "text": "SÝKORA",
+      "difficulty": 1
+    },
+    {
+      "text": "TULEŇ",
+      "difficulty": 1
+    },
+    {
+      "text": "TYGR",
+      "difficulty": 1
+    },
+    {
+      "text": "VELRYBA",
+      "difficulty": 1
+    },
+    {
+      "text": "VEVERKA",
+      "difficulty": 1
+    },
+    {
+      "text": "VLK",
+      "difficulty": 1
+    },
+    {
+      "text": "VOSA",
+      "difficulty": 1
+    },
+    {
+      "text": "VRABEC",
+      "difficulty": 1
+    },
+    {
+      "text": "VRÁNA",
+      "difficulty": 1
+    },
+    {
+      "text": "VYDRA",
+      "difficulty": 1
+    },
+    {
+      "text": "VÁŽKA",
+      "difficulty": 1
+    },
+    {
+      "text": "VČELA",
+      "difficulty": 1
+    },
+    {
+      "text": "ZAJÍC",
+      "difficulty": 1
+    },
+    {
+      "text": "ČMELÁK",
+      "difficulty": 1
+    },
+    {
+      "text": "ČÁP",
+      "difficulty": 1
+    },
+    {
+      "text": "ŠTIKA",
+      "difficulty": 1
+    },
+    {
+      "text": "ŽELVA",
+      "difficulty": 1
+    },
+    {
+      "text": "ŽRALOK",
+      "difficulty": 1
+    },
+    {
+      "text": "ŽÁBA",
+      "difficulty": 1
+    },
+    {
+      "text": "ŽÍŽALA",
+      "difficulty": 1
+    },
+    {
+      "text": "ANTILOPA",
       "difficulty": 2
     },
     {
-      "text": "SOB",
+      "text": "BAŽANT",
       "difficulty": 2
     },
     {
-      "text": "RYS",
+      "text": "BIZON",
       "difficulty": 2
     },
     {
-      "text": "PLAMEŇÁK",
-      "difficulty": 2
-    },
-    {
-      "text": "TUČŇÁK",
-      "difficulty": 2
-    },
-    {
-      "text": "PŠTROS",
-      "difficulty": 2
-    },
-    {
-      "text": "VOLAVKA",
-      "difficulty": 2
-    },
-    {
-      "text": "ČOLEK",
-      "difficulty": 2
-    },
-    {
-      "text": "MLOK",
-      "difficulty": 2
-    },
-    {
-      "text": "REJNOK",
-      "difficulty": 2
-    },
-    {
-      "text": "ÚHOŘ",
-      "difficulty": 2
-    },
-    {
-      "text": "LOSOS",
+      "text": "BUVOL",
       "difficulty": 2
     },
     {
@@ -343,15 +307,63 @@
       "difficulty": 2
     },
     {
+      "text": "DROZD",
+      "difficulty": 2
+    },
+    {
+      "text": "DUDEK",
+      "difficulty": 2
+    },
+    {
+      "text": "FRETKA",
+      "difficulty": 2
+    },
+    {
+      "text": "GIBON",
+      "difficulty": 2
+    },
+    {
+      "text": "GORILA",
+      "difficulty": 2
+    },
+    {
+      "text": "IBIS",
+      "difficulty": 2
+    },
+    {
+      "text": "JAK",
+      "difficulty": 2
+    },
+    {
+      "text": "JESTŘÁB",
+      "difficulty": 2
+    },
+    {
       "text": "KALMAR",
       "difficulty": 2
     },
     {
-      "text": "MEDÚZA",
+      "text": "KAMZÍK",
       "difficulty": 2
     },
     {
-      "text": "RAK",
+      "text": "KANEC",
+      "difficulty": 2
+    },
+    {
+      "text": "KAVKA",
+      "difficulty": 2
+    },
+    {
+      "text": "KORMORÁN",
+      "difficulty": 2
+    },
+    {
+      "text": "KOS",
+      "difficulty": 2
+    },
+    {
+      "text": "KOSATKA",
       "difficulty": 2
     },
     {
@@ -363,15 +375,179 @@
       "difficulty": 2
     },
     {
-      "text": "KOSATKA",
+      "text": "KUKAČKA",
       "difficulty": 2
     },
     {
-      "text": "KAPYBARA",
+      "text": "LIŠAJ",
+      "difficulty": 2
+    },
+    {
+      "text": "LOS",
+      "difficulty": 2
+    },
+    {
+      "text": "LOSOS",
+      "difficulty": 2
+    },
+    {
+      "text": "MEDÚZA",
+      "difficulty": 2
+    },
+    {
+      "text": "MLOK",
+      "difficulty": 2
+    },
+    {
+      "text": "MUFLON",
+      "difficulty": 2
+    },
+    {
+      "text": "NETOPÝR",
+      "difficulty": 2
+    },
+    {
+      "text": "NORK",
+      "difficulty": 2
+    },
+    {
+      "text": "ONDATRA",
+      "difficulty": 2
+    },
+    {
+      "text": "PELIKÁN",
+      "difficulty": 2
+    },
+    {
+      "text": "PERLIČKA",
+      "difficulty": 2
+    },
+    {
+      "text": "PLAMEŇÁK",
+      "difficulty": 2
+    },
+    {
+      "text": "PLŠÍK",
+      "difficulty": 2
+    },
+    {
+      "text": "PUŠTÍK",
+      "difficulty": 2
+    },
+    {
+      "text": "PÁV",
+      "difficulty": 2
+    },
+    {
+      "text": "PĚNKAVA",
+      "difficulty": 2
+    },
+    {
+      "text": "PŠTROS",
+      "difficulty": 2
+    },
+    {
+      "text": "RAK",
+      "difficulty": 2
+    },
+    {
+      "text": "REJNOK",
+      "difficulty": 2
+    },
+    {
+      "text": "RYS",
+      "difficulty": 2
+    },
+    {
+      "text": "SARDINKA",
+      "difficulty": 2
+    },
+    {
+      "text": "SASANKA",
+      "difficulty": 2
+    },
+    {
+      "text": "SLEPÝŠ",
+      "difficulty": 2
+    },
+    {
+      "text": "SLUKA",
+      "difficulty": 2
+    },
+    {
+      "text": "SOB",
+      "difficulty": 2
+    },
+    {
+      "text": "SRŠEŇ",
+      "difficulty": 2
+    },
+    {
+      "text": "TCHOŘ",
+      "difficulty": 2
+    },
+    {
+      "text": "TETŘEV",
+      "difficulty": 2
+    },
+    {
+      "text": "TUČŇÁK",
+      "difficulty": 2
+    },
+    {
+      "text": "VLAŠTOVKA",
+      "difficulty": 2
+    },
+    {
+      "text": "VOLAVKA",
+      "difficulty": 2
+    },
+    {
+      "text": "ZEBRA",
+      "difficulty": 2
+    },
+    {
+      "text": "ZUBR",
+      "difficulty": 2
+    },
+    {
+      "text": "ÚHOŘ",
+      "difficulty": 2
+    },
+    {
+      "text": "ČOLEK",
+      "difficulty": 2
+    },
+    {
+      "text": "ŠAKAL",
+      "difficulty": 2
+    },
+    {
+      "text": "ŠTÍR",
+      "difficulty": 2
+    },
+    {
+      "text": "AXOLOTL",
       "difficulty": 3
     },
     {
-      "text": "NOSOROŽEC",
+      "text": "BĚLUHA",
+      "difficulty": 3
+    },
+    {
+      "text": "FENEK",
+      "difficulty": 3
+    },
+    {
+      "text": "GAVIÁL",
+      "difficulty": 3
+    },
+    {
+      "text": "GEPARD",
+      "difficulty": 3
+    },
+    {
+      "text": "HATÉRIE",
       "difficulty": 3
     },
     {
@@ -379,11 +555,35 @@
       "difficulty": 3
     },
     {
-      "text": "TAPÍR",
+      "text": "IBIS POSVÁTNÝ",
       "difficulty": 3
     },
     {
-      "text": "PÁSOVEC",
+      "text": "KAKAPO",
+      "difficulty": 3
+    },
+    {
+      "text": "KALOŇ",
+      "difficulty": 3
+    },
+    {
+      "text": "KASUÁR",
+      "difficulty": 3
+    },
+    {
+      "text": "KINKAJU",
+      "difficulty": 3
+    },
+    {
+      "text": "KOSMAN",
+      "difficulty": 3
+    },
+    {
+      "text": "KULÍK",
+      "difficulty": 3
+    },
+    {
+      "text": "LEMUR",
       "difficulty": 3
     },
     {
@@ -391,11 +591,35 @@
       "difficulty": 3
     },
     {
-      "text": "PTAKOPYSK",
+      "text": "LORI",
       "difficulty": 3
     },
     {
-      "text": "SURIKATA",
+      "text": "MAKI",
+      "difficulty": 3
+    },
+    {
+      "text": "MANDRIL",
+      "difficulty": 3
+    },
+    {
+      "text": "MANTA",
+      "difficulty": 3
+    },
+    {
+      "text": "MRAVENEČNÍK",
+      "difficulty": 3
+    },
+    {
+      "text": "NARVAL",
+      "difficulty": 3
+    },
+    {
+      "text": "NOSOROŽEC",
+      "difficulty": 3
+    },
+    {
+      "text": "OKAPI",
       "difficulty": 3
     },
     {
@@ -403,7 +627,79 @@
       "difficulty": 3
     },
     {
-      "text": "LEMUR",
+      "text": "ORLÍK",
+      "difficulty": 3
+    },
+    {
+      "text": "PIRAŇA",
+      "difficulty": 3
+    },
+    {
+      "text": "POTÁPKA",
+      "difficulty": 3
+    },
+    {
+      "text": "PSOUN",
+      "difficulty": 3
+    },
+    {
+      "text": "PTAKOPYSK",
+      "difficulty": 3
+    },
+    {
+      "text": "SOVA BĚLAVÁ",
+      "difficulty": 3
+    },
+    {
+      "text": "PÁSOVEC",
+      "difficulty": 3
+    },
+    {
+      "text": "PÍSKOMIL",
+      "difficulty": 3
+    },
+    {
+      "text": "SAJGA",
+      "difficulty": 3
+    },
+    {
+      "text": "SIFAKA",
+      "difficulty": 3
+    },
+    {
+      "text": "SURIKATA",
+      "difficulty": 3
+    },
+    {
+      "text": "TAMARÍN",
+      "difficulty": 3
+    },
+    {
+      "text": "TAPÍR",
+      "difficulty": 3
+    },
+    {
+      "text": "TARANTULE",
+      "difficulty": 3
+    },
+    {
+      "text": "TUKAN",
+      "difficulty": 3
+    },
+    {
+      "text": "TUPAJA",
+      "difficulty": 3
+    },
+    {
+      "text": "VAKOVEVERKA",
+      "difficulty": 3
+    },
+    {
+      "text": "VIKUŇA",
+      "difficulty": 3
+    },
+    {
+      "text": "ČEJKA",
       "difficulty": 3
     }
   ]

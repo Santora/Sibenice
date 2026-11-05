@@ -6,55 +6,55 @@
       "id": "animals",
       "name": "🐾 Zvířata",
       "file": "animals.json",
-      "wordCount": 100,
+      "wordCount": 174,
       "difficultyCounts": {
-        "1": 71,
-        "2": 19,
-        "3": 10
+        "1": 70,
+        "2": 60,
+        "3": 44
       }
     },
     {
       "id": "czech",
       "name": "🏰 Česko",
       "file": "czech.json",
-      "wordCount": 101,
+      "wordCount": 143,
       "difficultyCounts": {
         "1": 38,
-        "2": 45,
-        "3": 18
+        "2": 64,
+        "3": 41
       }
     },
     {
       "id": "food",
       "name": "🍲 Jídlo",
       "file": "food.json",
-      "wordCount": 139,
+      "wordCount": 220,
       "difficultyCounts": {
         "1": 49,
-        "2": 55,
-        "3": 35
+        "2": 104,
+        "3": 67
       }
     },
     {
       "id": "sport",
       "name": "⚽ Sport",
       "file": "sport.json",
-      "wordCount": 96,
+      "wordCount": 140,
       "difficultyCounts": {
         "1": 31,
-        "2": 42,
-        "3": 23
+        "2": 60,
+        "3": 49
       }
     },
     {
       "id": "technology",
       "name": "💻 Technologie",
       "file": "technology.json",
-      "wordCount": 123,
+      "wordCount": 181,
       "difficultyCounts": {
         "1": 39,
-        "2": 48,
-        "3": 36
+        "2": 72,
+        "3": 70
       }
     }
   ]

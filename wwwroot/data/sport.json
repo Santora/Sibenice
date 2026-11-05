@@ -7,19 +7,27 @@
   },
   "words": [
     {
-      "text": "FOTBAL",
+      "text": "AEROBIK",
       "difficulty": 1
     },
     {
-      "text": "HOKEJ",
+      "text": "ATLETIKA",
       "difficulty": 1
     },
     {
-      "text": "TENIS",
+      "text": "BADMINTON",
       "difficulty": 1
     },
     {
-      "text": "PLAVÁNÍ",
+      "text": "BASKETBAL",
+      "difficulty": 1
+    },
+    {
+      "text": "BOX",
+      "difficulty": 1
+    },
+    {
+      "text": "BRUSLENÍ",
       "difficulty": 1
     },
     {
@@ -31,31 +39,11 @@
       "difficulty": 1
     },
     {
-      "text": "LYŽOVÁNÍ",
-      "difficulty": 1
-    },
-    {
-      "text": "BRUSLENÍ",
-      "difficulty": 1
-    },
-    {
-      "text": "VOLEJBAL",
-      "difficulty": 1
-    },
-    {
-      "text": "BASKETBAL",
-      "difficulty": 1
-    },
-    {
-      "text": "HÁZENÁ",
-      "difficulty": 1
-    },
-    {
       "text": "FLORBAL",
       "difficulty": 1
     },
     {
-      "text": "BADMINTON",
+      "text": "FOTBAL",
       "difficulty": 1
     },
     {
@@ -63,7 +51,19 @@
       "difficulty": 1
     },
     {
-      "text": "BOX",
+      "text": "GYMNASTIKA",
+      "difficulty": 1
+    },
+    {
+      "text": "HOKEJ",
+      "difficulty": 1
+    },
+    {
+      "text": "HOROLEZECTVÍ",
+      "difficulty": 1
+    },
+    {
+      "text": "HÁZENÁ",
       "difficulty": 1
     },
     {
@@ -71,7 +71,55 @@
       "difficulty": 1
     },
     {
+      "text": "JÓGA",
+      "difficulty": 1
+    },
+    {
+      "text": "KANOISTIKA",
+      "difficulty": 1
+    },
+    {
       "text": "KARATE",
+      "difficulty": 1
+    },
+    {
+      "text": "LEZENÍ",
+      "difficulty": 1
+    },
+    {
+      "text": "LYŽOVÁNÍ",
+      "difficulty": 1
+    },
+    {
+      "text": "PLAVÁNÍ",
+      "difficulty": 1
+    },
+    {
+      "text": "POSILOVÁNÍ",
+      "difficulty": 1
+    },
+    {
+      "text": "POTÁPĚNÍ",
+      "difficulty": 1
+    },
+    {
+      "text": "SKOKY",
+      "difficulty": 1
+    },
+    {
+      "text": "TANEC",
+      "difficulty": 1
+    },
+    {
+      "text": "TENIS",
+      "difficulty": 1
+    },
+    {
+      "text": "VESLOVÁNÍ",
+      "difficulty": 1
+    },
+    {
+      "text": "VOLEJBAL",
       "difficulty": 1
     },
     {
@@ -83,139 +131,7 @@
       "difficulty": 1
     },
     {
-      "text": "GYMNASTIKA",
-      "difficulty": 1
-    },
-    {
-      "text": "ATLETIKA",
-      "difficulty": 1
-    },
-    {
-      "text": "SKOKY",
-      "difficulty": 1
-    },
-    {
-      "text": "POTÁPĚNÍ",
-      "difficulty": 1
-    },
-    {
-      "text": "VESLOVÁNÍ",
-      "difficulty": 1
-    },
-    {
-      "text": "KANOISTIKA",
-      "difficulty": 1
-    },
-    {
-      "text": "HOROLEZECTVÍ",
-      "difficulty": 1
-    },
-    {
-      "text": "LEZENÍ",
-      "difficulty": 1
-    },
-    {
-      "text": "JÓGA",
-      "difficulty": 1
-    },
-    {
-      "text": "TANEC",
-      "difficulty": 1
-    },
-    {
-      "text": "AEROBIK",
-      "difficulty": 1
-    },
-    {
-      "text": "POSILOVÁNÍ",
-      "difficulty": 1
-    },
-    {
-      "text": "BIATLON",
-      "difficulty": 2
-    },
-    {
-      "text": "TRIATLON",
-      "difficulty": 2
-    },
-    {
-      "text": "MARATON",
-      "difficulty": 2
-    },
-    {
-      "text": "SNOWBOARDING",
-      "difficulty": 2
-    },
-    {
-      "text": "SKOKY NA LYŽÍCH",
-      "difficulty": 2
-    },
-    {
-      "text": "SEVERSKÁ KOMBINACE",
-      "difficulty": 2
-    },
-    {
-      "text": "RYCHLOBRUSLENÍ",
-      "difficulty": 2
-    },
-    {
-      "text": "KANOPOLO",
-      "difficulty": 2
-    },
-    {
-      "text": "VODNÍ POLO",
-      "difficulty": 2
-    },
-    {
-      "text": "SYNCHRONIZOVANÉ PLAVÁNÍ",
-      "difficulty": 2
-    },
-    {
-      "text": "SPORTOVNÍ ŠERM",
-      "difficulty": 2
-    },
-    {
-      "text": "MODERNÍ PĚTIBOJ",
-      "difficulty": 2
-    },
-    {
-      "text": "SPORTOVNÍ STŘELBA",
-      "difficulty": 2
-    },
-    {
-      "text": "LUKOSTŘELBA",
-      "difficulty": 2
-    },
-    {
-      "text": "JÍZDA NA KONI",
-      "difficulty": 2
-    },
-    {
-      "text": "DOSTIHY",
-      "difficulty": 2
-    },
-    {
-      "text": "PARKUR",
-      "difficulty": 2
-    },
-    {
-      "text": "DREZURA",
-      "difficulty": 2
-    },
-    {
-      "text": "RUGBY",
-      "difficulty": 2
-    },
-    {
-      "text": "BASEBALL",
-      "difficulty": 2
-    },
-    {
-      "text": "SOFTBALL",
-      "difficulty": 2
-    },
-    {
-      "text": "KRIKET",
+      "text": "AKROBACIE",
       "difficulty": 2
     },
     {
@@ -227,31 +143,11 @@
       "difficulty": 2
     },
     {
-      "text": "MOTOKROS",
+      "text": "BASEBALL",
       "difficulty": 2
     },
     {
-      "text": "RALLYE",
-      "difficulty": 2
-    },
-    {
-      "text": "KARTING",
-      "difficulty": 2
-    },
-    {
-      "text": "SJEZDOVÉ LYŽOVÁNÍ",
-      "difficulty": 2
-    },
-    {
-      "text": "BĚŽECKÉ LYŽOVÁNÍ",
-      "difficulty": 2
-    },
-    {
-      "text": "SKIALPINISMUS",
-      "difficulty": 2
-    },
-    {
-      "text": "CURLING",
+      "text": "BIATLON",
       "difficulty": 2
     },
     {
@@ -259,23 +155,39 @@
       "difficulty": 2
     },
     {
-      "text": "SÁŇKOVÁNÍ",
+      "text": "BOULDERING",
       "difficulty": 2
     },
     {
-      "text": "SKELETON",
+      "text": "BĚH NA LYŽÍCH",
       "difficulty": 2
     },
     {
-      "text": "SKATEBOARDING",
+      "text": "BĚŽECKÉ LYŽOVÁNÍ",
       "difficulty": 2
     },
     {
-      "text": "SURFOVÁNÍ",
+      "text": "CURLING",
       "difficulty": 2
     },
     {
-      "text": "WINDSURFING",
+      "text": "DOSTIHY",
+      "difficulty": 2
+    },
+    {
+      "text": "DREZURA",
+      "difficulty": 2
+    },
+    {
+      "text": "DÁLKOVÉ PLAVÁNÍ",
+      "difficulty": 2
+    },
+    {
+      "text": "FREESTYLE",
+      "difficulty": 2
+    },
+    {
+      "text": "FUTSAL",
       "difficulty": 2
     },
     {
@@ -283,11 +195,23 @@
       "difficulty": 2
     },
     {
-      "text": "RAFTING",
+      "text": "JÍZDA NA KONI",
       "difficulty": 2
     },
     {
-      "text": "BOULDERING",
+      "text": "KANOPOLO",
+      "difficulty": 2
+    },
+    {
+      "text": "KARTING",
+      "difficulty": 2
+    },
+    {
+      "text": "KICKBOX",
+      "difficulty": 2
+    },
+    {
+      "text": "KRIKET",
       "difficulty": 2
     },
     {
@@ -295,43 +219,175 @@
       "difficulty": 2
     },
     {
+      "text": "LUKOSTŘELBA",
+      "difficulty": 2
+    },
+    {
+      "text": "MARATON",
+      "difficulty": 2
+    },
+    {
+      "text": "MODERNÍ GYMNASTIKA",
+      "difficulty": 2
+    },
+    {
+      "text": "MODERNÍ PĚTIBOJ",
+      "difficulty": 2
+    },
+    {
+      "text": "MOTOKROS",
+      "difficulty": 2
+    },
+    {
+      "text": "PARKOUR",
+      "difficulty": 2
+    },
+    {
+      "text": "PARKUR",
+      "difficulty": 2
+    },
+    {
       "text": "POWERLIFTING",
       "difficulty": 2
     },
     {
-      "text": "ORIENTAČNÍ BĚH",
+      "text": "POZEMNÍ HOKEJ",
+      "difficulty": 2
+    },
+    {
+      "text": "PÁDLOVÁNÍ",
+      "difficulty": 2
+    },
+    {
+      "text": "PĚTIBOJ",
+      "difficulty": 2
+    },
+    {
+      "text": "RAFTING",
+      "difficulty": 2
+    },
+    {
+      "text": "RAGBY",
+      "difficulty": 2
+    },
+    {
+      "text": "RALLYE",
+      "difficulty": 2
+    },
+    {
+      "text": "RYCHLOBRUSLENÍ",
+      "difficulty": 2
+    },
+    {
+      "text": "SEVERSKÁ KOMBINACE",
+      "difficulty": 2
+    },
+    {
+      "text": "SJEZDOVÉ LYŽOVÁNÍ",
+      "difficulty": 2
+    },
+    {
+      "text": "SKATEBOARDING",
+      "difficulty": 2
+    },
+    {
+      "text": "SKELETON",
+      "difficulty": 2
+    },
+    {
+      "text": "SKIALPINISMUS",
+      "difficulty": 2
+    },
+    {
+      "text": "SKOK DO VÝŠKY",
+      "difficulty": 2
+    },
+    {
+      "text": "SKOK O TYČI",
+      "difficulty": 2
+    },
+    {
+      "text": "SKOKY NA LYŽÍCH",
+      "difficulty": 2
+    },
+    {
+      "text": "SNOWBOARDING",
+      "difficulty": 2
+    },
+    {
+      "text": "SOFTBALL",
+      "difficulty": 2
+    },
+    {
+      "text": "SPORTOVNÍ STŘELBA",
+      "difficulty": 2
+    },
+    {
+      "text": "SPORTOVNÍ ŠERM",
+      "difficulty": 2
+    },
+    {
+      "text": "STOLNÍ TENIS",
+      "difficulty": 2
+    },
+    {
+      "text": "SURFOVÁNÍ",
+      "difficulty": 2
+    },
+    {
+      "text": "SYNCHRONIZOVANÉ PLAVÁNÍ",
+      "difficulty": 2
+    },
+    {
+      "text": "SÁŇKOVÁNÍ",
+      "difficulty": 2
+    },
+    {
+      "text": "TAEKWONDO",
+      "difficulty": 2
+    },
+    {
+      "text": "TRIATLON",
+      "difficulty": 2
+    },
+    {
+      "text": "VODNÍ POLO",
+      "difficulty": 2
+    },
+    {
+      "text": "VODNÍ PÓLO",
+      "difficulty": 2
+    },
+    {
+      "text": "WINDSURFING",
+      "difficulty": 2
+    },
+    {
+      "text": "WRESTLING",
+      "difficulty": 2
+    },
+    {
+      "text": "ŠERM",
+      "difficulty": 2
+    },
+    {
+      "text": "BANDY HOKEJ",
       "difficulty": 3
     },
     {
-      "text": "VZPÍRÁNÍ",
+      "text": "BOBOVÁNÍ",
       "difficulty": 3
     },
     {
-      "text": "SPORTOVNÍ AEROBIK",
+      "text": "BOWLING",
       "difficulty": 3
     },
     {
-      "text": "TRAMPOLÍNA",
+      "text": "BĚH DO VRCHU",
       "difficulty": 3
     },
     {
-      "text": "SPORTOVNÍ AKROBACIE",
-      "difficulty": 3
-    },
-    {
-      "text": "RYTMICKÁ GYMNASTIKA",
-      "difficulty": 3
-    },
-    {
-      "text": "DEKATLON",
-      "difficulty": 3
-    },
-    {
-      "text": "SEDMIBOJ",
-      "difficulty": 3
-    },
-    {
-      "text": "ULTRAMARATON",
+      "text": "CANICROSS",
       "difficulty": 3
     },
     {
@@ -339,15 +395,7 @@
       "difficulty": 3
     },
     {
-      "text": "ENDURO",
-      "difficulty": 3
-    },
-    {
-      "text": "TRIAL",
-      "difficulty": 3
-    },
-    {
-      "text": "FREESTYLE BMX",
+      "text": "DEKATLON",
       "difficulty": 3
     },
     {
@@ -355,27 +403,7 @@
       "difficulty": 3
     },
     {
-      "text": "SQUASH",
-      "difficulty": 3
-    },
-    {
-      "text": "RICHOCHET",
-      "difficulty": 3
-    },
-    {
-      "text": "PADEL",
-      "difficulty": 3
-    },
-    {
-      "text": "PETANQUE",
-      "difficulty": 3
-    },
-    {
-      "text": "SPORTOVNÍ RYBOLOV",
-      "difficulty": 3
-    },
-    {
-      "text": "MUŠKAŘENÍ",
+      "text": "DRAHOVÁ CYKLISTIKA",
       "difficulty": 3
     },
     {
@@ -383,11 +411,159 @@
       "difficulty": 3
     },
     {
-      "text": "VODNÍ SLALOM",
+      "text": "ENDURO",
+      "difficulty": 3
+    },
+    {
+      "text": "FLATLAND",
+      "difficulty": 3
+    },
+    {
+      "text": "FREEDIVING",
+      "difficulty": 3
+    },
+    {
+      "text": "FREESTYLE BMX",
+      "difficulty": 3
+    },
+    {
+      "text": "HORSKÁ CYKLISTIKA",
+      "difficulty": 3
+    },
+    {
+      "text": "KITEBOARDING",
+      "difficulty": 3
+    },
+    {
+      "text": "KRASOBRUSLENÍ",
+      "difficulty": 3
+    },
+    {
+      "text": "LACROSSE",
+      "difficulty": 3
+    },
+    {
+      "text": "MUSHING",
+      "difficulty": 3
+    },
+    {
+      "text": "MUŠKAŘENÍ",
+      "difficulty": 3
+    },
+    {
+      "text": "NORDIC WALKING",
+      "difficulty": 3
+    },
+    {
+      "text": "ORIENTAČNÍ BĚH",
+      "difficulty": 3
+    },
+    {
+      "text": "PADEL",
+      "difficulty": 3
+    },
+    {
+      "text": "PARAGLIDING",
+      "difficulty": 3
+    },
+    {
+      "text": "PETANQUE",
+      "difficulty": 3
+    },
+    {
+      "text": "PILATES",
+      "difficulty": 3
+    },
+    {
+      "text": "PLOCHÁ DRÁHA",
+      "difficulty": 3
+    },
+    {
+      "text": "RALLYKROS",
+      "difficulty": 3
+    },
+    {
+      "text": "RODEO",
+      "difficulty": 3
+    },
+    {
+      "text": "RYTMICKÁ GYMNASTIKA",
+      "difficulty": 3
+    },
+    {
+      "text": "SEDMIBOJ",
       "difficulty": 3
     },
     {
       "text": "SJEZD NA DIVOKÉ VODĚ",
+      "difficulty": 3
+    },
+    {
+      "text": "SPEEDWAY",
+      "difficulty": 3
+    },
+    {
+      "text": "SPORTOVNÍ AEROBIK",
+      "difficulty": 3
+    },
+    {
+      "text": "SPORTOVNÍ AKROBACIE",
+      "difficulty": 3
+    },
+    {
+      "text": "SPORTOVNÍ LEZENÍ",
+      "difficulty": 3
+    },
+    {
+      "text": "SPORTOVNÍ RYBOLOV",
+      "difficulty": 3
+    },
+    {
+      "text": "SQUASH",
+      "difficulty": 3
+    },
+    {
+      "text": "STREETBALL",
+      "difficulty": 3
+    },
+    {
+      "text": "TANEČNÍ SPORT",
+      "difficulty": 3
+    },
+    {
+      "text": "TRAMPOLÍNA",
+      "difficulty": 3
+    },
+    {
+      "text": "TRIAL",
+      "difficulty": 3
+    },
+    {
+      "text": "ULTRAMARATON",
+      "difficulty": 3
+    },
+    {
+      "text": "VODNÍ SLALOM",
+      "difficulty": 3
+    },
+    {
+      "text": "VZPÍRÁNÍ",
+      "difficulty": 3
+    },
+    {
+      "text": "WAKEBOARDING",
+      "difficulty": 3
+    },
+    {
+      "text": "WINGFOIL",
+      "difficulty": 3
+    },
+    {
+      "text": "ZÁVODNÍ CHŮZE",
+      "difficulty": 3
+    },
+    {
+      "text": "ŠPLH",
       "difficulty": 3
     }
   ]

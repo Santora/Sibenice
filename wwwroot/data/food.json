@@ -7,19 +7,11 @@
   },
   "words": [
     {
-      "text": "CHLEBA",
+      "text": "BANÁN",
       "difficulty": 1
     },
     {
-      "text": "ROHLÍK",
-      "difficulty": 1
-    },
-    {
-      "text": "HOUSTIČKA",
-      "difficulty": 1
-    },
-    {
-      "text": "KNEDLÍK",
+      "text": "BORŮVKA",
       "difficulty": 1
     },
     {
@@ -27,39 +19,11 @@
       "difficulty": 1
     },
     {
-      "text": "RÝŽE",
+      "text": "BRAMBORÁK",
       "difficulty": 1
     },
     {
-      "text": "TĚSTOVINY",
-      "difficulty": 1
-    },
-    {
-      "text": "POLÉVKA",
-      "difficulty": 1
-    },
-    {
-      "text": "GULÁŠ",
-      "difficulty": 1
-    },
-    {
-      "text": "ŘÍZEK",
-      "difficulty": 1
-    },
-    {
-      "text": "SVÍČKOVÁ",
-      "difficulty": 1
-    },
-    {
-      "text": "PALAČINKA",
-      "difficulty": 1
-    },
-    {
-      "text": "LÍVANEC",
-      "difficulty": 1
-    },
-    {
-      "text": "KOLÁČ",
+      "text": "BROSKEV",
       "difficulty": 1
     },
     {
@@ -71,11 +35,155 @@
       "difficulty": 1
     },
     {
-      "text": "VÁNOČKA",
+      "text": "CHLEBA",
+      "difficulty": 1
+    },
+    {
+      "text": "CITRON",
+      "difficulty": 1
+    },
+    {
+      "text": "DŽEM",
+      "difficulty": 1
+    },
+    {
+      "text": "GULÁŠ",
+      "difficulty": 1
+    },
+    {
+      "text": "HOUSTIČKA",
+      "difficulty": 1
+    },
+    {
+      "text": "HROZNY",
+      "difficulty": 1
+    },
+    {
+      "text": "HRUŠKA",
+      "difficulty": 1
+    },
+    {
+      "text": "JABLKO",
+      "difficulty": 1
+    },
+    {
+      "text": "JAHODA",
+      "difficulty": 1
+    },
+    {
+      "text": "JOGURT",
+      "difficulty": 1
+    },
+    {
+      "text": "KNEDLÍK",
+      "difficulty": 1
+    },
+    {
+      "text": "KOLÁČ",
+      "difficulty": 1
+    },
+    {
+      "text": "LÍVANEC",
+      "difficulty": 1
+    },
+    {
+      "text": "MALINA",
+      "difficulty": 1
+    },
+    {
+      "text": "MED",
+      "difficulty": 1
+    },
+    {
+      "text": "MELOUN",
+      "difficulty": 1
+    },
+    {
+      "text": "MERUŇKA",
+      "difficulty": 1
+    },
+    {
+      "text": "MLÉKO",
+      "difficulty": 1
+    },
+    {
+      "text": "MRKEV",
+      "difficulty": 1
+    },
+    {
+      "text": "MÁSLO",
+      "difficulty": 1
+    },
+    {
+      "text": "OKURKA",
+      "difficulty": 1
+    },
+    {
+      "text": "PALAČINKA",
+      "difficulty": 1
+    },
+    {
+      "text": "PAPRIKA",
       "difficulty": 1
     },
     {
       "text": "PERNÍK",
+      "difficulty": 1
+    },
+    {
+      "text": "POLÉVKA",
+      "difficulty": 1
+    },
+    {
+      "text": "POMERANČ",
+      "difficulty": 1
+    },
+    {
+      "text": "RAJČE",
+      "difficulty": 1
+    },
+    {
+      "text": "ROHLÍK",
+      "difficulty": 1
+    },
+    {
+      "text": "RÝŽE",
+      "difficulty": 1
+    },
+    {
+      "text": "SALÁT",
+      "difficulty": 1
+    },
+    {
+      "text": "SUŠENKA",
+      "difficulty": 1
+    },
+    {
+      "text": "SVÍČKOVÁ",
+      "difficulty": 1
+    },
+    {
+      "text": "SÝR",
+      "difficulty": 1
+    },
+    {
+      "text": "TĚSTOVINY",
+      "difficulty": 1
+    },
+    {
+      "text": "TŘEŠEŇ",
+      "difficulty": 1
+    },
+    {
+      "text": "VEJCE",
+      "difficulty": 1
+    },
+    {
+      "text": "VÁNOČKA",
+      "difficulty": 1
+    },
+    {
+      "text": "ZELÍ",
       "difficulty": 1
     },
     {
@@ -87,43 +195,7 @@
       "difficulty": 1
     },
     {
-      "text": "SUŠENKA",
-      "difficulty": 1
-    },
-    {
-      "text": "JABLKO",
-      "difficulty": 1
-    },
-    {
-      "text": "HRUŠKA",
-      "difficulty": 1
-    },
-    {
-      "text": "BANÁN",
-      "difficulty": 1
-    },
-    {
-      "text": "POMERANČ",
-      "difficulty": 1
-    },
-    {
-      "text": "CITRON",
-      "difficulty": 1
-    },
-    {
-      "text": "JAHODA",
-      "difficulty": 1
-    },
-    {
-      "text": "MALINA",
-      "difficulty": 1
-    },
-    {
-      "text": "BORŮVKA",
-      "difficulty": 1
-    },
-    {
-      "text": "TŘEŠEŇ",
+      "text": "ŘÍZEK",
       "difficulty": 1
     },
     {
@@ -131,79 +203,31 @@
       "difficulty": 1
     },
     {
-      "text": "MERUŇKA",
-      "difficulty": 1
+      "text": "AJVAR",
+      "difficulty": 2
     },
     {
-      "text": "BROSKEV",
-      "difficulty": 1
+      "text": "ANANAS",
+      "difficulty": 2
     },
     {
-      "text": "HROZNY",
-      "difficulty": 1
+      "text": "ANČOVIČKY",
+      "difficulty": 2
     },
     {
-      "text": "MELOUN",
-      "difficulty": 1
+      "text": "AVOKÁDO",
+      "difficulty": 2
     },
     {
-      "text": "OKURKA",
-      "difficulty": 1
+      "text": "BALKÁNSKÝ SÝR",
+      "difficulty": 2
     },
     {
-      "text": "RAJČE",
-      "difficulty": 1
+      "text": "BATÁTY",
+      "difficulty": 2
     },
     {
-      "text": "PAPRIKA",
-      "difficulty": 1
-    },
-    {
-      "text": "MRKEV",
-      "difficulty": 1
-    },
-    {
-      "text": "BRAMBORÁK",
-      "difficulty": 1
-    },
-    {
-      "text": "ZELÍ",
-      "difficulty": 1
-    },
-    {
-      "text": "SALÁT",
-      "difficulty": 1
-    },
-    {
-      "text": "SÝR",
-      "difficulty": 1
-    },
-    {
-      "text": "MÁSLO",
-      "difficulty": 1
-    },
-    {
-      "text": "MLÉKO",
-      "difficulty": 1
-    },
-    {
-      "text": "JOGURT",
-      "difficulty": 1
-    },
-    {
-      "text": "VEJCE",
-      "difficulty": 1
-    },
-    {
-      "text": "MED",
-      "difficulty": 1
-    },
-    {
-      "text": "DŽEM",
-      "difficulty": 1
-    },
-    {
-      "text": "ČESNEČKA",
+      "text": "BEŠAMEL",
       "difficulty": 2
     },
     {
@@ -211,43 +235,79 @@
       "difficulty": 2
     },
     {
-      "text": "KULAJDA",
+      "text": "BRAMBOROVÝ SALÁT",
       "difficulty": 2
     },
     {
-      "text": "RAJSKÁ OMÁČKA",
+      "text": "BROKOLICE",
       "difficulty": 2
     },
     {
-      "text": "KOPROVÁ OMÁČKA",
+      "text": "BRUSCHETTA",
       "difficulty": 2
     },
     {
-      "text": "PEČENÁ KACHNA",
+      "text": "BULGUR",
       "difficulty": 2
     },
     {
-      "text": "VEPŘO KNEDLO ZELO",
+      "text": "BURRITO",
       "difficulty": 2
     },
     {
-      "text": "SEKANÁ",
+      "text": "CELER",
       "difficulty": 2
     },
     {
-      "text": "ŠUNKOFLEKY",
+      "text": "CHEESECAKE",
       "difficulty": 2
     },
     {
-      "text": "RIZOTO",
+      "text": "CHIA",
       "difficulty": 2
     },
     {
-      "text": "LASAGNE",
+      "text": "CHILLI",
       "difficulty": 2
     },
     {
-      "text": "ŠPAGETY",
+      "text": "CUKETA",
+      "difficulty": 2
+    },
+    {
+      "text": "DATLE",
+      "difficulty": 2
+    },
+    {
+      "text": "DIP",
+      "difficulty": 2
+    },
+    {
+      "text": "DÝNĚ",
+      "difficulty": 2
+    },
+    {
+      "text": "DÝŇOVÁ POLÉVKA",
+      "difficulty": 2
+    },
+    {
+      "text": "FETA",
+      "difficulty": 2
+    },
+    {
+      "text": "FOCACCIA",
+      "difficulty": 2
+    },
+    {
+      "text": "FRITTATA",
+      "difficulty": 2
+    },
+    {
+      "text": "GRANOLA",
+      "difficulty": 2
+    },
+    {
+      "text": "GRANÁTOVÉ JABLKO",
       "difficulty": 2
     },
     {
@@ -259,15 +319,7 @@
       "difficulty": 2
     },
     {
-      "text": "BRAMBOROVÝ SALÁT",
-      "difficulty": 2
-    },
-    {
-      "text": "VAJEČINA",
-      "difficulty": 2
-    },
-    {
-      "text": "TOPINKA",
+      "text": "HRACHOVÁ KAŠE",
       "difficulty": 2
     },
     {
@@ -275,127 +327,11 @@
       "difficulty": 2
     },
     {
-      "text": "OVOCNÉ KNEDLÍKY",
+      "text": "JAHODOVÝ DŽEM",
       "difficulty": 2
     },
     {
-      "text": "TVAROHOVÝ KOLÁČ",
-      "difficulty": 2
-    },
-    {
-      "text": "MAKOVEC",
-      "difficulty": 2
-    },
-    {
-      "text": "MRKVOVÝ DORT",
-      "difficulty": 2
-    },
-    {
-      "text": "CHEESECAKE",
-      "difficulty": 2
-    },
-    {
-      "text": "TIRAMISU",
-      "difficulty": 2
-    },
-    {
-      "text": "PIZZA",
-      "difficulty": 2
-    },
-    {
-      "text": "TORTILLA",
-      "difficulty": 2
-    },
-    {
-      "text": "QUESADILLA",
-      "difficulty": 2
-    },
-    {
-      "text": "KEBAB",
-      "difficulty": 2
-    },
-    {
-      "text": "SUSHI",
-      "difficulty": 2
-    },
-    {
-      "text": "RAMEN",
-      "difficulty": 2
-    },
-    {
-      "text": "KARBANÁTEK",
-      "difficulty": 2
-    },
-    {
-      "text": "ČOČKA",
-      "difficulty": 2
-    },
-    {
-      "text": "HRACHOVÁ KAŠE",
-      "difficulty": 2
-    },
-    {
-      "text": "KRUPICOVÁ KAŠE",
-      "difficulty": 2
-    },
-    {
-      "text": "KROUPY",
-      "difficulty": 2
-    },
-    {
-      "text": "POHANKA",
-      "difficulty": 2
-    },
-    {
-      "text": "BULGUR",
-      "difficulty": 2
-    },
-    {
-      "text": "KUSKUS",
-      "difficulty": 2
-    },
-    {
-      "text": "QUINOA",
-      "difficulty": 2
-    },
-    {
-      "text": "AVOKÁDO",
-      "difficulty": 2
-    },
-    {
-      "text": "ANANAS",
-      "difficulty": 2
-    },
-    {
-      "text": "GRANÁTOVÉ JABLKO",
-      "difficulty": 2
-    },
-    {
-      "text": "KIWI",
-      "difficulty": 2
-    },
-    {
-      "text": "MANGO",
-      "difficulty": 2
-    },
-    {
-      "text": "PAPÁJA",
-      "difficulty": 2
-    },
-    {
-      "text": "KOKOS",
-      "difficulty": 2
-    },
-    {
-      "text": "ŘEDKVIČKA",
-      "difficulty": 2
-    },
-    {
-      "text": "CELER",
-      "difficulty": 2
-    },
-    {
-      "text": "PÓREK",
+      "text": "JÁHLY",
       "difficulty": 2
     },
     {
@@ -403,11 +339,71 @@
       "difficulty": 2
     },
     {
+      "text": "KARAMEL",
+      "difficulty": 2
+    },
+    {
+      "text": "KARBANÁTEK",
+      "difficulty": 2
+    },
+    {
+      "text": "KARI",
+      "difficulty": 2
+    },
+    {
+      "text": "KEBAB",
+      "difficulty": 2
+    },
+    {
+      "text": "KEFÍR",
+      "difficulty": 2
+    },
+    {
+      "text": "KIMČI",
+      "difficulty": 2
+    },
+    {
+      "text": "KIWI",
+      "difficulty": 2
+    },
+    {
+      "text": "KLOBÁSA",
+      "difficulty": 2
+    },
+    {
+      "text": "KOKOS",
+      "difficulty": 2
+    },
+    {
+      "text": "KOKOSOVÉ MLÉKO",
+      "difficulty": 2
+    },
+    {
+      "text": "KOPROVÁ OMÁČKA",
+      "difficulty": 2
+    },
+    {
+      "text": "KROUPY",
+      "difficulty": 2
+    },
+    {
+      "text": "KRUPICOVÁ KAŠE",
+      "difficulty": 2
+    },
+    {
+      "text": "KULAJDA",
+      "difficulty": 2
+    },
+    {
+      "text": "KUSKUS",
+      "difficulty": 2
+    },
+    {
       "text": "KVĚTÁK",
       "difficulty": 2
     },
     {
-      "text": "BROKOLICE",
+      "text": "LASAGNE",
       "difficulty": 2
     },
     {
@@ -415,15 +411,315 @@
       "difficulty": 2
     },
     {
-      "text": "CUKETA",
+      "text": "LÍSKOVÝ OŘECH",
       "difficulty": 2
     },
     {
-      "text": "DÝNĚ",
+      "text": "MAKOVEC",
       "difficulty": 2
     },
     {
-      "text": "TATARSKÝ BIFTEK",
+      "text": "MANGO",
+      "difficulty": 2
+    },
+    {
+      "text": "MANGOVÉ ČATNÍ",
+      "difficulty": 2
+    },
+    {
+      "text": "MARMELÁDA",
+      "difficulty": 2
+    },
+    {
+      "text": "MISO",
+      "difficulty": 2
+    },
+    {
+      "text": "MOZZARELLA",
+      "difficulty": 2
+    },
+    {
+      "text": "MRKVOVÝ DORT",
+      "difficulty": 2
+    },
+    {
+      "text": "NACHOS",
+      "difficulty": 2
+    },
+    {
+      "text": "NOKY",
+      "difficulty": 2
+    },
+    {
+      "text": "OVESNÁ KAŠE",
+      "difficulty": 2
+    },
+    {
+      "text": "OVOCNÉ KNEDLÍKY",
+      "difficulty": 2
+    },
+    {
+      "text": "OŘECHOVÉ MÁSLO",
+      "difficulty": 2
+    },
+    {
+      "text": "PAPÁJA",
+      "difficulty": 2
+    },
+    {
+      "text": "PARMAZÁN",
+      "difficulty": 2
+    },
+    {
+      "text": "PEČENÁ KACHNA",
+      "difficulty": 2
+    },
+    {
+      "text": "PITA",
+      "difficulty": 2
+    },
+    {
+      "text": "PIZZA",
+      "difficulty": 2
+    },
+    {
+      "text": "POHANKA",
+      "difficulty": 2
+    },
+    {
+      "text": "PÓREK",
+      "difficulty": 2
+    },
+    {
+      "text": "QUESADILLA",
+      "difficulty": 2
+    },
+    {
+      "text": "QUICHE",
+      "difficulty": 2
+    },
+    {
+      "text": "QUINOA",
+      "difficulty": 2
+    },
+    {
+      "text": "RAJSKÁ OMÁČKA",
+      "difficulty": 2
+    },
+    {
+      "text": "RAMEN",
+      "difficulty": 2
+    },
+    {
+      "text": "RICOTTA",
+      "difficulty": 2
+    },
+    {
+      "text": "RIZOTO",
+      "difficulty": 2
+    },
+    {
+      "text": "ROZINKY",
+      "difficulty": 2
+    },
+    {
+      "text": "SALSA",
+      "difficulty": 2
+    },
+    {
+      "text": "SEKANÁ",
+      "difficulty": 2
+    },
+    {
+      "text": "SORBET",
+      "difficulty": 2
+    },
+    {
+      "text": "SUSHI",
+      "difficulty": 2
+    },
+    {
+      "text": "TEMPEH",
+      "difficulty": 2
+    },
+    {
+      "text": "TIRAMISU",
+      "difficulty": 2
+    },
+    {
+      "text": "TOFU",
+      "difficulty": 2
+    },
+    {
+      "text": "TOPINKA",
+      "difficulty": 2
+    },
+    {
+      "text": "TORTILLA",
+      "difficulty": 2
+    },
+    {
+      "text": "TVAROHOVÝ KOLÁČ",
+      "difficulty": 2
+    },
+    {
+      "text": "TZATZIKI",
+      "difficulty": 2
+    },
+    {
+      "text": "VAJEČINA",
+      "difficulty": 2
+    },
+    {
+      "text": "VEPŘO KNEDLO ZELO",
+      "difficulty": 2
+    },
+    {
+      "text": "WOK",
+      "difficulty": 2
+    },
+    {
+      "text": "ZÁVIN",
+      "difficulty": 2
+    },
+    {
+      "text": "ČATNÍ",
+      "difficulty": 2
+    },
+    {
+      "text": "ČESNEČKA",
+      "difficulty": 2
+    },
+    {
+      "text": "ČOČKA",
+      "difficulty": 2
+    },
+    {
+      "text": "ČOČKOVÁ POLÉVKA",
+      "difficulty": 2
+    },
+    {
+      "text": "ČOČKOVÝ SALÁT",
+      "difficulty": 2
+    },
+    {
+      "text": "ŘEDKVIČKA",
+      "difficulty": 2
+    },
+    {
+      "text": "ŠPAGETY",
+      "difficulty": 2
+    },
+    {
+      "text": "ŠUNKOFLEKY",
+      "difficulty": 2
+    },
+    {
+      "text": "ŽAMPIONOVÁ OMÁČKA",
+      "difficulty": 2
+    },
+    {
+      "text": "ARANCINI",
+      "difficulty": 3
+    },
+    {
+      "text": "BABA GANOUSH",
+      "difficulty": 3
+    },
+    {
+      "text": "BAKLAVA",
+      "difficulty": 3
+    },
+    {
+      "text": "BISQUE",
+      "difficulty": 3
+    },
+    {
+      "text": "BOUILLABAISSE",
+      "difficulty": 3
+    },
+    {
+      "text": "BRAMBOROVÉ PLACKY",
+      "difficulty": 3
+    },
+    {
+      "text": "BRIOŠKA",
+      "difficulty": 3
+    },
+    {
+      "text": "CARPACCIO",
+      "difficulty": 3
+    },
+    {
+      "text": "CASSOULET",
+      "difficulty": 3
+    },
+    {
+      "text": "CEVICHE",
+      "difficulty": 3
+    },
+    {
+      "text": "CHIMICHURRI",
+      "difficulty": 3
+    },
+    {
+      "text": "CHOWDER",
+      "difficulty": 3
+    },
+    {
+      "text": "CMUNDA",
+      "difficulty": 3
+    },
+    {
+      "text": "CONFIT",
+      "difficulty": 3
+    },
+    {
+      "text": "CROQUE MONSIEUR",
+      "difficulty": 3
+    },
+    {
+      "text": "DAHL",
+      "difficulty": 3
+    },
+    {
+      "text": "DEMIGLACE",
+      "difficulty": 3
+    },
+    {
+      "text": "DRŠŤKOVÁ POLÉVKA",
+      "difficulty": 3
+    },
+    {
+      "text": "ESCARGOTS",
+      "difficulty": 3
+    },
+    {
+      "text": "FALAFEL",
+      "difficulty": 3
+    },
+    {
+      "text": "FOIE GRAS",
+      "difficulty": 3
+    },
+    {
+      "text": "FRGÁL",
+      "difficulty": 3
+    },
+    {
+      "text": "FÍKOVÝ KOLÁČ",
+      "difficulty": 3
+    },
+    {
+      "text": "GAZPACHO",
+      "difficulty": 3
+    },
+    {
+      "text": "GNOCCHI",
+      "difficulty": 3
+    },
+    {
+      "text": "GRAVLAX",
       "difficulty": 3
     },
     {
@@ -431,15 +727,7 @@
       "difficulty": 3
     },
     {
-      "text": "PEČENÁ KACHNA NA KMÍNĚ",
-      "difficulty": 3
-    },
-    {
-      "text": "SVÍČKOVÁ NA SMETANĚ",
-      "difficulty": 3
-    },
-    {
-      "text": "KACHNÍ PAŠTIKA",
+      "text": "HUMMUS",
       "difficulty": 3
     },
     {
@@ -451,11 +739,27 @@
       "difficulty": 3
     },
     {
-      "text": "TLAČENKA",
+      "text": "KACHNÍ PAŠTIKA",
       "difficulty": 3
     },
     {
-      "text": "UTOPENEC",
+      "text": "KONFITOVANÁ KACHNA",
+      "difficulty": 3
+    },
+    {
+      "text": "KROKETY",
+      "difficulty": 3
+    },
+    {
+      "text": "LANGOŠ",
+      "difficulty": 3
+    },
+    {
+      "text": "MACARON",
+      "difficulty": 3
+    },
+    {
+      "text": "MOUSSAKA",
       "difficulty": 3
     },
     {
@@ -467,47 +771,15 @@
       "difficulty": 3
     },
     {
-      "text": "ŠTRAMBERSKÉ UŠI",
+      "text": "PAELLA",
       "difficulty": 3
     },
     {
-      "text": "FRGÁL",
+      "text": "PANNA COTTA",
       "difficulty": 3
     },
     {
-      "text": "VDOLEK",
-      "difficulty": 3
-    },
-    {
-      "text": "LANGOŠ",
-      "difficulty": 3
-    },
-    {
-      "text": "ŠVESTKOVÉ KNEDLÍKY",
-      "difficulty": 3
-    },
-    {
-      "text": "BRAMBOROVÉ PLACKY",
-      "difficulty": 3
-    },
-    {
-      "text": "CMUNDA",
-      "difficulty": 3
-    },
-    {
-      "text": "PODBRDSKÁ KUBA",
-      "difficulty": 3
-    },
-    {
-      "text": "ZELŇAČKA",
-      "difficulty": 3
-    },
-    {
-      "text": "DRŠŤKOVÁ POLÉVKA",
-      "difficulty": 3
-    },
-    {
-      "text": "FÍKOVÝ KOLÁČ",
+      "text": "PAPRIKÁŠ",
       "difficulty": 3
     },
     {
@@ -515,7 +787,31 @@
       "difficulty": 3
     },
     {
-      "text": "MAKARONKY",
+      "text": "PESTO",
+      "difficulty": 3
+    },
+    {
+      "text": "PEČENÁ KACHNA NA KMÍNĚ",
+      "difficulty": 3
+    },
+    {
+      "text": "PHO",
+      "difficulty": 3
+    },
+    {
+      "text": "PIROHY",
+      "difficulty": 3
+    },
+    {
+      "text": "PODBRDSKÁ KUBA",
+      "difficulty": 3
+    },
+    {
+      "text": "POKE",
+      "difficulty": 3
+    },
+    {
+      "text": "POLENTA",
       "difficulty": 3
     },
     {
@@ -527,23 +823,19 @@
       "difficulty": 3
     },
     {
-      "text": "PAELLA",
+      "text": "ROGAN JOSH",
       "difficulty": 3
     },
     {
-      "text": "GNOCCHI",
+      "text": "SACHERŮV DORT",
       "difficulty": 3
     },
     {
-      "text": "POLENTA",
+      "text": "SHAKSHUKA",
       "difficulty": 3
     },
     {
-      "text": "FALAFEL",
-      "difficulty": 3
-    },
-    {
-      "text": "HUMMUS",
+      "text": "SVÍČKOVÁ NA SMETANĚ",
       "difficulty": 3
     },
     {
@@ -551,15 +843,47 @@
       "difficulty": 3
     },
     {
-      "text": "PESTO",
+      "text": "TAPAS",
       "difficulty": 3
     },
     {
-      "text": "GAZPACHO",
+      "text": "TATARSKÝ BIFTEK",
       "difficulty": 3
     },
     {
-      "text": "MOUSSAKA",
+      "text": "TLAČENKA",
+      "difficulty": 3
+    },
+    {
+      "text": "UTOPENEC",
+      "difficulty": 3
+    },
+    {
+      "text": "VDOLEK",
+      "difficulty": 3
+    },
+    {
+      "text": "VITELLO TONNATO",
+      "difficulty": 3
+    },
+    {
+      "text": "WALDORFSKÝ SALÁT",
+      "difficulty": 3
+    },
+    {
+      "text": "ZABAIONE",
+      "difficulty": 3
+    },
+    {
+      "text": "ZELŇAČKA",
+      "difficulty": 3
+    },
+    {
+      "text": "ŠTRAMBERSKÉ UŠI",
+      "difficulty": 3
+    },
+    {
+      "text": "ŠVESTKOVÉ KNEDLÍKY",
       "difficulty": 3
     }
   ]

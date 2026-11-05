@@ -7,107 +7,7 @@
   },
   "words": [
     {
-      "text": "PRAHA",
-      "difficulty": 1
-    },
-    {
-      "text": "BRNO",
-      "difficulty": 1
-    },
-    {
-      "text": "OSTRAVA",
-      "difficulty": 1
-    },
-    {
-      "text": "PLZEŇ",
-      "difficulty": 1
-    },
-    {
-      "text": "LIBEREC",
-      "difficulty": 1
-    },
-    {
-      "text": "OLOMOUC",
-      "difficulty": 1
-    },
-    {
-      "text": "ZLÍN",
-      "difficulty": 1
-    },
-    {
-      "text": "JIHLAVA",
-      "difficulty": 1
-    },
-    {
-      "text": "OPAVA",
-      "difficulty": 1
-    },
-    {
-      "text": "KARVINÁ",
-      "difficulty": 1
-    },
-    {
-      "text": "HAVÍŘOV",
-      "difficulty": 1
-    },
-    {
-      "text": "TŘINEC",
-      "difficulty": 1
-    },
-    {
-      "text": "PARDUBICE",
-      "difficulty": 1
-    },
-    {
-      "text": "ZNOJMO",
-      "difficulty": 1
-    },
-    {
-      "text": "MIKULOV",
-      "difficulty": 1
-    },
-    {
-      "text": "TELČ",
-      "difficulty": 1
-    },
-    {
-      "text": "TŘEBOŇ",
-      "difficulty": 1
-    },
-    {
-      "text": "PÍSEK",
-      "difficulty": 1
-    },
-    {
-      "text": "TÁBOR",
-      "difficulty": 1
-    },
-    {
-      "text": "CHEB",
-      "difficulty": 1
-    },
-    {
-      "text": "KLADNO",
-      "difficulty": 1
-    },
-    {
-      "text": "MOST",
-      "difficulty": 1
-    },
-    {
-      "text": "DĚČÍN",
-      "difficulty": 1
-    },
-    {
-      "text": "CHOMUTOV",
-      "difficulty": 1
-    },
-    {
-      "text": "TEPLICE",
-      "difficulty": 1
-    },
-    {
-      "text": "KOLÍN",
+      "text": "BENEŠOV",
       "difficulty": 1
     },
     {
@@ -115,43 +15,7 @@
       "difficulty": 1
     },
     {
-      "text": "BENEŠOV",
-      "difficulty": 1
-    },
-    {
-      "text": "NÁCHOD",
-      "difficulty": 1
-    },
-    {
-      "text": "SUŠICE",
-      "difficulty": 1
-    },
-    {
-      "text": "KLATOVY",
-      "difficulty": 1
-    },
-    {
-      "text": "DOMAŽLICE",
-      "difficulty": 1
-    },
-    {
       "text": "BLANSKO",
-      "difficulty": 1
-    },
-    {
-      "text": "ŠUMPERK",
-      "difficulty": 1
-    },
-    {
-      "text": "JESENÍK",
-      "difficulty": 1
-    },
-    {
-      "text": "BŘECLAV",
-      "difficulty": 1
-    },
-    {
-      "text": "HODONÍN",
       "difficulty": 1
     },
     {
@@ -159,107 +23,143 @@
       "difficulty": 1
     },
     {
-      "text": "ČESKÝ KRUMLOV",
-      "difficulty": 2
+      "text": "BRNO",
+      "difficulty": 1
     },
     {
-      "text": "KARLOVY VARY",
-      "difficulty": 2
+      "text": "BŘECLAV",
+      "difficulty": 1
     },
     {
-      "text": "ČESKÉ BUDĚJOVICE",
-      "difficulty": 2
+      "text": "CHEB",
+      "difficulty": 1
     },
     {
-      "text": "HRADEC KRÁLOVÉ",
-      "difficulty": 2
+      "text": "CHOMUTOV",
+      "difficulty": 1
     },
     {
-      "text": "ÚSTÍ NAD LABEM",
-      "difficulty": 2
+      "text": "DOMAŽLICE",
+      "difficulty": 1
     },
     {
-      "text": "MLADÁ BOLESLAV",
-      "difficulty": 2
+      "text": "DĚČÍN",
+      "difficulty": 1
     },
     {
-      "text": "FRÝDEK MÍSTEK",
-      "difficulty": 2
+      "text": "HAVÍŘOV",
+      "difficulty": 1
     },
     {
-      "text": "VALAŠSKÉ MEZIŘÍČÍ",
-      "difficulty": 2
+      "text": "HODONÍN",
+      "difficulty": 1
     },
     {
-      "text": "UHERSKÉ HRADIŠTĚ",
-      "difficulty": 2
+      "text": "JESENÍK",
+      "difficulty": 1
     },
     {
-      "text": "JINDŘICHŮV HRADEC",
-      "difficulty": 2
+      "text": "JIHLAVA",
+      "difficulty": 1
     },
     {
-      "text": "NOVÝ JIČÍN",
-      "difficulty": 2
+      "text": "KARVINÁ",
+      "difficulty": 1
     },
     {
-      "text": "ROŽNOV POD RADHOŠTĚM",
-      "difficulty": 2
+      "text": "KLADNO",
+      "difficulty": 1
     },
     {
-      "text": "KUTNÁ HORA",
-      "difficulty": 2
+      "text": "KLATOVY",
+      "difficulty": 1
     },
     {
-      "text": "KROMĚŘÍŽ",
-      "difficulty": 2
+      "text": "KOLÍN",
+      "difficulty": 1
     },
     {
-      "text": "LITOMYŠL",
-      "difficulty": 2
+      "text": "LIBEREC",
+      "difficulty": 1
     },
     {
-      "text": "ŠPINDLERŮV MLÝN",
-      "difficulty": 2
+      "text": "MIKULOV",
+      "difficulty": 1
     },
     {
-      "text": "LEDNICE",
-      "difficulty": 2
+      "text": "MOST",
+      "difficulty": 1
     },
     {
-      "text": "KONOPIŠTĚ",
-      "difficulty": 2
+      "text": "NÁCHOD",
+      "difficulty": 1
     },
     {
-      "text": "KARLŠTEJN",
-      "difficulty": 2
+      "text": "OLOMOUC",
+      "difficulty": 1
     },
     {
-      "text": "KŘIVOKLÁT",
-      "difficulty": 2
+      "text": "OPAVA",
+      "difficulty": 1
     },
     {
-      "text": "PRADĚD",
-      "difficulty": 2
+      "text": "OSTRAVA",
+      "difficulty": 1
     },
     {
-      "text": "ŘÍP",
-      "difficulty": 2
+      "text": "PARDUBICE",
+      "difficulty": 1
     },
     {
-      "text": "SNĚŽKA",
-      "difficulty": 2
+      "text": "PLZEŇ",
+      "difficulty": 1
     },
     {
-      "text": "ŠUMAVA",
-      "difficulty": 2
+      "text": "PRAHA",
+      "difficulty": 1
     },
     {
-      "text": "KRKONOŠE",
-      "difficulty": 2
+      "text": "PÍSEK",
+      "difficulty": 1
     },
     {
-      "text": "JESENÍKY",
+      "text": "SUŠICE",
+      "difficulty": 1
+    },
+    {
+      "text": "TELČ",
+      "difficulty": 1
+    },
+    {
+      "text": "TEPLICE",
+      "difficulty": 1
+    },
+    {
+      "text": "TÁBOR",
+      "difficulty": 1
+    },
+    {
+      "text": "TŘEBOŇ",
+      "difficulty": 1
+    },
+    {
+      "text": "TŘINEC",
+      "difficulty": 1
+    },
+    {
+      "text": "ZLÍN",
+      "difficulty": 1
+    },
+    {
+      "text": "ZNOJMO",
+      "difficulty": 1
+    },
+    {
+      "text": "ŠUMPERK",
+      "difficulty": 1
+    },
+    {
+      "text": "BEROUNKA",
       "difficulty": 2
     },
     {
@@ -267,39 +167,7 @@
       "difficulty": 2
     },
     {
-      "text": "PÁLAVA",
-      "difficulty": 2
-    },
-    {
-      "text": "ČESKÝ RÁJ",
-      "difficulty": 2
-    },
-    {
-      "text": "MORAVSKÝ KRAS",
-      "difficulty": 2
-    },
-    {
-      "text": "MACOCHA",
-      "difficulty": 2
-    },
-    {
-      "text": "PUNKEVNÍ JESKYNĚ",
-      "difficulty": 2
-    },
-    {
-      "text": "VLTAVA",
-      "difficulty": 2
-    },
-    {
-      "text": "LABE",
-      "difficulty": 2
-    },
-    {
-      "text": "MORAVA",
-      "difficulty": 2
-    },
-    {
-      "text": "ODERA",
+      "text": "BÍLÉ KARPATY",
       "difficulty": 2
     },
     {
@@ -307,19 +175,19 @@
       "difficulty": 2
     },
     {
-      "text": "SÁZAVA",
+      "text": "FRÝDEK MÍSTEK",
       "difficulty": 2
     },
     {
-      "text": "BEROUNKA",
+      "text": "HRADEC KRÁLOVÉ",
       "difficulty": 2
     },
     {
-      "text": "LUŽNICE",
+      "text": "JESENÍKY",
       "difficulty": 2
     },
     {
-      "text": "OTAVA",
+      "text": "JINDŘICHŮV HRADEC",
       "difficulty": 2
     },
     {
@@ -327,7 +195,47 @@
       "difficulty": 2
     },
     {
-      "text": "ORLÍK",
+      "text": "JIŽNÍ MORAVA",
+      "difficulty": 2
+    },
+    {
+      "text": "JIŽNÍ ČECHY",
+      "difficulty": 2
+    },
+    {
+      "text": "KARLOVY VARY",
+      "difficulty": 2
+    },
+    {
+      "text": "KARLŠTEJN",
+      "difficulty": 2
+    },
+    {
+      "text": "KONOPIŠTĚ",
+      "difficulty": 2
+    },
+    {
+      "text": "KRKONOŠE",
+      "difficulty": 2
+    },
+    {
+      "text": "KROMĚŘÍŽ",
+      "difficulty": 2
+    },
+    {
+      "text": "KUTNÁ HORA",
+      "difficulty": 2
+    },
+    {
+      "text": "KŘIVOKLÁT",
+      "difficulty": 2
+    },
+    {
+      "text": "LABE",
+      "difficulty": 2
+    },
+    {
+      "text": "LEDNICE",
       "difficulty": 2
     },
     {
@@ -335,11 +243,179 @@
       "difficulty": 2
     },
     {
+      "text": "LITOMYŠL",
+      "difficulty": 2
+    },
+    {
+      "text": "LITOMĚŘICE",
+      "difficulty": 2
+    },
+    {
+      "text": "LUŽNICE",
+      "difficulty": 2
+    },
+    {
+      "text": "MACOCHA",
+      "difficulty": 2
+    },
+    {
+      "text": "MLADÁ BOLESLAV",
+      "difficulty": 2
+    },
+    {
+      "text": "MORAVA",
+      "difficulty": 2
+    },
+    {
+      "text": "MORAVSKÝ KRAS",
+      "difficulty": 2
+    },
+    {
+      "text": "MĚLNÍK",
+      "difficulty": 2
+    },
+    {
+      "text": "NOVÉ MĚSTO NA MORAVĚ",
+      "difficulty": 2
+    },
+    {
+      "text": "NOVÝ JIČÍN",
+      "difficulty": 2
+    },
+    {
+      "text": "ODERA",
+      "difficulty": 2
+    },
+    {
+      "text": "ORLÍK",
+      "difficulty": 2
+    },
+    {
+      "text": "OTAVA",
+      "difficulty": 2
+    },
+    {
+      "text": "PODYJÍ",
+      "difficulty": 2
+    },
+    {
+      "text": "PODĚBRADY",
+      "difficulty": 2
+    },
+    {
+      "text": "POŠUMAVÍ",
+      "difficulty": 2
+    },
+    {
+      "text": "PRADĚD",
+      "difficulty": 2
+    },
+    {
+      "text": "PROSTĚJOV",
+      "difficulty": 2
+    },
+    {
+      "text": "PUNKEVNÍ JESKYNĚ",
+      "difficulty": 2
+    },
+    {
+      "text": "PÁLAVA",
+      "difficulty": 2
+    },
+    {
+      "text": "PŘEROV",
+      "difficulty": 2
+    },
+    {
+      "text": "RAKOVNÍK",
+      "difficulty": 2
+    },
+    {
+      "text": "ROŽNOV POD RADHOŠTĚM",
+      "difficulty": 2
+    },
+    {
       "text": "SLAPY",
       "difficulty": 2
     },
     {
-      "text": "TROSKY",
+      "text": "SLAVKOV",
+      "difficulty": 2
+    },
+    {
+      "text": "SNĚŽKA",
+      "difficulty": 2
+    },
+    {
+      "text": "SÁZAVA",
+      "difficulty": 2
+    },
+    {
+      "text": "TŘEBÍČ",
+      "difficulty": 2
+    },
+    {
+      "text": "UHERSKÉ HRADIŠTĚ",
+      "difficulty": 2
+    },
+    {
+      "text": "VALAŠSKÉ MEZIŘÍČÍ",
+      "difficulty": 2
+    },
+    {
+      "text": "VLTAVA",
+      "difficulty": 2
+    },
+    {
+      "text": "VYŠKOV",
+      "difficulty": 2
+    },
+    {
+      "text": "ÚSTÍ NAD LABEM",
+      "difficulty": 2
+    },
+    {
+      "text": "ČESKÉ BUDĚJOVICE",
+      "difficulty": 2
+    },
+    {
+      "text": "ČESKÉ STŘEDOHOŘÍ",
+      "difficulty": 2
+    },
+    {
+      "text": "ČESKÝ KRAS",
+      "difficulty": 2
+    },
+    {
+      "text": "ČESKÝ KRUMLOV",
+      "difficulty": 2
+    },
+    {
+      "text": "ČESKÝ RÁJ",
+      "difficulty": 2
+    },
+    {
+      "text": "ŘÍP",
+      "difficulty": 2
+    },
+    {
+      "text": "ŠPINDLERŮV MLÝN",
+      "difficulty": 2
+    },
+    {
+      "text": "ŠUMAVA",
+      "difficulty": 2
+    },
+    {
+      "text": "ŽELEZNÉ HORY",
+      "difficulty": 2
+    },
+    {
+      "text": "ŽĎÁR NAD SÁZAVOU",
+      "difficulty": 2
+    },
+    {
+      "text": "ADRŠPACH",
       "difficulty": 3
     },
     {
@@ -347,35 +423,19 @@
       "difficulty": 3
     },
     {
-      "text": "HRUBÁ SKÁLA",
-      "difficulty": 3
-    },
-    {
       "text": "BOUZOV",
       "difficulty": 3
     },
     {
-      "text": "PERNŠTEJN",
+      "text": "BUCHLOV",
       "difficulty": 3
     },
     {
-      "text": "HELFŠTÝN",
+      "text": "CHODSKO",
       "difficulty": 3
     },
     {
-      "text": "ŠTERNBERK",
-      "difficulty": 3
-    },
-    {
-      "text": "VILA TUGENDHAT",
-      "difficulty": 3
-    },
-    {
-      "text": "VYŠEHRAD",
-      "difficulty": 3
-    },
-    {
-      "text": "PETŘÍN",
+      "text": "DŮL MICHAL",
       "difficulty": 3
     },
     {
@@ -383,15 +443,67 @@
       "difficulty": 3
     },
     {
-      "text": "SLOVÁCKO",
+      "text": "HELFŠTÝN",
       "difficulty": 3
     },
     {
-      "text": "VALAŠSKO",
+      "text": "HRUBÁ SKÁLA",
       "difficulty": 3
     },
     {
-      "text": "CHODSKO",
+      "text": "HUKVALDY",
+      "difficulty": 3
+    },
+    {
+      "text": "JEŠTĚD",
+      "difficulty": 3
+    },
+    {
+      "text": "JÁCHYMOV",
+      "difficulty": 3
+    },
+    {
+      "text": "KOKOŘÍNSKO",
+      "difficulty": 3
+    },
+    {
+      "text": "LOKET",
+      "difficulty": 3
+    },
+    {
+      "text": "MAKOVÁ HORA",
+      "difficulty": 3
+    },
+    {
+      "text": "MIKULČICE",
+      "difficulty": 3
+    },
+    {
+      "text": "NECHANICE",
+      "difficulty": 3
+    },
+    {
+      "text": "NOVÉ HRADY",
+      "difficulty": 3
+    },
+    {
+      "text": "NÁMĚŠŤ NAD OSLAVOU",
+      "difficulty": 3
+    },
+    {
+      "text": "NÁRODNÍ DIVADLO",
+      "difficulty": 3
+    },
+    {
+      "text": "PERNŠTEJN",
+      "difficulty": 3
+    },
+    {
+      "text": "PETŘÍN",
+      "difficulty": 3
+    },
+    {
+      "text": "PLUMLOV",
       "difficulty": 3
     },
     {
@@ -407,7 +519,63 @@
       "difficulty": 3
     },
     {
-      "text": "KOKOŘÍNSKO",
+      "text": "ROŽMBERK",
+      "difficulty": 3
+    },
+    {
+      "text": "SLATIŇANY",
+      "difficulty": 3
+    },
+    {
+      "text": "SLOVÁCKO",
+      "difficulty": 3
+    },
+    {
+      "text": "SOVINEC",
+      "difficulty": 3
+    },
+    {
+      "text": "TROSKY",
+      "difficulty": 3
+    },
+    {
+      "text": "VALAŠSKO",
+      "difficulty": 3
+    },
+    {
+      "text": "VALTICE",
+      "difficulty": 3
+    },
+    {
+      "text": "VEVEŘÍ",
+      "difficulty": 3
+    },
+    {
+      "text": "VILA TUGENDHAT",
+      "difficulty": 3
+    },
+    {
+      "text": "VYŠEHRAD",
+      "difficulty": 3
+    },
+    {
+      "text": "VÍTKOVICE",
+      "difficulty": 3
+    },
+    {
+      "text": "ZVÍKOV",
+      "difficulty": 3
+    },
+    {
+      "text": "ČERVENÁ LHOTA",
+      "difficulty": 3
+    },
+    {
+      "text": "ŠPILBERK",
+      "difficulty": 3
+    },
+    {
+      "text": "ŠTERNBERK",
       "difficulty": 3
     }
   ]
