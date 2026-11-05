@@ -38,3 +38,17 @@ py tools\validate_dictionary.py
 Obtížnost je pracovní herní zařazení, nikoli objektivní jazyková norma. Seznamy jsou české herní kandidáty; validátor ověřuje technickou správnost dat, nikoli faktickou správnost každého pojmu ani jeho vhodnost pro každého hráče. Před ostrým nasazením je proto vhodná obsahová korektura, zejména u odbornějších výrazů, názvů disciplín a místních názvů.
 
 Slovník je záměrně oddělený od herní logiky. Další rozšiřování nebo úpravy obsahu nevyžadují změnu UI.
+
+## Obtížnost hry
+
+Obtížnost se vybírá přímo v hlavním rozhraní:
+
+- **Vše** – slova ze všech úrovní
+- **Lehká** – `difficulty: 1`
+- **Střední** – `difficulty: 2`
+- **Těžká** – `difficulty: 3`
+
+Poslední zvolená obtížnost se ukládá v `localStorage` pod klíčem
+`sibenice.difficulty`. Slovník se načítá z `wwwroot/data/dictionary.json`
+a z jednotlivých souborů kategorií. Publikovaná PWA ukládá JSON soubory
+do offline cache stejně jako ostatní statické prostředky.

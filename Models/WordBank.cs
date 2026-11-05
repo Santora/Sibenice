@@ -1,52 +1,11 @@
 namespace SlovniHra.Models;
 
+/// <summary>
+/// Sdílená pravidla pro práci se slovníkem. Samotná slova jsou načítána z JSON souborů.
+/// </summary>
 public static class WordBank
 {
     public const string AllCategories = "Vše";
-
-    public static readonly IReadOnlyDictionary<string, string[]> Words = new Dictionary<string, string[]>
-    {
-        ["🐾 Zvířata"] =
-        [
-            "KROKODÝL", "VEVERKA", "NOSOROŽEC", "CHAMELEON", "TUČŇÁK", "JEŽEK", "LIŠKA", "DELFÍN",
-            "ŽIRAFA", "PAPOUŠEK", "VELBLOUD", "KAPYBARA", "SLON", "TYGR", "LEV", "VLK",
-            "MEDVĚD", "ZAJÍC", "KRÁLÍK", "SRNA", "JELEN", "VYDRA", "BOBR", "SOVA",
-            "ČÁP", "LABUŤ", "OREL", "SÝKORA", "KOHOUT", "SLEPICE", "KACHNA", "HUSA",
-            "KŮŇ", "OSLÍK", "KOZA", "OVCE", "PRASE", "ŽELVA", "ŽÁBA", "MOTÝL"
-        ],
-        ["🏰 Česko"] =
-        [
-            "OSTRAVA", "PLZEŇ", "LIBEREC", "OLOMOUC", "KARLOVY VARY", "ČESKÝ KRUMLOV", "HAVÍŘOV", "ZLÍN",
-            "PARDUBICE", "ŠPINDLERŮV MLÝN", "KUTNÁ HORA", "TŘEBOŇ", "PRAHA", "BRNO", "JIHLAVA", "OPAVA",
-            "KARVINÁ", "FRÝDEK MÍSTEK", "ČESKÉ BUDĚJOVICE", "HRADEC KRÁLOVÉ", "ÚSTÍ NAD LABEM", "MLADÁ BOLESLAV", "PÍSEK", "TÁBOR",
-            "ZNOJMO", "MIKULOV", "TELČ", "LITOMYŠL", "KROMĚŘÍŽ", "LEDNICE", "KONOPIŠTĚ", "KŘIVOKLÁT",
-            "KARLŠTEJN", "PRADĚD", "ŠUMAVA", "KRKONOŠE", "MORAVA", "SÁZAVA", "VLTAVA", "ŘÍP"
-        ],
-        ["🍲 Jídlo"] =
-        [
-            "SVÍČKOVÁ", "KNEDLÍK", "PALAČINKY", "GULÁŠ", "TRDELNÍK", "BRAMBORÁK", "ŘÍZEK", "OPEKANÝ SÝR",
-            "KOLÁČ", "ZELÍ", "LEČO", "BUCHTY", "OVOCNÉ KNEDLÍKY", "ČESNEČKA", "BRAMBORAČKA", "KULAJDA",
-            "RAJSKÁ OMÁČKA", "KOPROVÁ OMÁČKA", "PEČENÁ KACHNA", "VEPŘO KNEDLO ZELO", "SEKANÁ", "ŘEZNICKÝ PREJT", "ŠUNKOFLEKY", "RIZOTO",
-            "LASAGNE", "PIZZA", "ŠPAGETY", "HAMBURGER", "HOT DOG", "BRAMBOROVÝ SALÁT", "VAJEČINA", "TOPINKA",
-            "CHLEBA", "ROHLÍK", "VÁNOČKA", "BÁBOVKA", "OVOCNÝ KOLÁČ", "ZMRZLINA", "PERNÍK", "JABLEČNÝ ZÁVIN"
-        ],
-        ["💻 Technologie"] =
-        [
-            "PROCESOR", "KLÁVESNICE", "ALGORITMUS", "SERVER", "PROGRAMÁTOR", "DATABÁZE", "PROHLÍŽEČ", "ROUTER",
-            "KOMPILÁTOR", "APLIKACE", "HESLO", "OBRAZOVKA", "NOTEBOOK", "TABLET", "TELEFON", "MONITOR",
-            "TISKÁRNA", "SKENER", "MYŠ", "REPRODUKTOR", "MIKROFON", "SLUCHÁTKA", "OPERAČNÍ SYSTÉM", "PROGRAM",
-            "SOUBOR", "SLOŽKA", "INTERNET", "SÍŤ", "WIFI", "BLUETOOTH", "PAMĚŤ", "PEVNÝ DISK",
-            "FLASH DISK", "GRAFICKÁ KARTA", "ZÁKLADNÍ DESKA", "ZDROJ", "KABEL", "KONEKTOR", "ŠIFROVÁNÍ", "ROBOT"
-        ],
-        ["⚽ Sport"] =
-        [
-            "HOKEJ", "FOTBAL", "LYŽOVÁNÍ", "TENIS", "PLAVÁNÍ", "VOLEJBAL", "ATLETIKA", "ŠERMOVÁNÍ",
-            "CYKLISTIKA", "BIATLON", "BASKETBAL", "VESLOVÁNÍ", "HÁZENÁ", "FLORBAL", "BADMINTON", "GOLF",
-            "BOX", "JUDO", "KARATE", "ZÁPAS", "SKOKY NA LYŽÍCH", "SNOWBOARDING", "BĚH", "MARATON",
-            "TRIATLON", "STOLNÍ TENIS", "KANOISTIKA", "RAFTING", "LEZENÍ", "KULTURISTIKA", "BRUSLENÍ", "KRIKET",
-            "RUGBY", "BASEBALL", "SOFTBALL", "ŠACHY", "DOSTIHY", "JÍZDA NA KONI", "SPORTOVNÍ GYMNASTIKA", "AUTOMOBILOVÉ ZÁVODY"
-        ],
-    };
 
     private static readonly Dictionary<char, char> Diacritics = new()
     {
@@ -61,15 +20,40 @@ public static class WordBank
         c = char.ToUpperInvariant(c);
         return Diacritics.TryGetValue(c, out var plain) ? plain : c;
     }
+}
 
-    public static IEnumerable<(string Category, string Word)> Pick(string? category)
-    {
-        foreach (var (cat, words) in Words)
-        {
-            if (category is null || category == AllCategories || category == cat)
-            {
-                foreach (var w in words) yield return (cat, w);
-            }
-        }
-    }
+public sealed class DictionaryManifest
+{
+    public int Version { get; set; }
+    public string Language { get; set; } = "";
+    public List<DictionaryCategoryManifest> Categories { get; set; } = [];
+}
+
+public sealed class DictionaryCategoryManifest
+{
+    public string Id { get; set; } = "";
+    public string Name { get; set; } = "";
+    public string File { get; set; } = "";
+    public int WordCount { get; set; }
+    public Dictionary<string, int> DifficultyCounts { get; set; } = [];
+}
+
+public sealed class CategoryDictionary
+{
+    public int Version { get; set; }
+    public string Language { get; set; } = "";
+    public DictionaryCategoryInfo Category { get; set; } = new();
+    public List<DictionaryWord> Words { get; set; } = [];
+}
+
+public sealed class DictionaryCategoryInfo
+{
+    public string Id { get; set; } = "";
+    public string Name { get; set; } = "";
+}
+
+public sealed class DictionaryWord
+{
+    public string Text { get; set; } = "";
+    public int Difficulty { get; set; }
 }

@@ -1,118 +1,171 @@
 @page "/"
 @inject IJSRuntime JS
+@inject HttpClient Http
 
 <PageTitle>Šibenice – slovní hra</PageTitle>
 
-<div class="game">
-    <header class="top">
-        <h1>Šibenice</h1>
-        <div class="stats">
-            <span title="Skóre">⭐ @_score</span>
-            <span title="Série výher">🔥 @_streak</span>
-            <span title="Rekord">🏆 @_best</span>
-        </div>
-        <div class="toggles">
-            <button class="toggle @(_sound ? "on" : "off")" @onclick="ToggleSound" aria-label="Zvuk" aria-pressed="@_sound">@(_sound ? "🔊" : "🔇")</button>
-            <button class="toggle @(_vibration ? "on" : "off")" @onclick="ToggleVibration" aria-label="Vibrace" aria-pressed="@_vibration">📳</button>
-        </div>
-    </header>
-
-    <nav class="chips" aria-label="Kategorie">
-        @foreach (var cat in _categories)
-        {
-            <button class="chip @(cat == _selected ? "active" : "")" @onclick="() => SelectCategory(cat)">@cat</button>
-        }
-    </nav>
-
-    <section class="stage">
-        <svg viewBox="0 0 200 220" class="gallows" role="img" aria-label="Šibenice, chyb @_wrong z @MaxWrong">
-            @if (_wrong >= 1) { <line x1="20" y1="205" x2="120" y2="205" /> }
-            @if (_wrong >= 2) { <line x1="50" y1="205" x2="50" y2="20" /> }
-            @if (_wrong >= 3)
-            {
-                <line x1="50" y1="20" x2="140" y2="20" />
-                <line x1="140" y1="20" x2="140" y2="45" />
-            }
-            @if (_wrong >= 4) { <circle cx="140" cy="62" r="17" /> }
-            @if (_wrong >= 5) { <line x1="140" y1="79" x2="140" y2="135" /> }
-            @if (_wrong >= 6)
-            {
-                <line x1="140" y1="95" x2="118" y2="120" />
-                <line x1="140" y1="95" x2="162" y2="120" />
-            }
-            @if (_wrong >= 7)
-            {
-                <line x1="140" y1="135" x2="120" y2="172" />
-                <line x1="140" y1="135" x2="160" y2="172" />
-            }
-        </svg>
-        <div class="lives" aria-hidden="true">
-            @for (var i = 0; i < MaxWrong; i++)
-            {
-                <span class="@(i < MaxWrong - _wrong ? "alive" : "dead")">●</span>
-            }
-        </div>
-    </section>
-
-    <p class="category">@_wordCategory</p>
-
-    <div class="word" aria-live="polite">
-        @foreach (var c in _word)
-        {
-            if (c == ' ')
-            {
-                <span class="gap"></span>
-            }
-            else
-            {
-                var shown = IsRevealed(c) || Lost;
-                <span class="letter @(Lost && !IsRevealed(c) ? "missed" : "")">@(shown ? c.ToString() : "")</span>
-            }
-        }
+@if (_isLoading)
+{
+    <div class="loading">Načítám slovníky…</div>
+}
+else if (_dictionaryError is not null)
+{
+    <div class="loading error">
+        <h2>Slovník se nepodařilo načíst</h2>
+        <p>@_dictionaryError</p>
+        <button class="secondary" @onclick="LoadAndStartAsync">Zkusit znovu</button>
     </div>
-
-    <div class="keyboard">
-        @foreach (var k in Alphabet)
-        {
-            var key = k;
-            var used = _guessed.Contains(key);
-            var good = used && _word.Any(w => WordBank.Normalize(w) == key);
-            <button class="key @(used ? (good ? "good" : "bad") : "")"
-                    disabled="@(used || Won || Lost)"
-                    @onclick="() => Guess(key)">@key</button>
-        }
-    </div>
-
-    <div class="actions">
-        <button class="secondary" @onclick="UseHint" disabled="@(Won || Lost || _wrong >= MaxWrong - 1)">💡 Nápověda (−1 život)</button>
-        <button class="secondary" @onclick="NewRound">⏭ Přeskočit</button>
-    </div>
-
-    @if (Won || Lost)
-    {
-        <div class="overlay">
-            <div class="dialog @(Won ? "win" : "lose")">
-                <h2>@(Won ? "Vyhráno! 🎉" : "Prohra 😕")</h2>
-                <p>Slovo bylo: <strong>@_word</strong></p>
-                @if (Won)
-                {
-                    <p>+@_lastGain bodů</p>
-                }
-                <button @onclick="NewRound">Další slovo</button>
+}
+else
+{
+    <div class="game">
+        <header class="top">
+            <h1>Šibenice</h1>
+            <div class="stats">
+                <span title="Skóre">⭐ @_score</span>
+                <span title="Série výher">🔥 @_streak</span>
+                <span title="Rekord">🏆 @_best</span>
             </div>
-        </div>
-    }
-</div>
+            <div class="toggles">
+                <button class="toggle @(_sound ? "on" : "off")" @onclick="ToggleSound" aria-label="Zvuk" aria-pressed="@_sound">@(_sound ? "🔊" : "🔇")</button>
+                <button class="toggle @(_vibration ? "on" : "off")" @onclick="ToggleVibration" aria-label="Vibrace" aria-pressed="@_vibration">📳</button>
+            </div>
+        </header>
+
+        <section class="selection" aria-label="Nastavení hry">
+            <div class="selection-label">Kategorie</div>
+            <nav class="chips" aria-label="Kategorie">
+                @foreach (var cat in _categories)
+                {
+                    <button class="chip @(cat == _selected ? "active" : "")"
+                            aria-pressed="@(cat == _selected)"
+                            @onclick="() => SelectCategory(cat)">@cat</button>
+                }
+            </nav>
+
+            <div class="selection-label difficulty-label">Obtížnost</div>
+            <nav class="difficulty-chips" aria-label="Obtížnost">
+                <button class="difficulty-chip @(_selectedDifficulty is null ? "active" : "")"
+                        aria-pressed="@(_selectedDifficulty is null)"
+                        @onclick="() => SelectDifficulty(null)">Vše</button>
+                <button class="difficulty-chip easy @(_selectedDifficulty == 1 ? "active" : "")"
+                        aria-pressed="@(_selectedDifficulty == 1)"
+                        @onclick="() => SelectDifficulty(1)">Lehká</button>
+                <button class="difficulty-chip medium @(_selectedDifficulty == 2 ? "active" : "")"
+                        aria-pressed="@(_selectedDifficulty == 2)"
+                        @onclick="() => SelectDifficulty(2)">Střední</button>
+                <button class="difficulty-chip hard @(_selectedDifficulty == 3 ? "active" : "")"
+                        aria-pressed="@(_selectedDifficulty == 3)"
+                        @onclick="() => SelectDifficulty(3)">Těžká</button>
+            </nav>
+        </section>
+
+        @if (_word.Length == 0)
+        {
+            <div class="empty-pool">
+                <p>Pro tuto kombinaci kategorie a obtížnosti zatím nejsou žádná slova.</p>
+                <button class="secondary" @onclick="() => SelectDifficulty(null)">Zobrazit všechny obtížnosti</button>
+            </div>
+        }
+        else
+        {
+            <section class="stage">
+                <svg viewBox="0 0 200 220" class="gallows" role="img" aria-label="Šibenice, chyb @_wrong z @MaxWrong">
+                    @if (_wrong >= 1) { <line x1="20" y1="205" x2="120" y2="205" /> }
+                    @if (_wrong >= 2) { <line x1="50" y1="205" x2="50" y2="20" /> }
+                    @if (_wrong >= 3)
+                    {
+                        <line x1="50" y1="20" x2="140" y2="20" />
+                        <line x1="140" y1="20" x2="140" y2="45" />
+                    }
+                    @if (_wrong >= 4) { <circle cx="140" cy="62" r="17" /> }
+                    @if (_wrong >= 5) { <line x1="140" y1="79" x2="140" y2="135" /> }
+                    @if (_wrong >= 6)
+                    {
+                        <line x1="140" y1="95" x2="118" y2="120" />
+                        <line x1="140" y1="95" x2="162" y2="120" />
+                    }
+                    @if (_wrong >= 7)
+                    {
+                        <line x1="140" y1="135" x2="120" y2="172" />
+                        <line x1="140" y1="135" x2="160" y2="172" />
+                    }
+                </svg>
+                <div class="lives" aria-hidden="true">
+                    @for (var i = 0; i < MaxWrong; i++)
+                    {
+                        <span class="@(i < MaxWrong - _wrong ? "alive" : "dead")">●</span>
+                    }
+                </div>
+            </section>
+
+            <p class="category">@_wordCategory</p>
+
+            <div class="word" aria-live="polite">
+                @foreach (var c in _word)
+                {
+                    if (c == ' ')
+                    {
+                        <span class="gap"></span>
+                    }
+                    else if (!char.IsLetter(c))
+                    {
+                        <span class="separator">@c</span>
+                    }
+                    else
+                    {
+                        var shown = IsRevealed(c) || Lost;
+                        <span class="letter @(Lost && !IsRevealed(c) ? "missed" : "")">@(shown ? c.ToString() : "")</span>
+                    }
+                }
+            </div>
+
+            <div class="keyboard">
+                @foreach (var k in Alphabet)
+                {
+                    var key = k;
+                    var used = _guessed.Contains(key);
+                    var good = used && _word.Any(w => char.IsLetter(w) && WordBank.Normalize(w) == key);
+                    <button class="key @(used ? (good ? "good" : "bad") : "")"
+                            disabled="@(used || Won || Lost)"
+                            @onclick="() => Guess(key)">@key</button>
+                }
+            </div>
+
+            <div class="actions">
+                <button class="secondary" @onclick="UseHint" disabled="@(Won || Lost || _wrong >= MaxWrong - 1)">💡 Nápověda (−1 život)</button>
+                <button class="secondary" @onclick="NewRound">⏭ Přeskočit</button>
+            </div>
+
+            @if (Won || Lost)
+            {
+                <div class="overlay">
+                    <div class="dialog @(Won ? "win" : "lose")">
+                        <h2>@(Won ? "Vyhráno! 🎉" : "Prohra 😕")</h2>
+                        <p>Slovo bylo: <strong>@_word</strong></p>
+                        @if (Won)
+                        {
+                            <p>+@_lastGain bodů</p>
+                        }
+                        <button @onclick="NewRound">Další slovo</button>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+}
 
 @code {
     private const int MaxWrong = 7;
     private static readonly char[] Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
 
-    private readonly List<string> _categories = [WordBank.AllCategories, .. WordBank.Words.Keys];
+    private readonly List<string> _categories = [WordBank.AllCategories];
+    private readonly List<(string Category, DictionaryWord Word)> _words = [];
     private readonly HashSet<char> _guessed = [];
     private readonly Random _rng = new();
 
     private string _selected = WordBank.AllCategories;
+    private int? _selectedDifficulty;
     private string _word = "";
     private string _wordCategory = "";
     private int _wrong;
@@ -123,6 +176,8 @@
     private bool _scored;
     private bool _sound = true;
     private bool _vibration = true;
+    private bool _isLoading = true;
+    private string? _dictionaryError;
 
     private bool Won => _word.Length > 0 && _word.Where(char.IsLetter).All(IsRevealed);
     private bool Lost => _wrong >= MaxWrong;
@@ -134,9 +189,58 @@
             _best = await JS.InvokeAsync<int>("hra.getBest");
             _sound = await JS.InvokeAsync<bool>("fx.getSound");
             _vibration = await JS.InvokeAsync<bool>("fx.getVibration");
+            var savedDifficulty = await JS.InvokeAsync<int>("hra.getDifficulty");
+            _selectedDifficulty = savedDifficulty is >= 1 and <= 3 ? savedDifficulty : null;
         }
-        catch { /* localStorage nedostupné */ }
-        NewRound();
+        catch { /* localStorage nebo JS nemusí být dostupné */ }
+
+        await LoadAndStartAsync();
+    }
+
+    private async Task LoadAndStartAsync()
+    {
+        _isLoading = true;
+        _dictionaryError = null;
+
+        try
+        {
+            var manifest = await Http.GetFromJsonAsync<DictionaryManifest>("data/dictionary.json")
+                ?? throw new InvalidDataException("Soubor dictionary.json je prázdný.");
+
+            if (manifest.Categories.Count == 0)
+                throw new InvalidDataException("Manifest neobsahuje žádné kategorie.");
+
+            _words.Clear();
+            _categories.Clear();
+            _categories.Add(WordBank.AllCategories);
+
+            foreach (var category in manifest.Categories)
+            {
+                var dictionary = await Http.GetFromJsonAsync<CategoryDictionary>($"data/{category.File}")
+                    ?? throw new InvalidDataException($"Soubor {category.File} je prázdný.");
+
+                if (dictionary.Category.Id != category.Id)
+                    throw new InvalidDataException($"Nesouhlasí ID kategorie v souboru {category.File}.");
+
+                _categories.Add(category.Name);
+                _words.AddRange(dictionary.Words
+                    .Where(w => !string.IsNullOrWhiteSpace(w.Text) && w.Difficulty is >= 1 and <= 3)
+                    .Select(w => (category.Name, w)));
+            }
+
+            if (_words.Count == 0)
+                throw new InvalidDataException("Slovníky neobsahují žádná platná slova.");
+
+            NewRound();
+        }
+        catch (Exception ex)
+        {
+            _dictionaryError = $"Zkontroluj soubory ve wwwroot/data. Podrobnosti: {ex.Message}";
+        }
+        finally
+        {
+            _isLoading = false;
+        }
     }
 
     private async Task Fx(string name)
@@ -166,6 +270,13 @@
         NewRound();
     }
 
+    private async Task SelectDifficulty(int? level)
+    {
+        _selectedDifficulty = level;
+        try { await JS.InvokeVoidAsync("hra.setDifficulty", level ?? 0); } catch { }
+        NewRound();
+    }
+
     private void NewRound()
     {
         if (Lost || (!Won && _word.Length > 0 && !_scored))
@@ -173,9 +284,27 @@
             _streak = 0; // přeskočení nebo prohra přeruší sérii
         }
 
-        var pool = WordBank.Pick(_selected).Where(p => p.Word != _word).ToList();
+        var pool = _words
+            .Where(p => (_selected == WordBank.AllCategories || p.Category == _selected)
+                && (_selectedDifficulty is null || p.Word.Difficulty == _selectedDifficulty))
+            .ToList();
+
+        if (pool.Count == 0)
+        {
+            _word = "";
+            _wordCategory = "";
+            _guessed.Clear();
+            _wrong = 0;
+            _scored = false;
+            return;
+        }
+
+        var alternatives = pool.Where(p => p.Word.Text != _word).ToList();
+        if (alternatives.Count > 0)
+            pool = alternatives;
+
         var pick = pool[_rng.Next(pool.Count)];
-        _word = pick.Word;
+        _word = pick.Word.Text;
         _wordCategory = pick.Category;
         _guessed.Clear();
         _wrong = 0;
@@ -186,7 +315,7 @@
     {
         if (Won || Lost || !_guessed.Add(key)) return;
 
-        var correct = _word.Any(w => WordBank.Normalize(w) == key);
+        var correct = _word.Any(w => char.IsLetter(w) && WordBank.Normalize(w) == key);
         if (!correct)
         {
             _wrong++;
