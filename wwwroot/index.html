@@ -30,7 +30,9 @@
             setBest: v => localStorage.setItem('sibenice.best', String(v))
         };
     </script>
-    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="js/feedback.js"></script>
+    <script type="importmap"></script>
+    <script src="_framework/blazor.webassembly#[.{fingerprint}].js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
 </body>
 

@@ -11,6 +11,10 @@
             <span title="Série výher">🔥 @_streak</span>
             <span title="Rekord">🏆 @_best</span>
         </div>
+        <div class="toggles">
+            <button class="toggle @(_sound ? "on" : "off")" @onclick="ToggleSound" aria-label="Zvuk" aria-pressed="@_sound">@(_sound ? "🔊" : "🔇")</button>
+            <button class="toggle @(_vibration ? "on" : "off")" @onclick="ToggleVibration" aria-label="Vibrace" aria-pressed="@_vibration">📳</button>
+        </div>
     </header>
 
     <nav class="chips" aria-label="Kategorie">
@@ -117,14 +121,41 @@
     private int _best;
     private int _lastGain;
     private bool _scored;
+    private bool _sound = true;
+    private bool _vibration = true;
 
     private bool Won => _word.Length > 0 && _word.Where(char.IsLetter).All(IsRevealed);
     private bool Lost => _wrong >= MaxWrong;
 
     protected override async Task OnInitializedAsync()
     {
-        try { _best = await JS.InvokeAsync<int>("hra.getBest"); } catch { /* localStorage nedostupné */ }
+        try
+        {
+            _best = await JS.InvokeAsync<int>("hra.getBest");
+            _sound = await JS.InvokeAsync<bool>("fx.getSound");
+            _vibration = await JS.InvokeAsync<bool>("fx.getVibration");
+        }
+        catch { /* localStorage nedostupné */ }
         NewRound();
+    }
+
+    private async Task Fx(string name)
+    {
+        try { await JS.InvokeVoidAsync("fx.play", name); } catch { }
+    }
+
+    private async Task ToggleSound()
+    {
+        _sound = !_sound;
+        try { await JS.InvokeVoidAsync("fx.setSound", _sound); } catch { }
+        await Fx("tap");
+    }
+
+    private async Task ToggleVibration()
+    {
+        _vibration = !_vibration;
+        try { await JS.InvokeVoidAsync("fx.setVibration", _vibration); } catch { }
+        await Fx("tap");
     }
 
     private bool IsRevealed(char c) => _guessed.Contains(WordBank.Normalize(c));
@@ -151,11 +182,12 @@
         _scored = false;
     }
 
-    private async Task Guess(char key)
+    private async Task Guess(char key, bool viaHint = false)
     {
         if (Won || Lost || !_guessed.Add(key)) return;
 
-        if (!_word.Any(w => WordBank.Normalize(w) == key))
+        var correct = _word.Any(w => WordBank.Normalize(w) == key);
+        if (!correct)
         {
             _wrong++;
         }
@@ -171,12 +203,18 @@
                 _best = _score;
                 try { await JS.InvokeVoidAsync("hra.setBest", _best); } catch { }
             }
+            await Fx("win");
         }
         else if (Lost)
         {
             _scored = true;
             _streak = 0;
             _score = 0;
+            await Fx("lose");
+        }
+        else
+        {
+            await Fx(viaHint ? "hint" : correct ? "ok" : "bad");
         }
     }
 
@@ -192,6 +230,6 @@
         if (hidden.Count <= 1 || _wrong >= MaxWrong - 1) return;
 
         _wrong++;
-        await Guess(hidden[_rng.Next(hidden.Count)]);
+        await Guess(hidden[_rng.Next(hidden.Count)], viaHint: true);
     }
 }

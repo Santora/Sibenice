@@ -9,9 +9,8 @@ const cacheName = `${cacheNamePrefix}${self.assetsManifest.version}`;
 const offlineAssetsInclude = [/\.dll$/, /\.pdb$/, /\.wasm/, /\.html/, /\.js$/, /\.json$/, /\.css$/, /\.woff$/, /\.png$/, /\.jpe?g$/, /\.gif$/, /\.ico$/, /\.blat$/, /\.dat$/, /\.webmanifest$/];
 const offlineAssetsExclude = [/^service-worker\.js$/];
 
-// Pokud aplikaci nasadíte do podadresáře (např. GitHub Pages), změňte i <base href> v index.html a scope v manifestu.
-const base = "/";
-const baseUrl = new URL(base, self.origin);
+// Základ se odvozuje z umístění service workeru, takže funguje v kořeni i v podadresáři (GitHub Pages).
+const baseUrl = new URL('./', self.location.href);
 const manifestUrlList = self.assetsManifest.assets.map(asset => new URL(asset.url, baseUrl).href);
 
 async function onInstall(event) {
