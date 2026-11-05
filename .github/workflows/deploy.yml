@@ -41,6 +41,12 @@ jobs:
           echo "== release/wwwroot =="; ls -la release/wwwroot
           echo "== _framework (blazor, dotnet.js) =="; ls release/wwwroot/_framework | grep -i 'blazor\|dotnet\.js' || true
 
+      - name: Kontrola index.html
+        run: |
+          echo "== release =="; ls -la release
+          echo "== release/wwwroot =="; ls -la release/wwwroot
+          echo "== _framework (blazor, dotnet.js) =="; ls release/wwwroot/_framework | grep -i 'blazor\|dotnet\.js' || true
+
       - name: Opravit odkaz na Blazor v index.html
         run: |
           python3 tools/fix-published-index.py release/wwwroot
