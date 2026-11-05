@@ -35,6 +35,12 @@ jobs:
       - name: Publish
         run: dotnet publish SlovniHra.csproj -c Release -o release
 
+      - name: Výpis publikovaného obsahu
+        run: |
+          echo "== release =="; ls -la release
+          echo "== release/wwwroot =="; ls -la release/wwwroot
+          echo "== _framework (blazor, dotnet.js) =="; ls release/wwwroot/_framework | grep -i 'blazor\|dotnet\.js' || true
+
       - name: Kontrola index.html
         run: |
           if grep -q '#\[' release/wwwroot/index.html; then
