@@ -1,0 +1,502 @@
+{
+  "version": 1,
+  "language": "cs-CZ",
+  "category": {
+    "id": "technology",
+    "name": "💻 Technologie"
+  },
+  "words": [
+    {
+      "text": "POČÍTAČ",
+      "difficulty": 1
+    },
+    {
+      "text": "TELEFON",
+      "difficulty": 1
+    },
+    {
+      "text": "TABLET",
+      "difficulty": 1
+    },
+    {
+      "text": "NOTEBOOK",
+      "difficulty": 1
+    },
+    {
+      "text": "MONITOR",
+      "difficulty": 1
+    },
+    {
+      "text": "OBRAZOVKA",
+      "difficulty": 1
+    },
+    {
+      "text": "KLÁVESNICE",
+      "difficulty": 1
+    },
+    {
+      "text": "MYŠ",
+      "difficulty": 1
+    },
+    {
+      "text": "TISKÁRNA",
+      "difficulty": 1
+    },
+    {
+      "text": "SKENER",
+      "difficulty": 1
+    },
+    {
+      "text": "REPRODUKTOR",
+      "difficulty": 1
+    },
+    {
+      "text": "MIKROFON",
+      "difficulty": 1
+    },
+    {
+      "text": "SLUCHÁTKA",
+      "difficulty": 1
+    },
+    {
+      "text": "KAMERA",
+      "difficulty": 1
+    },
+    {
+      "text": "FOTOAPARÁT",
+      "difficulty": 1
+    },
+    {
+      "text": "NABÍJEČKA",
+      "difficulty": 1
+    },
+    {
+      "text": "BATERIE",
+      "difficulty": 1
+    },
+    {
+      "text": "KABEL",
+      "difficulty": 1
+    },
+    {
+      "text": "DISK",
+      "difficulty": 1
+    },
+    {
+      "text": "PAMĚŤ",
+      "difficulty": 1
+    },
+    {
+      "text": "SOUBOR",
+      "difficulty": 1
+    },
+    {
+      "text": "SLOŽKA",
+      "difficulty": 1
+    },
+    {
+      "text": "PROGRAM",
+      "difficulty": 1
+    },
+    {
+      "text": "APLIKACE",
+      "difficulty": 1
+    },
+    {
+      "text": "INTERNET",
+      "difficulty": 1
+    },
+    {
+      "text": "WEB",
+      "difficulty": 1
+    },
+    {
+      "text": "PROHLÍŽEČ",
+      "difficulty": 1
+    },
+    {
+      "text": "HESLO",
+      "difficulty": 1
+    },
+    {
+      "text": "WIFI",
+      "difficulty": 1
+    },
+    {
+      "text": "BLUETOOTH",
+      "difficulty": 1
+    },
+    {
+      "text": "ROUTER",
+      "difficulty": 1
+    },
+    {
+      "text": "MODEM",
+      "difficulty": 1
+    },
+    {
+      "text": "SERVER",
+      "difficulty": 1
+    },
+    {
+      "text": "ROBOT",
+      "difficulty": 1
+    },
+    {
+      "text": "DRON",
+      "difficulty": 1
+    },
+    {
+      "text": "HODINKY",
+      "difficulty": 1
+    },
+    {
+      "text": "TELEVIZE",
+      "difficulty": 1
+    },
+    {
+      "text": "RÁDIO",
+      "difficulty": 1
+    },
+    {
+      "text": "ANTÉNA",
+      "difficulty": 1
+    },
+    {
+      "text": "PROCESOR",
+      "difficulty": 2
+    },
+    {
+      "text": "ALGORITMUS",
+      "difficulty": 2
+    },
+    {
+      "text": "DATABÁZE",
+      "difficulty": 2
+    },
+    {
+      "text": "KOMPILÁTOR",
+      "difficulty": 2
+    },
+    {
+      "text": "OPERAČNÍ SYSTÉM",
+      "difficulty": 2
+    },
+    {
+      "text": "GRAFICKÁ KARTA",
+      "difficulty": 2
+    },
+    {
+      "text": "ZÁKLADNÍ DESKA",
+      "difficulty": 2
+    },
+    {
+      "text": "PEVNÝ DISK",
+      "difficulty": 2
+    },
+    {
+      "text": "FLASH DISK",
+      "difficulty": 2
+    },
+    {
+      "text": "KONEKTOR",
+      "difficulty": 2
+    },
+    {
+      "text": "ŠIFROVÁNÍ",
+      "difficulty": 2
+    },
+    {
+      "text": "PROGRAMOVÁNÍ",
+      "difficulty": 2
+    },
+    {
+      "text": "VÝVOJÁŘ",
+      "difficulty": 2
+    },
+    {
+      "text": "KÓD",
+      "difficulty": 2
+    },
+    {
+      "text": "ZDROJOVÝ KÓD",
+      "difficulty": 2
+    },
+    {
+      "text": "CLOUD",
+      "difficulty": 2
+    },
+    {
+      "text": "ZÁLOHA",
+      "difficulty": 2
+    },
+    {
+      "text": "AKTUALIZACE",
+      "difficulty": 2
+    },
+    {
+      "text": "INSTALACE",
+      "difficulty": 2
+    },
+    {
+      "text": "LICENCE",
+      "difficulty": 2
+    },
+    {
+      "text": "FIREWALL",
+      "difficulty": 2
+    },
+    {
+      "text": "ANTIVIRUS",
+      "difficulty": 2
+    },
+    {
+      "text": "SÍŤOVÁ KARTA",
+      "difficulty": 2
+    },
+    {
+      "text": "DOTYKOVÁ PLOCHA",
+      "difficulty": 2
+    },
+    {
+      "text": "TOUCHPAD",
+      "difficulty": 2
+    },
+    {
+      "text": "JOYSTICK",
+      "difficulty": 2
+    },
+    {
+      "text": "GAMEPAD",
+      "difficulty": 2
+    },
+    {
+      "text": "KONZOLA",
+      "difficulty": 2
+    },
+    {
+      "text": "VIRTUÁLNÍ REALITA",
+      "difficulty": 2
+    },
+    {
+      "text": "ROZŠÍŘENÁ REALITA",
+      "difficulty": 2
+    },
+    {
+      "text": "UMĚLÁ INTELIGENCE",
+      "difficulty": 2
+    },
+    {
+      "text": "STROJOVÉ UČENÍ",
+      "difficulty": 2
+    },
+    {
+      "text": "NEURONOVÁ SÍŤ",
+      "difficulty": 2
+    },
+    {
+      "text": "SENZOR",
+      "difficulty": 2
+    },
+    {
+      "text": "AKCELEROMETR",
+      "difficulty": 2
+    },
+    {
+      "text": "GPS",
+      "difficulty": 2
+    },
+    {
+      "text": "SATELIT",
+      "difficulty": 2
+    },
+    {
+      "text": "OPTICKÉ VLÁKNO",
+      "difficulty": 2
+    },
+    {
+      "text": "USB",
+      "difficulty": 2
+    },
+    {
+      "text": "HDMI",
+      "difficulty": 2
+    },
+    {
+      "text": "ETHERNET",
+      "difficulty": 2
+    },
+    {
+      "text": "NFC",
+      "difficulty": 2
+    },
+    {
+      "text": "QR KÓD",
+      "difficulty": 2
+    },
+    {
+      "text": "CAPTCHA",
+      "difficulty": 2
+    },
+    {
+      "text": "COOKIE",
+      "difficulty": 2
+    },
+    {
+      "text": "CACHE",
+      "difficulty": 2
+    },
+    {
+      "text": "PIXEL",
+      "difficulty": 2
+    },
+    {
+      "text": "ROZLIŠENÍ",
+      "difficulty": 2
+    },
+    {
+      "text": "MIKROKONTROLÉR",
+      "difficulty": 3
+    },
+    {
+      "text": "FIRMWARE",
+      "difficulty": 3
+    },
+    {
+      "text": "BOOTLOADER",
+      "difficulty": 3
+    },
+    {
+      "text": "HYPERVIZOR",
+      "difficulty": 3
+    },
+    {
+      "text": "KONTEJNERIZACE",
+      "difficulty": 3
+    },
+    {
+      "text": "REPOZITÁŘ",
+      "difficulty": 3
+    },
+    {
+      "text": "DEPLOYMENT",
+      "difficulty": 3
+    },
+    {
+      "text": "REFAKTORING",
+      "difficulty": 3
+    },
+    {
+      "text": "DEBUGGER",
+      "difficulty": 3
+    },
+    {
+      "text": "BREAKPOINT",
+      "difficulty": 3
+    },
+    {
+      "text": "THREAD",
+      "difficulty": 3
+    },
+    {
+      "text": "PROCESOROVÉ JÁDRO",
+      "difficulty": 3
+    },
+    {
+      "text": "VYROVNÁVACÍ PAMĚŤ",
+      "difficulty": 3
+    },
+    {
+      "text": "ŠIFROVACÍ KLÍČ",
+      "difficulty": 3
+    },
+    {
+      "text": "VEŘEJNÝ KLÍČ",
+      "difficulty": 3
+    },
+    {
+      "text": "PRIVÁTNÍ KLÍČ",
+      "difficulty": 3
+    },
+    {
+      "text": "HASHOVÁNÍ",
+      "difficulty": 3
+    },
+    {
+      "text": "AUTENTIZACE",
+      "difficulty": 3
+    },
+    {
+      "text": "AUTORIZACE",
+      "difficulty": 3
+    },
+    {
+      "text": "API",
+      "difficulty": 3
+    },
+    {
+      "text": "ENDPOINT",
+      "difficulty": 3
+    },
+    {
+      "text": "PROTOKOL",
+      "difficulty": 3
+    },
+    {
+      "text": "LATENCE",
+      "difficulty": 3
+    },
+    {
+      "text": "LOAD BALANCER",
+      "difficulty": 3
+    },
+    {
+      "text": "REPLIKACE",
+      "difficulty": 3
+    },
+    {
+      "text": "TRANSAKCE",
+      "difficulty": 3
+    },
+    {
+      "text": "INDEXACE",
+      "difficulty": 3
+    },
+    {
+      "text": "NORMALIZACE",
+      "difficulty": 3
+    },
+    {
+      "text": "SERIALIZACE",
+      "difficulty": 3
+    },
+    {
+      "text": "DESERIALIZACE",
+      "difficulty": 3
+    },
+    {
+      "text": "JSON",
+      "difficulty": 3
+    },
+    {
+      "text": "XML",
+      "difficulty": 3
+    },
+    {
+      "text": "YAML",
+      "difficulty": 3
+    },
+    {
+      "text": "REGEX",
+      "difficulty": 3
+    },
+    {
+      "text": "KOMPILACE",
+      "difficulty": 3
+    },
+    {
+      "text": "INTERPRETACE",
+      "difficulty": 3
+    }
+  ]
+}

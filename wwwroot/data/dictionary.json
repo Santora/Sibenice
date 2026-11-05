@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "language": "cs-CZ",
+  "categories": [
+    {
+      "id": "animals",
+      "name": "🐾 Zvířata",
+      "file": "animals.json",
+      "wordCount": 100,
+      "difficultyCounts": {
+        "1": 71,
+        "2": 19,
+        "3": 10
+      }
+    },
+    {
+      "id": "czech",
+      "name": "🏰 Česko",
+      "file": "czech.json",
+      "wordCount": 101,
+      "difficultyCounts": {
+        "1": 38,
+        "2": 45,
+        "3": 18
+      }
+    },
+    {
+      "id": "food",
+      "name": "🍲 Jídlo",
+      "file": "food.json",
+      "wordCount": 139,
+      "difficultyCounts": {
+        "1": 49,
+        "2": 55,
+        "3": 35
+      }
+    },
+    {
+      "id": "sport",
+      "name": "⚽ Sport",
+      "file": "sport.json",
+      "wordCount": 96,
+      "difficultyCounts": {
+        "1": 31,
+        "2": 42,
+        "3": 23
+      }
+    },
+    {
+      "id": "technology",
+      "name": "💻 Technologie",
+      "file": "technology.json",
+      "wordCount": 123,
+      "difficultyCounts": {
+        "1": 39,
+        "2": 48,
+        "3": 36
+      }
+    }
+  ]
+}

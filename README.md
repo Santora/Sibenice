@@ -1,39 +1,28 @@
-# Šibenice – slovní hra (Blazor PWA)
+# SlovníHra – datový slovník
 
-Česká slovní hra „šibenice" pro Android. Blazor WebAssembly, .NET 10, instalovatelná jako PWA (funguje offline).
+Samostatná datová vrstva pro pět současných kategorií. Aplikace zatím není přepojena na JSON; tento balíček obsahuje pouze data, manifest a pomocné nástroje.
 
-## Fáze vývoje
-1. **Zvuky a vibrace** – hotovo (přepínače 🔊 / 📳 v záhlaví)
-2. Režim pro 2+ hráče – připravuje se
-3. Kvíz s otázkami – připravuje se
+## Soubory
 
-## Hra
-- 5 kategorií (zvířata, Česko, jídlo, technologie, sport) + „Vše"
-- hádá se bez diakritiky (Ř = R), po uhodnutí se písmeno zobrazí správně s diakritikou
-- 7 životů, nápověda za 1 život, skóre, série výher a rekord (uložený v telefonu)
-- zvuky jsou syntetizované (Web Audio), vibrace přes `navigator.vibrate` (na iPhonu nefunguje, na Androidu ano)
+- `wwwroot/data/dictionary.json` – manifest kategorií, názvy, soubory a počty slov podle obtížnosti.
+- `wwwroot/data/animals.json` – zvířata.
+- `wwwroot/data/czech.json` – místa, regiony, řeky a památky v Česku.
+- `wwwroot/data/food.json` – jídla, suroviny a pokrmy.
+- `wwwroot/data/technology.json` – zařízení, software a technické pojmy.
+- `wwwroot/data/sport.json` – sporty a sportovní disciplíny.
 
-## Lokální spuštění
-```bash
-dotnet run
+Každá položka má `text` a `difficulty` (1 = lehká, 2 = střední, 3 = těžká). Víceslovné výrazy jsou podporované.
+
+## Kontrola
+
+Z kořene projektu spusť:
+
+```powershell
+py tools\validate_dictionary.py
 ```
 
-## Nasazení na GitHub Pages (workflow je hotový)
-1. Na GitHubu vytvoř **veřejný** repozitář (např. `sibenice`).
-2. V adresáři projektu:
-   ```bash
-   git init -b main
-   git add .
-   git commit -m "Šibenice – první verze"
-   git remote add origin https://github.com/<tvoje-jmeno>/sibenice.git
-   git push -u origin main
-   ```
-3. V repozitáři otevři *Settings → Pages* a v *Source* zvol **GitHub Actions**.
-4. Po doběhnutí workflow (záložka *Actions*) je hra na `https://<tvoje-jmeno>.github.io/sibenice/`.
-5. V Chrome na Androidu otevři adresu → menu ⋮ → **Nainstalovat aplikaci**.
+Případně lze předat konkrétní soubory jako argumenty.
 
-Každý další `git push` do `main` nasadí novou verzi. Aplikace si po instalaci drží offline cache,
-novou verzi načte při dalším spuštění s připojením (případně ji zavři a otevři znovu).
+## Poznámky k redakci
 
-## Přidání slov
-Seznam je v `Models/WordBank.cs`. Slova piš velkými písmeny s diakritikou, mezery jsou povolené.
+Obtížnost je pracovní redakční zařazení, nikoli objektivní jazyková norma. Seznamy jsou kurátorované herní kandidáty; před nasazením je vhodná ještě lidská obsahová korektura, zejména u odbornějších výrazů a místních názvů. Generátor `tools/build_dictionaries.py` vytváří JSON soubory a manifest z definovaných dat.
