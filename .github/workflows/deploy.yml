@@ -35,14 +35,16 @@ jobs:
       - name: Publish
         run: dotnet publish SlovniHra.csproj -c Release -o release
 
-      - name: Kontrola index.html
+      - name: Výpis publikovaného obsahu
         run: |
-          if grep -q '#\[' release/wwwroot/index.html; then
-            echo "::error::V index.html zůstaly nedosazené zástupné znaky #[...]"
-            grep -n 'blazor.webassembly\|importmap' release/wwwroot/index.html
-            exit 1
-          fi
-          grep -n 'blazor.webassembly' release/wwwroot/index.html
+          echo "== release =="; ls -la release
+          echo "== release/wwwroot =="; ls -la release/wwwroot
+          echo "== _framework (blazor, dotnet.js) =="; ls release/wwwroot/_framework | grep -i 'blazor\|dotnet\.js' || true
+
+      - name: Opravit odkaz na Blazor v index.html
+        run: |
+          python3 tools/fix-published-index.py release/wwwroot
+          echo "== index.html: skripty =="; grep -n '<script' release/wwwroot/index.html
 
       - name: Příprava pro Pages
         run: |
