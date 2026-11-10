@@ -1,6 +1,7 @@
 @page "/online"
 @using System.Text.Json
 @inject IJSRuntime JS
+@inject HttpClient Http
 @inject NavigationManager Nav
 @implements IAsyncDisposable
 
@@ -210,7 +211,7 @@
     private const string PublicUrl = "https://santora.github.io/Sibenice/";
     private const string CodeChars ="ABCDEFGHJKMNPQRSTUVWXYZ23456789";
 
-    private readonly List<string> _categories = [.. WordBank.Words.Keys, WordBank.AllCategories];
+    private List<string> _categories = [];
     private readonly string _myId = Guid.NewGuid().ToString("N")[..10];
     private readonly Random _rng = new();
 
@@ -274,6 +275,12 @@
 
     protected override async Task OnInitializedAsync()
     {
+        try
+        {
+            await WordBank.LoadAsync(Http);
+            _categories = [.. WordBank.Words.Keys];
+        }
+        catch (Exception ex) { _error = "Slovník se nepodařilo načíst: " + ex.Message; }
         try { _name = await JS.InvokeAsync<string>("net.getStr", "sibenice.name"); } catch { }
         if (!string.IsNullOrWhiteSpace(KodParam))
         {
@@ -463,6 +470,7 @@
     {
         if (!CanSet || _s.Phase != "setting") return;
         var pool = WordBank.Pick(category).ToList();
+        if (pool.Count == 0) { _error = "Pro vybranou kategorii nejsou dostupná slova."; return; }
         var pick = pool[_rng.Next(pool.Count)];
         OnlineGame.Begin(_s, pick.Word, pick.Category);
         await Fx("hint");

@@ -1,5 +1,6 @@
 @page "/solo"
 @inject IJSRuntime JS
+@inject HttpClient Http
 
 <PageTitle>Šibenice – slovní hra</PageTitle>
 
@@ -21,7 +22,14 @@
     <nav class="chips" aria-label="Kategorie">
         @foreach (var cat in _categories)
         {
-            <button class="chip @(cat == _selected ? "active" : "")" @onclick="() => SelectCategory(cat)">@cat</button>
+            <button class="chip @(cat == _selected ? "active" : "")" @onclick="() => RequestCategoryChange(cat)">@cat</button>
+        }
+    </nav>
+
+    <nav class="chips" aria-label="Obtížnost">
+        @foreach (var item in DifficultyOptions)
+        {
+            <button class="chip @(_difficulty == item.Value ? "active" : "")" @onclick="() => RequestDifficultyChange(item.Value)">@item.Label</button>
         }
     </nav>
 
@@ -86,7 +94,7 @@
 
     <div class="actions">
         <button class="secondary" @onclick="UseHint" disabled="@(Won || Lost || _wrong >= MaxWrong - 1)">💡 Nápověda (−1 život)</button>
-        <button class="secondary" @onclick="NewRound">⏭ Přeskočit</button>
+        <button class="secondary" @onclick="RequestNewRound">⏭ Přeskočit</button>
     </div>
 
     @if (Won || Lost)
@@ -99,7 +107,31 @@
                 {
                     <p>+@_lastGain bodů</p>
                 }
-                <button @onclick="NewRound">Další slovo</button>
+                <button @onclick="StartNextRound">Další slovo</button>
+            </div>
+        </div>
+    }
+
+    @if (_showResumePrompt)
+    {
+        <div class="overlay">
+            <div class="dialog">
+                <h2>Rozehraná hra</h2>
+                <p>Máš tu uloženou nedokončenou hru. Chceš pokračovat tam, kde jsi skončil?</p>
+                <button @onclick="ResumeSavedRound">Pokračovat</button>
+                <button class="secondary" @onclick="DiscardSavedRound">Nová hra</button>
+            </div>
+        </div>
+    }
+
+    @if (_showDiscardConfirmation)
+    {
+        <div class="overlay">
+            <div class="dialog">
+                <h2>@DiscardTitle</h2>
+                <p>@DiscardMessage</p>
+                <button @onclick="ConfirmDiscard">@DiscardButtonLabel</button>
+                <button class="secondary" @onclick="CancelDiscard">Pokračovat v kole</button>
             </div>
         </div>
     }
@@ -109,7 +141,10 @@
     private const int MaxWrong = 7;
     private static readonly char[] Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
 
-    private readonly List<string> _categories = [WordBank.AllCategories, .. WordBank.Words.Keys];
+    private List<string> _categories = [WordBank.AllCategories];
+    private static readonly (string Label, int? Value)[] DifficultyOptions =
+        [("Vše", null), ("🟢 Lehká", 1), ("🟡 Střední", 2), ("🔴 Těžká", 3)];
+    private int? _difficulty;
     private readonly HashSet<char> _guessed = [];
     private readonly Random _rng = new();
 
@@ -124,6 +159,12 @@
     private bool _scored;
     private bool _sound = true;
     private bool _vibration = true;
+    private bool _showResumePrompt;
+    private bool _showDiscardConfirmation;
+    private SoloSave? _pendingSave;
+    private string? _pendingCategory;
+    private int? _pendingDifficulty;
+    private string _pendingChange = "new";
 
     private bool Won => _word.Length > 0 && _word.Where(char.IsLetter).All(IsRevealed);
     private bool Lost => _wrong >= MaxWrong;
@@ -132,12 +173,35 @@
     {
         try
         {
+            await WordBank.LoadAsync(Http);
+            _categories = [WordBank.AllCategories, .. WordBank.Words.Keys];
+        }
+        catch (Exception ex)
+        {
+            _wordCategory = "Chyba načítání slovníku: " + ex.Message;
+        }
+        try
+        {
             _best = await JS.InvokeAsync<int>("hra.getBest");
             _sound = await JS.InvokeAsync<bool>("fx.getSound");
             _vibration = await JS.InvokeAsync<bool>("fx.getVibration");
         }
         catch { /* localStorage nedostupné */ }
-        NewRound();
+        try
+        {
+            _pendingSave = await JS.InvokeAsync<SoloSave?>("hra.getSoloState");
+        }
+        catch { _pendingSave = null; }
+
+        if (IsValidSave(_pendingSave))
+        {
+            _showResumePrompt = true;
+        }
+        else
+        {
+            await JS.InvokeVoidAsync("hra.clearSoloState");
+            await StartNewRound();
+        }
     }
 
     private async Task Fx(string name)
@@ -161,26 +225,160 @@
 
     private bool IsRevealed(char c) => _guessed.Contains(WordBank.Normalize(c));
 
-    private void SelectCategory(string cat)
+    private async Task RequestCategoryChange(string cat)
     {
-        _selected = cat;
-        NewRound();
+        if (cat == _selected) return;
+        _pendingCategory = cat;
+        _pendingChange = "category";
+        if (HasActiveRound) _showDiscardConfirmation = true;
+        else await ApplyPendingChange();
     }
 
-    private void NewRound()
+    private async Task RequestDifficultyChange(int? difficulty)
+    {
+        if (difficulty == _difficulty) return;
+        _pendingDifficulty = difficulty;
+        _pendingChange = "difficulty";
+        if (HasActiveRound) _showDiscardConfirmation = true;
+        else await ApplyPendingChange();
+    }
+
+    private bool HasActiveRound => _word.Length > 0 && !Won && !Lost;
+    private string DiscardTitle => _pendingChange switch
+    {
+        "category" => "Změnit kategorii?",
+        "difficulty" => "Změnit obtížnost?",
+        _ => "Přeskočit toto slovo?"
+    };
+    private string DiscardMessage => _pendingChange switch
+    {
+        "category" => $"Rozehrané slovo bude zahozeno a začne nové kolo v kategorii {_pendingCategory}.",
+        "difficulty" => "Rozehrané slovo bude zahozeno a začne nové kolo s vybranou obtížností.",
+        _ => "Rozehrané slovo a dosavadní postup v tomto kole budou zahozeny."
+    };
+    private string DiscardButtonLabel => _pendingChange switch
+    {
+        "category" => "Ano, změnit kategorii",
+        "difficulty" => "Ano, změnit obtížnost",
+        _ => "Ano, přeskočit"
+    };
+
+    private async Task RequestNewRound()
+    {
+        _pendingChange = "new";
+        if (HasActiveRound) _showDiscardConfirmation = true;
+        else await StartNewRound();
+    }
+
+    private void CancelDiscard()
+    {
+        _showDiscardConfirmation = false;
+        _pendingChange = "new";
+        _pendingCategory = null;
+        _pendingDifficulty = null;
+    }
+
+    private async Task ConfirmDiscard()
+    {
+        _showDiscardConfirmation = false;
+        await ApplyPendingChange();
+    }
+
+    private async Task ApplyPendingChange()
+    {
+        if (_pendingChange == "category" && _pendingCategory is not null)
+            _selected = _pendingCategory;
+        else if (_pendingChange == "difficulty")
+            _difficulty = _pendingDifficulty;
+
+        _pendingCategory = null;
+        _pendingDifficulty = null;
+        _pendingChange = "new";
+        await StartNewRound();
+    }
+
+    private Task StartNextRound() => StartNewRound();
+
+    private async Task StartNewRound()
     {
         if (Lost || (!Won && _word.Length > 0 && !_scored))
-        {
             _streak = 0; // přeskočení nebo prohra přeruší sérii
-        }
 
-        var pool = WordBank.Pick(_selected).Where(p => p.Word != _word).ToList();
+        var pool = WordBank.Pick(_selected, _difficulty).Where(p => p.Word != _word).ToList();
+        if (pool.Count == 0) pool = WordBank.Pick(_selected, _difficulty).ToList();
+        if (pool.Count == 0) return;
         var pick = pool[_rng.Next(pool.Count)];
         _word = pick.Word;
         _wordCategory = pick.Category;
         _guessed.Clear();
         _wrong = 0;
         _scored = false;
+        _lastGain = 0;
+        await PersistRoundAsync();
+    }
+
+    private async Task ResumeSavedRound()
+    {
+        if (!IsValidSave(_pendingSave))
+        {
+            _showResumePrompt = false;
+            await StartNewRound();
+            return;
+        }
+
+        var save = _pendingSave!;
+        _selected = save.SelectedCategory;
+        _difficulty = save.Difficulty;
+        _word = save.Word;
+        _wordCategory = save.WordCategory;
+        _guessed.Clear();
+        foreach (var letter in save.Guessed) _guessed.Add(letter);
+        _wrong = save.Wrong;
+        _score = save.Score;
+        _streak = save.Streak;
+        _lastGain = save.LastGain;
+        _scored = false;
+        _showResumePrompt = false;
+        _pendingSave = null;
+        await PersistRoundAsync();
+    }
+
+    private async Task DiscardSavedRound()
+    {
+        _showResumePrompt = false;
+        var save = _pendingSave;
+        _pendingSave = null;
+        if (save is not null)
+        {
+            _selected = save.SelectedCategory;
+            _difficulty = save.Difficulty;
+            _score = save.Score;
+            _streak = 0; // opuštěné kolo přeruší sérii
+        }
+        try { await JS.InvokeVoidAsync("hra.clearSoloState"); } catch { }
+        await StartNewRound();
+    }
+
+    private bool IsValidSave(SoloSave? save) =>
+        save is not null && !string.IsNullOrWhiteSpace(save.Word) &&
+        !string.IsNullOrWhiteSpace(save.SelectedCategory) &&
+        save.Wrong >= 0 && save.Wrong < MaxWrong &&
+        (save.Difficulty is null || save.Difficulty is >= 1 and <= 3) &&
+        _categories.Contains(save.SelectedCategory) &&
+        save.Guessed is not null &&
+        !save.Word.Where(char.IsLetter).All(c => save.Guessed.Contains(WordBank.Normalize(c)));
+
+    private async Task PersistRoundAsync()
+    {
+        if (!HasActiveRound)
+        {
+            try { await JS.InvokeVoidAsync("hra.clearSoloState"); } catch { }
+            return;
+        }
+
+        var save = new SoloSave(_word, _wordCategory, _selected, _difficulty,
+            _guessed.ToArray(), _wrong, _score, _streak, _lastGain);
+        try { await JS.InvokeVoidAsync("hra.setSoloState", save); } catch { }
     }
 
     private async Task Guess(char key, bool viaHint = false)
@@ -217,6 +415,8 @@
         {
             await Fx(viaHint ? "hint" : correct ? "ok" : "bad");
         }
+
+        await PersistRoundAsync();
     }
 
     private async Task UseHint()
@@ -233,4 +433,14 @@
         _wrong++;
         await Guess(hidden[_rng.Next(hidden.Count)], viaHint: true);
     }
+    private sealed record SoloSave(
+        string Word,
+        string WordCategory,
+        string SelectedCategory,
+        int? Difficulty,
+        char[] Guessed,
+        int Wrong,
+        int Score,
+        int Streak,
+        int LastGain);
 }

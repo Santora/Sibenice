@@ -27,7 +27,13 @@
     <script>
         window.hra = {
             getBest: () => parseInt(localStorage.getItem('sibenice.best') || '0', 10),
-            setBest: v => localStorage.setItem('sibenice.best', String(v))
+            setBest: v => localStorage.setItem('sibenice.best', String(v)),
+            getSoloState: () => {
+                try { return JSON.parse(localStorage.getItem('sibenice.solo') || 'null'); }
+                catch { return null; }
+            },
+            setSoloState: state => localStorage.setItem('sibenice.solo', JSON.stringify(state)),
+            clearSoloState: () => localStorage.removeItem('sibenice.solo')
         };
     </script>
     <script src="js/feedback.js"></script>
