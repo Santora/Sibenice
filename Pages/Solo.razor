@@ -121,14 +121,19 @@
     @if (Won || Lost)
     {
         <div class="overlay">
-            <div class="dialog @(Won ? "win" : "lose")">
-                <h2>@(Won ? "Vyhráno! 🎉" : "Prohra 😕")</h2>
-                <p>Slovo bylo: <strong>@_word</strong></p>
+            <div class="dialog result-dialog @(Won ? "win" : "lose")" role="dialog" aria-modal="true" aria-labelledby="round-result-title">
+                <div class="result-mark" aria-hidden="true">@(Won ? "★" : "♡")</div>
+                <h2 id="round-result-title">@(Won ? "Výborně!" : "To nevadí!")</h2>
+                <p class="result-message">@(Won ? "Slovo jsi uhodl(a)." : "Tentokrát to nevyšlo.")</p>
+                <div class="result-word">
+                    <span>Hledané slovo</span>
+                    <strong>@_word</strong>
+                </div>
                 @if (Won)
                 {
-                    <p>+@_lastGain bodů</p>
+                    <p class="result-points">+@_lastGain bodů</p>
                 }
-                <button @onclick="StartNextRound">Další slovo</button>
+                <button class="result-next" @onclick="StartNextRound">Další slovo <span aria-hidden="true">→</span></button>
             </div>
         </div>
     }

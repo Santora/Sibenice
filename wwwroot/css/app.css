@@ -313,6 +313,34 @@ html, body {
 .solo-page .dialog { background: linear-gradient(145deg, #10294c, #07172e); border: 1px solid #c99543; box-shadow: 0 18px 55px rgba(0,0,0,.45); }
 .solo-page .dialog h2 { color: var(--solo-gold-bright); }
 .solo-page .dialog button { background: linear-gradient(135deg, #ffe7a0, #dba43b); }
+.solo-page .result-dialog { padding: 28px 26px 24px; overflow: hidden; }
+.solo-page .result-mark {
+    width: 58px; height: 58px; margin: 0 auto 12px; display: grid; place-items: center;
+    border: 1px solid currentColor; border-radius: 50%; color: var(--solo-gold-bright);
+    font-size: 2rem; line-height: 1; background: rgba(245, 200, 91, .09);
+}
+.solo-page .result-dialog.win .result-mark { color: #8be0ae; background: rgba(62, 207, 142, .1); }
+.solo-page .result-dialog.lose .result-mark { color: #e7a0a0; background: rgba(255, 107, 107, .08); }
+.solo-page .result-dialog h2 { margin-bottom: 5px; font-size: 1.65rem; }
+.solo-page .result-message { margin: 0 0 18px; color: var(--solo-muted); }
+.solo-page .result-word {
+    display: flex; flex-direction: column; gap: 5px; padding: 13px 12px;
+    border: 1px solid rgba(201, 149, 67, .38); border-radius: 13px;
+    background: rgba(2, 12, 28, .42);
+}
+.solo-page .result-word span { color: var(--solo-muted); font-size: .76rem; text-transform: uppercase; letter-spacing: .08em; }
+.solo-page .result-word strong { color: var(--solo-gold-bright); font-size: 1.35rem; letter-spacing: .06em; overflow-wrap: anywhere; }
+.solo-page .result-points { margin: 14px 0 0; color: #8be0ae; font-size: 1.15rem; font-weight: 750; }
+.solo-page .dialog .result-next { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 18px; }
+.solo-page .result-next span { font-size: 1.25em; }
+@media (prefers-reduced-motion: no-preference) {
+    .solo-page .result-dialog { animation: result-appear .24s ease-out both; }
+    .solo-page .key.good { animation: key-correct .22s ease-out; }
+    .solo-page .key.bad { animation: key-wrong .22s ease-out; }
+    @keyframes result-appear { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes key-correct { 50% { transform: translateY(-3px); } }
+    @keyframes key-wrong { 25%, 75% { transform: translateX(-2px); } 50% { transform: translateX(2px); } }
+}
 
 @media (min-width: 1100px) {
     .solo-page { min-height: 100vh; }
