@@ -4,98 +4,118 @@
 
 <PageTitle>Šibenice – slovní hra</PageTitle>
 
-<div class="game">
-    <header class="top">
-        <a class="back" href="./">← Menu</a>
+<div class="game solo-page">
+    <header class="solo-header">
+        <a class="solo-back" href="./" aria-label="Zpět do menu">← Menu</a>
         <h1>Šibenice</h1>
-        <div class="stats">
+        <div class="solo-stats" aria-label="Herní statistiky">
             <span title="Skóre">⭐ @_score</span>
             <span title="Série výher">🔥 @_streak</span>
             <span title="Rekord">🏆 @_best</span>
         </div>
-        <div class="toggles">
-            <button class="toggle @(_sound ? "on" : "off")" @onclick="ToggleSound" aria-label="Zvuk" aria-pressed="@_sound">@(_sound ? "🔊" : "🔇")</button>
-            <button class="toggle @(_vibration ? "on" : "off")" @onclick="ToggleVibration" aria-label="Vibrace" aria-pressed="@_vibration">📳</button>
+        <div class="solo-toggles">
+            <button class="solo-icon-button @(_sound ? "on" : "off")" @onclick="ToggleSound" aria-label="Zvuk" aria-pressed="@_sound">@(_sound ? "🔊" : "🔇")</button>
+            <button class="solo-icon-button @(_vibration ? "on" : "off")" @onclick="ToggleVibration" aria-label="Vibrace" aria-pressed="@_vibration">📳</button>
         </div>
     </header>
 
-    <nav class="chips" aria-label="Kategorie">
-        @foreach (var cat in _categories)
-        {
-            <button class="chip @(cat == _selected ? "active" : "")" @onclick="() => RequestCategoryChange(cat)">@cat</button>
-        }
-    </nav>
-
-    <nav class="chips" aria-label="Obtížnost">
-        @foreach (var item in DifficultyOptions)
-        {
-            <button class="chip @(_difficulty == item.Value ? "active" : "")" @onclick="() => RequestDifficultyChange(item.Value)">@item.Label</button>
-        }
-    </nav>
-
-    <section class="stage">
-        <svg viewBox="0 0 200 220" class="gallows" role="img" aria-label="Šibenice, chyb @_wrong z @MaxWrong">
-            @if (_wrong >= 1) { <line x1="20" y1="205" x2="120" y2="205" /> }
-            @if (_wrong >= 2) { <line x1="50" y1="205" x2="50" y2="20" /> }
-            @if (_wrong >= 3)
-            {
-                <line x1="50" y1="20" x2="140" y2="20" />
-                <line x1="140" y1="20" x2="140" y2="45" />
-            }
-            @if (_wrong >= 4) { <circle cx="140" cy="62" r="17" /> }
-            @if (_wrong >= 5) { <line x1="140" y1="79" x2="140" y2="135" /> }
-            @if (_wrong >= 6)
-            {
-                <line x1="140" y1="95" x2="118" y2="120" />
-                <line x1="140" y1="95" x2="162" y2="120" />
-            }
-            @if (_wrong >= 7)
-            {
-                <line x1="140" y1="135" x2="120" y2="172" />
-                <line x1="140" y1="135" x2="160" y2="172" />
-            }
-        </svg>
-        <div class="lives" aria-hidden="true">
-            @for (var i = 0; i < MaxWrong; i++)
-            {
-                <span class="@(i < MaxWrong - _wrong ? "alive" : "dead")">●</span>
-            }
+    <section class="solo-settings" aria-label="Nastavení hry">
+        <div class="solo-setting-group">
+            <span class="solo-setting-label">Kategorie</span>
+            <nav class="chips" aria-label="Kategorie">
+                @foreach (var cat in _categories)
+                {
+                    <button class="chip @(cat == _selected ? "active" : "")" @onclick="() => RequestCategoryChange(cat)">@cat</button>
+                }
+            </nav>
+        </div>
+        <div class="solo-setting-group difficulty-group">
+            <span class="solo-setting-label">Obtížnost</span>
+            <nav class="chips" aria-label="Obtížnost">
+                @foreach (var item in DifficultyOptions)
+                {
+                    <button class="chip @(_difficulty == item.Value ? "active" : "")" @onclick="() => RequestDifficultyChange(item.Value)">@item.Label</button>
+                }
+            </nav>
         </div>
     </section>
 
-    <p class="category">@_wordCategory</p>
+    <main class="solo-board">
+        <section class="solo-illustration" aria-label="Průběh hry">
+            <div class="solo-scene-glow"></div>
+            <svg viewBox="0 0 200 220" class="gallows" role="img" aria-label="Šibenice, chyb @_wrong z @MaxWrong">
+                <g class="gallows-frame">
+                    <line x1="18" y1="205" x2="166" y2="205" />
+                    <line x1="48" y1="205" x2="48" y2="18" />
+                    <line x1="48" y1="18" x2="145" y2="18" />
+                    <line x1="48" y1="48" x2="78" y2="18" />
+                    <line x1="145" y1="18" x2="145" y2="43" />
+                </g>
+                @if (_wrong >= 1) { <circle cx="145" cy="62" r="17" class="gallows-person" /> }
+                @if (_wrong >= 2) { <line x1="145" y1="79" x2="145" y2="135" class="gallows-person" /> }
+                @if (_wrong >= 3)
+                {
+                    <line x1="145" y1="95" x2="122" y2="119" class="gallows-person" />
+                    <line x1="145" y1="95" x2="168" y2="119" class="gallows-person" />
+                }
+                @if (_wrong >= 4)
+                {
+                    <line x1="145" y1="135" x2="123" y2="174" class="gallows-person" />
+                    <line x1="145" y1="135" x2="167" y2="174" class="gallows-person" />
+                }
+            </svg>
+            <div class="solo-scene-caption">Každý tip se počítá</div>
+        </section>
 
-    <div class="word" aria-live="polite">
-        @foreach (var c in _word)
-        {
-            if (c == ' ')
-            {
-                <span class="gap"></span>
-            }
-            else
-            {
-                var shown = IsRevealed(c) || Lost;
-                <span class="letter @(Lost && !IsRevealed(c) ? "missed" : "")">@(shown ? c.ToString() : "")</span>
-            }
-        }
-    </div>
+        <section class="solo-play-area">
+            <div class="solo-word-row">
+                <div class="solo-word-panel">
+                    <p class="category">Nápověda: @_wordCategory</p>
+                    <div class="word" aria-live="polite">
+                        @foreach (var c in _word)
+                        {
+                            if (c == ' ')
+                            {
+                                <span class="gap"></span>
+                            }
+                            else
+                            {
+                                var shown = IsRevealed(c) || Lost;
+                                <span class="letter @(Lost && !IsRevealed(c) ? "missed" : "")">@(shown ? c.ToString() : "")</span>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="solo-lives-panel" aria-label="Zbývající životy">
+                    <span class="solo-lives-title">Životy</span>
+                    <div class="lives" aria-hidden="true">
+                        @for (var i = 0; i < MaxWrong; i++)
+                        {
+                            <span class="@(i < MaxWrong - _wrong ? "alive" : "dead")">♥</span>
+                        }
+                    </div>
+                    <span class="solo-lives-count">@((MaxWrong - _wrong)) / @MaxWrong</span>
+                </div>
+            </div>
 
-    <div class="keyboard">
-        @foreach (var k in Alphabet)
-        {
-            var key = k;
-            var used = _guessed.Contains(key);
-            var good = used && _word.Any(w => WordBank.Normalize(w) == key);
-            <button class="key @(used ? (good ? "good" : "bad") : "")"
-                    disabled="@(used || Won || Lost)"
-                    @onclick="() => Guess(key)">@key</button>
-        }
-    </div>
+            <div class="keyboard" aria-label="Klávesnice">
+                @foreach (var k in Alphabet)
+                {
+                    var key = k;
+                    var used = _guessed.Contains(key);
+                    var good = used && _word.Any(w => WordBank.Normalize(w) == key);
+                    <button class="key @(used ? (good ? "good" : "bad") : "")"
+                            disabled="@(used || Won || Lost)"
+                            @onclick="() => Guess(key)">@key</button>
+                }
+            </div>
 
-    <div class="actions">
-        <button class="secondary" @onclick="UseHint" disabled="@(Won || Lost || _wrong >= MaxWrong - 1)">💡 Nápověda (−1 život)</button>
-        <button class="secondary" @onclick="RequestNewRound">⏭ Přeskočit</button>
-    </div>
+            <div class="actions">
+                <button class="solo-action solo-hint" @onclick="UseHint" disabled="@(Won || Lost || _wrong >= MaxWrong - 1)">💡 <span>Nápověda <small>(−1 život)</small></span></button>
+                <button class="solo-action secondary" @onclick="RequestNewRound">⏭ <span>Přeskočit slovo</span></button>
+            </div>
+        </section>
+    </main>
 
     @if (Won || Lost)
     {

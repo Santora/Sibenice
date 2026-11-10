@@ -205,3 +205,162 @@ html, body {
 .banner.mine { color: var(--good); font-weight: 700; }
 
 .cat-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ---------- solo game: elegant navy & gold theme ---------- */
+.solo-page {
+    --solo-bg: #06152e;
+    --solo-panel: rgba(7, 25, 53, .88);
+    --solo-line: #354d75;
+    --solo-gold: #f5c85b;
+    --solo-gold-bright: #ffe49a;
+    --solo-muted: #aabbd4;
+    width: min(100%, 1500px);
+    max-width: 1500px;
+    min-height: 100vh;
+    padding: 18px clamp(16px, 3vw, 44px) 28px;
+    gap: 18px;
+    background:
+        radial-gradient(ellipse at 50% 48%, rgba(16, 65, 116, .45), transparent 58%),
+        radial-gradient(ellipse at 8% 95%, rgba(12, 52, 91, .5), transparent 35%),
+        linear-gradient(145deg, #06152e 0%, #071b39 55%, #030d20 100%);
+    color: #f5f6fb;
+}
+.solo-page .solo-header {
+    display: grid;
+    grid-template-columns: auto minmax(180px, 1fr) auto auto;
+    align-items: center;
+    gap: 22px;
+    padding: 2px 0 16px;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(90deg, transparent, #bd842e, #ffe9a4, #bd842e, transparent) 1;
+}
+.solo-back { color: var(--solo-muted); text-decoration: none; font-size: .95rem; }
+.solo-header h1 {
+    margin: 0; color: var(--solo-gold); font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.3rem, 4vw, 4rem); font-style: italic; letter-spacing: -2px;
+    text-shadow: 0 2px 18px rgba(255, 190, 64, .28);
+}
+.solo-stats { display: flex; gap: clamp(10px, 2vw, 24px); color: #f4d78c; font-weight: 650; white-space: nowrap; }
+.solo-toggles { display: flex; gap: 10px; }
+.solo-icon-button {
+    width: 46px; height: 46px; border-radius: 50%; border: 1px solid #d5a64d;
+    color: var(--solo-gold-bright); background: rgba(4, 17, 38, .7); font-size: 1.15rem;
+    box-shadow: inset 0 0 12px rgba(245, 200, 91, .08), 0 0 12px rgba(245, 200, 91, .08);
+}
+.solo-icon-button.off { opacity: .48; }
+.solo-settings { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr); gap: 24px; }
+.solo-setting-group { min-width: 0; display: flex; align-items: center; gap: 12px; }
+.solo-setting-label { color: var(--solo-muted); font-size: .82rem; text-transform: uppercase; letter-spacing: .09em; white-space: nowrap; }
+.solo-page .chips { min-width: 0; flex-wrap: wrap; overflow: visible; gap: 7px; padding: 0; }
+.solo-page .chip {
+    border: 1px solid rgba(157, 178, 210, .32); background: rgba(12, 32, 62, .72);
+    color: #dbe5f4; padding: 7px 13px; font-size: .88rem; transition: .18s ease;
+}
+.solo-page .chip.active { background: linear-gradient(135deg, #ffe49a, #dba63f); color: #17233b; border-color: #ffe8a8; box-shadow: 0 0 15px rgba(245, 200, 91, .18); }
+.solo-board { display: grid; grid-template-columns: minmax(260px, .78fr) minmax(0, 1.8fr); align-items: stretch; gap: clamp(20px, 3vw, 46px); flex: 1; }
+.solo-illustration {
+    position: relative; min-height: 420px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    overflow: hidden; border-radius: 22px; border: 1px solid rgba(108, 145, 193, .22);
+    background: radial-gradient(ellipse at 50% 65%, rgba(23, 85, 137, .45), transparent 60%), linear-gradient(180deg, rgba(5, 20, 43, .28), rgba(4, 16, 34, .72));
+}
+.solo-scene-glow { position: absolute; width: 70%; aspect-ratio: 1; border-radius: 50%; background: rgba(244, 185, 75, .07); filter: blur(35px); }
+.solo-page .gallows { position: relative; z-index: 1; width: min(90%, 390px); max-height: 390px; height: auto; filter: drop-shadow(0 0 9px rgba(255, 190, 82, .2)); }
+.solo-page .gallows line { stroke: #d9953d; stroke-width: 7; stroke-linecap: round; fill: none; }
+.solo-page .gallows .gallows-frame { stroke: #bd7b32; stroke-width: 11; }
+.solo-page .gallows .gallows-frame line { stroke: #bd7b32; stroke-width: 10; }
+.solo-page .gallows .gallows-person { stroke: #ffdc8a; stroke-width: 5; stroke-linecap: round; fill: none; filter: drop-shadow(0 0 5px rgba(255, 208, 112, .8)); }
+.solo-scene-caption { position: absolute; bottom: 18px; color: rgba(206, 220, 241, .55); font-size: .82rem; letter-spacing: .06em; }
+.solo-play-area { display: flex; flex-direction: column; justify-content: center; gap: clamp(18px, 2.5vh, 28px); min-width: 0; }
+.solo-word-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: stretch; }
+.solo-word-panel, .solo-lives-panel {
+    border: 1px solid rgba(143, 170, 207, .48); border-radius: 20px;
+    background: linear-gradient(145deg, rgba(9, 29, 60, .95), rgba(4, 17, 39, .95));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 10px 25px rgba(0,0,0,.16);
+}
+.solo-word-panel { padding: 15px 18px 18px; min-width: 0; }
+.solo-page .category { margin: 0 0 12px; color: var(--solo-muted); font-size: .9rem; text-align: center; }
+.solo-page .word { min-height: 54px; gap: clamp(5px, .8vw, 12px); align-items: end; }
+.solo-page .letter { width: clamp(24px, 3vw, 42px); height: 48px; border-bottom: 3px solid var(--solo-gold); color: #ffe4a0; font-size: clamp(1.3rem, 2.2vw, 2rem); }
+.solo-page .letter.missed { color: #ff7777; }
+.solo-page .gap { width: 14px; }
+.solo-lives-panel { min-width: 150px; padding: 14px 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+.solo-lives-title { color: #f3e2bd; font-weight: 650; }
+.solo-page .lives { position: static; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px 8px; font-size: 1.25rem; }
+.solo-page .lives .alive { color: #ffd45f; text-shadow: 0 0 9px rgba(255, 204, 77, .45); }
+.solo-page .lives .dead { color: #53617a; }
+.solo-lives-count { color: var(--solo-muted); font-size: .78rem; }
+.solo-page .keyboard { grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 9px; }
+.solo-page .key {
+    height: clamp(48px, 6.5vw, 72px); border-radius: 12px; border: 1px solid rgba(171, 190, 220, .43);
+    background: linear-gradient(155deg, #253957, #101f38); color: #f4f6fb;
+    font-size: clamp(1.05rem, 1.7vw, 1.55rem); box-shadow: 0 4px 0 #071326, 0 7px 12px rgba(0,0,0,.22);
+}
+.solo-page .key:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 2px 0 #071326; }
+.solo-page .key.good { background: linear-gradient(145deg, #3fae48, #17672d); border-color: #8be77d; color: white; }
+.solo-page .key.bad { background: linear-gradient(145deg, #642e3b, #351b2a); border-color: #8c4350; color: #ff9999; }
+.solo-page .key:disabled { opacity: .88; }
+.solo-page .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.solo-page .solo-action {
+    min-height: 58px; display: flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 10px 14px; border-radius: 15px; font-size: 1rem; font-weight: 650;
+    border: 1px solid #c9943d; color: #f8e2ae; background: rgba(5, 19, 41, .72);
+}
+.solo-page .solo-action span { display: flex; flex-direction: column; line-height: 1.2; }
+.solo-page .solo-action small { font-size: .75rem; font-weight: 400; }
+.solo-page .solo-action.solo-hint { color: #1c2940; border-color: #ffe29a; background: linear-gradient(135deg, #ffe7a0, #dba43b); }
+.solo-page .solo-action:disabled { opacity: .38; }
+.solo-page .overlay { background: rgba(1, 8, 20, .82); backdrop-filter: blur(6px); }
+.solo-page .dialog { background: linear-gradient(145deg, #10294c, #07172e); border: 1px solid #c99543; box-shadow: 0 18px 55px rgba(0,0,0,.45); }
+.solo-page .dialog h2 { color: var(--solo-gold-bright); }
+.solo-page .dialog button { background: linear-gradient(135deg, #ffe7a0, #dba43b); }
+
+@media (min-width: 1100px) {
+    .solo-page { min-height: 100vh; }
+    .solo-board { min-height: 470px; }
+}
+@media (max-width: 900px) {
+    .solo-settings { grid-template-columns: 1fr; gap: 10px; }
+    .solo-board { grid-template-columns: minmax(190px, .65fr) minmax(0, 1.35fr); gap: 16px; }
+    .solo-illustration { min-height: 350px; }
+    .solo-page .keyboard { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 7px; }
+    .solo-page .key { height: 52px; }
+    .solo-word-row { grid-template-columns: 1fr; }
+    .solo-lives-panel { min-width: 0; flex-direction: row; justify-content: center; }
+    .solo-page .lives { display: flex; flex-wrap: wrap; }
+}
+@media (max-width: 620px) {
+    .solo-page { padding: 10px 12px calc(16px + env(safe-area-inset-bottom)); gap: 13px; }
+    .solo-page .solo-header { grid-template-columns: 1fr auto; gap: 7px 10px; padding-bottom: 11px; }
+    .solo-back { grid-column: 1 / -1; font-size: .82rem; }
+    .solo-header h1 { font-size: 2.35rem; }
+    .solo-stats { justify-content: flex-end; gap: 9px; font-size: .78rem; }
+    .solo-toggles { grid-column: 1 / -1; justify-content: flex-end; }
+    .solo-icon-button { width: 36px; height: 36px; font-size: .95rem; }
+    .solo-setting-group { display: block; }
+    .solo-setting-label { display: block; margin: 0 0 6px 2px; font-size: .7rem; }
+    .solo-page .chips { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 3px; }
+    .solo-page .chip { padding: 7px 11px; font-size: .8rem; }
+    .solo-board { display: flex; flex-direction: column; gap: 12px; }
+    .solo-illustration { min-height: 155px; max-height: 165px; border-radius: 16px; }
+    .solo-page .gallows { width: auto; height: 142px; }
+    .solo-scene-caption { bottom: 7px; font-size: .68rem; }
+    .solo-play-area { gap: 12px; }
+    .solo-word-row { grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+    .solo-word-panel { padding: 9px 7px 12px; border-radius: 14px; }
+    .solo-page .category { margin-bottom: 6px; font-size: .72rem; }
+    .solo-page .word { min-height: 42px; gap: 3px; }
+    .solo-page .letter { width: clamp(17px, 5vw, 27px); height: 37px; font-size: 1.15rem; border-bottom-width: 2px; }
+    .solo-page .gap { width: 7px; }
+    .solo-lives-panel { padding: 8px; min-width: 92px; flex-direction: column; gap: 4px; border-radius: 14px; }
+    .solo-lives-title { font-size: .78rem; }
+    .solo-page .lives { display: grid; grid-template-columns: repeat(4, auto); gap: 2px 5px; font-size: .9rem; }
+    .solo-lives-count { font-size: .68rem; }
+    .solo-page .keyboard { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; }
+    .solo-page .key { height: clamp(42px, 11vw, 49px); border-radius: 9px; font-size: 1rem; box-shadow: 0 3px 0 #071326; }
+    .solo-page .actions { grid-template-columns: 1fr 1.2fr; gap: 7px; }
+    .solo-page .solo-action { min-height: 48px; padding: 7px 6px; font-size: .86rem; border-radius: 12px; }
+    
+}
+@media (prefers-reduced-motion: no-preference) {
+    .solo-page .chip, .solo-page .solo-action, .solo-page .key { transition: transform .12s ease, box-shadow .12s ease, background .18s ease; }
+}
