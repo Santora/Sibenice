@@ -14,6 +14,7 @@
             <span title="Rekord">🏆 @_best</span>
         </div>
         <div class="solo-toggles">
+            <PwaInstall />
             <button class="solo-icon-button @(_sound ? "on" : "off")" @onclick="ToggleSound" aria-label="Zvuk" aria-pressed="@_sound">@(_sound ? "🔊" : "🔇")</button>
             <button class="solo-icon-button @(_vibration ? "on" : "off")" @onclick="ToggleVibration" aria-label="Vibrace" aria-pressed="@_vibration">📳</button>
         </div>

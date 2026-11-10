@@ -471,3 +471,20 @@ html, body {
         transition-duration: .01ms !important;
     }
 }
+
+
+/* Instalace PWA – zobrazí se pouze tehdy, když ji prohlížeč skutečně nabídne. */
+.pwa-install-button {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    min-height: 42px; padding: 0 14px; border: 1px solid #d5a64d; border-radius: 22px;
+    color: #ffe6a0; background: linear-gradient(135deg, rgba(105, 69, 22, .55), rgba(12, 32, 62, .9));
+    font: inherit; font-size: .88rem; font-weight: 650; white-space: nowrap; cursor: pointer;
+    box-shadow: inset 0 0 10px rgba(245, 200, 91, .08), 0 0 12px rgba(245, 200, 91, .08);
+}
+.pwa-install-button:hover { background: linear-gradient(135deg, rgba(145, 98, 32, .7), rgba(18, 48, 85, .95)); }
+.menu-install { display: flex; justify-content: center; margin: 0 0 18px; }
+.solo-toggles .pwa-install-button { min-height: 40px; }
+@media (max-width: 640px) {
+    .pwa-install-button { min-height: 40px; padding: 0 11px; font-size: .82rem; }
+    .solo-toggles .pwa-install-button span { display: none; }
+}

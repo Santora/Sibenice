@@ -1,0 +1,42 @@
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+
+@if (_available)
+{
+    <button class="pwa-install-button" @onclick="InstallAsync" title="Instalovat Šibenici do zařízení">
+        ⬇ <span>Instalovat</span>
+    </button>
+}
+
+@code {
+    private DotNetObjectReference<PwaInstall>? _reference;
+    private bool _available;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+        _reference = DotNetObjectReference.Create(this);
+        try { await JS.InvokeVoidAsync("pwaInstall.init", _reference); }
+        catch { /* Instalace není v tomto prohlížeči dostupná. */ }
+    }
+
+    [JSInvokable]
+    public Task SetInstallAvailable(bool available)
+    {
+        _available = available;
+        return InvokeAsync(StateHasChanged);
+    }
+
+    private async Task InstallAsync()
+    {
+        try { await JS.InvokeVoidAsync("pwaInstall.prompt"); }
+        catch { /* Prohlížeč instalaci nepodporuje. */ }
+        _available = false;
+    }
+
+    public ValueTask DisposeAsync()
+    {
+        _reference?.Dispose();
+        return ValueTask.CompletedTask;
+    }
+}
