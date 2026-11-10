@@ -1,11 +1,37 @@
 namespace SlovniHra.Models;
 
-/// <summary>
-/// Sdílená pravidla pro práci se slovníkem. Samotná slova jsou načítána z JSON souborů.
-/// </summary>
 public static class WordBank
 {
     public const string AllCategories = "Vše";
+
+    public static readonly IReadOnlyDictionary<string, string[]> Words = new Dictionary<string, string[]>
+    {
+        ["🐾 Zvířata"] =
+        [
+            "KROKODÝL", "VEVERKA", "NOSOROŽEC", "CHAMELEON", "TUČŇÁK", "JEŽEK",
+            "LIŠKA", "DELFÍN", "ŽIRAFA", "PAPOUŠEK", "VELBLOUD", "KAPYBARA"
+        ],
+        ["🏰 Česko"] =
+        [
+            "OSTRAVA", "PLZEŇ", "LIBEREC", "OLOMOUC", "KARLOVY VARY", "ČESKÝ KRUMLOV",
+            "HAVÍŘOV", "ZLÍN", "PARDUBICE", "ŠPINDLERŮV MLÝN", "KUTNÁ HORA", "TŘEBOŇ"
+        ],
+        ["🍲 Jídlo"] =
+        [
+            "SVÍČKOVÁ", "KNEDLÍK", "PALAČINKY", "GULÁŠ", "TRDELNÍK", "BRAMBORÁK",
+            "ŘÍZEK", "OPEKANÝ SÝR", "KOLÁČ", "ZELÍ", "LEČO", "BUCHTY"
+        ],
+        ["💻 Technologie"] =
+        [
+            "PROCESOR", "KLÁVESNICE", "ALGORITMUS", "SERVER", "PROGRAMÁTOR", "DATABÁZE",
+            "PROHLÍŽEČ", "ROUTER", "KOMPILÁTOR", "APLIKACE", "HESLO", "OBRAZOVKA"
+        ],
+        ["⚽ Sport"] =
+        [
+            "HOKEJ", "FOTBAL", "LYŽOVÁNÍ", "TENIS", "PLAVÁNÍ", "VOLEJBAL",
+            "ATLETIKA", "ŠERMOVÁNÍ", "CYKLISTIKA", "BIATLON", "BASKETBAL", "VESLOVÁNÍ"
+        ],
+    };
 
     private static readonly Dictionary<char, char> Diacritics = new()
     {
@@ -20,40 +46,55 @@ public static class WordBank
         c = char.ToUpperInvariant(c);
         return Diacritics.TryGetValue(c, out var plain) ? plain : c;
     }
-}
 
-public sealed class DictionaryManifest
-{
-    public int Version { get; set; }
-    public string Language { get; set; } = "";
-    public List<DictionaryCategoryManifest> Categories { get; set; } = [];
-}
+    /// <summary>Ověří a upraví slovo zadané hráčem: jen písmena (i česká) a mezery, 2 až 25 písmen.</summary>
+    public static bool TryCleanWord(string? input, out string clean)
+    {
+        clean = "";
+        if (string.IsNullOrWhiteSpace(input))
+        {
+            return false;
+        }
 
-public sealed class DictionaryCategoryManifest
-{
-    public string Id { get; set; } = "";
-    public string Name { get; set; } = "";
-    public string File { get; set; } = "";
-    public int WordCount { get; set; }
-    public Dictionary<string, int> DifficultyCounts { get; set; } = [];
-}
+        var chars = new List<char>();
+        var lastSpace = true;
+        foreach (var raw in input.Trim())
+        {
+            if (char.IsWhiteSpace(raw))
+            {
+                if (!lastSpace)
+                {
+                    chars.Add(' ');
+                    lastSpace = true;
+                }
 
-public sealed class CategoryDictionary
-{
-    public int Version { get; set; }
-    public string Language { get; set; } = "";
-    public DictionaryCategoryInfo Category { get; set; } = new();
-    public List<DictionaryWord> Words { get; set; } = [];
-}
+                continue;
+            }
 
-public sealed class DictionaryCategoryInfo
-{
-    public string Id { get; set; } = "";
-    public string Name { get; set; } = "";
-}
+            var c = char.ToUpperInvariant(raw);
+            var n = Normalize(c);
+            if (n < 'A' || n > 'Z')
+            {
+                return false;
+            }
 
-public sealed class DictionaryWord
-{
-    public string Text { get; set; } = "";
-    public int Difficulty { get; set; }
+            chars.Add(c);
+            lastSpace = false;
+        }
+
+        clean = new string(chars.ToArray()).Trim();
+        var letters = clean.Count(char.IsLetter);
+        return letters is >= 2 and <= 25 && clean.Length <= 30;
+    }
+
+    public static IEnumerable<(string Category, string Word)> Pick(string? category)
+    {
+        foreach (var (cat, words) in Words)
+        {
+            if (category is null || category == AllCategories || category == cat)
+            {
+                foreach (var w in words) yield return (cat, w);
+            }
+        }
+    }
 }

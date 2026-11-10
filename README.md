@@ -1,54 +1,51 @@
-# SlovníHra – datové slovníky
+# Šibenice – slovní hra (Blazor PWA)
 
-Samostatná datová vrstva pro pět stávajících kategorií. Herní aplikace zatím není přepojena na JSON; tento balíček obsahuje data, manifest a validátor.
+Česká slovní hra „šibenice" pro Android. Blazor WebAssembly, .NET 10, instalovatelná jako PWA (funguje offline).
 
-## Obsah
+## Fáze vývoje
+1. **Zvuky a vibrace** – hotovo (přepínače 🔊 / 📳 v záhlaví)
+2. **Online pro dva** – hotovo k testování (menu → Online pro dva)
+3. Kvíz s otázkami – připravuje se
 
-- `wwwroot/data/dictionary.json` – manifest kategorií, názvy, soubory a počty slov podle obtížnosti.
-- `wwwroot/data/animals.json` – zvířata.
-- `wwwroot/data/czech.json` – místa, regiony, řeky a památky v Česku.
-- `wwwroot/data/food.json` – jídla, suroviny a pokrmy.
-- `wwwroot/data/technology.json` – zařízení, software a technické pojmy.
-- `wwwroot/data/sport.json` – sporty a sportovní disciplíny.
-- `tools/validate_dictionary.py` – kontrola struktury, znaků, obtížnosti a duplicit.
+## Online pro dva
+Každý hráč na svém mobilu, bez instalace a bez vlastního serveru. Hra používá veřejnou službu [ntfy.sh](https://ntfy.sh)
+jako „poštovní schránku": místnost je jedno téma s názvem `sibenice-<KÓD>`.
 
-Každá položka obsahuje `text` a `difficulty` (1 = lehká, 2 = střední, 3 = těžká). Víceslovné výrazy jsou podporované.
+1. Jeden hráč zvolí **Online pro dva → Vytvořit místnost** a vybere režim:
+   - **Střídání** – oba hádají stejné slovo na tahy, správné písmeno = body a hraješ dál, chyba předá tah.
+   - **Zadání slova** – jeden napíše tajné slovo, druhý hádá; v dalším kole se role prohodí.
+2. Pošle soupeři kód (nebo odkaz přes tlačítko Sdílet). Soupeř zadá kód v **Připojit se**.
 
-## Aktuální rozsah
+Poznámky: kdo zná kód, může se do místnosti připojit, a zprávy prochází přes veřejný server ntfy.sh (obsahují i tajné slovo,
+takže nehrajte o nic vážného). Služba má limity pro anonymní uživatele, na hru pro dva ale stačí.
 
-| Kategorie | Počet |
-|---|---:|
-| Zvířata | 174 |
-| Česko | 143 |
-| Jídlo | 220 |
-| Sport | 140 |
-| Technologie | 181 |
-| **Celkem** | **858** |
+## Hra
+- 5 kategorií (zvířata, Česko, jídlo, technologie, sport) + „Vše"
+- hádá se bez diakritiky (Ř = R), po uhodnutí se písmeno zobrazí správně s diakritikou
+- 7 životů, nápověda za 1 život, skóre, série výher a rekord (uložený v telefonu)
+- zvuky jsou syntetizované (Web Audio), vibrace přes `navigator.vibrate` (na iPhonu nefunguje, na Androidu ano)
 
-## Kontrola
-
-Z kořene balíčku spusťte:
-
-```powershell
-py tools\validate_dictionary.py
+## Lokální spuštění
+```bash
+dotnet run
 ```
 
-## Redakční zásady a omezení
+## Nasazení na GitHub Pages (workflow je hotový)
+1. Na GitHubu vytvoř **veřejný** repozitář (např. `sibenice`).
+2. V adresáři projektu:
+   ```bash
+   git init -b main
+   git add .
+   git commit -m "Šibenice – první verze"
+   git remote add origin https://github.com/<tvoje-jmeno>/sibenice.git
+   git push -u origin main
+   ```
+3. V repozitáři otevři *Settings → Pages* a v *Source* zvol **GitHub Actions**.
+4. Po doběhnutí workflow (záložka *Actions*) je hra na `https://<tvoje-jmeno>.github.io/sibenice/`.
+5. V Chrome na Androidu otevři adresu → menu ⋮ → **Nainstalovat aplikaci**.
 
-Obtížnost je pracovní herní zařazení, nikoli objektivní jazyková norma. Seznamy jsou české herní kandidáty; validátor ověřuje technickou správnost dat, nikoli faktickou správnost každého pojmu ani jeho vhodnost pro každého hráče. Před ostrým nasazením je proto vhodná obsahová korektura, zejména u odbornějších výrazů, názvů disciplín a místních názvů.
+Každý další `git push` do `main` nasadí novou verzi. Aplikace si po instalaci drží offline cache,
+novou verzi načte při dalším spuštění s připojením (případně ji zavři a otevři znovu).
 
-Slovník je záměrně oddělený od herní logiky. Další rozšiřování nebo úpravy obsahu nevyžadují změnu UI.
-
-## Obtížnost hry
-
-Obtížnost se vybírá přímo v hlavním rozhraní:
-
-- **Vše** – slova ze všech úrovní
-- **Lehká** – `difficulty: 1`
-- **Střední** – `difficulty: 2`
-- **Těžká** – `difficulty: 3`
-
-Poslední zvolená obtížnost se ukládá v `localStorage` pod klíčem
-`sibenice.difficulty`. Slovník se načítá z `wwwroot/data/dictionary.json`
-a z jednotlivých souborů kategorií. Publikovaná PWA ukládá JSON soubory
-do offline cache stejně jako ostatní statické prostředky.
+## Přidání slov
+Seznam je v `Models/WordBank.cs`. Slova piš velkými písmeny s diakritikou, mezery jsou povolené.

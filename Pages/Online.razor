@@ -1,0 +1,507 @@
+@page "/online"
+@using System.Text.Json
+@inject IJSRuntime JS
+@inject NavigationManager Nav
+@implements IAsyncDisposable
+
+<PageTitle>Šibenice – online pro dva</PageTitle>
+
+<div class="game">
+    <header class="top">
+        <a class="back" href="./" @onclick="Leave" @onclick:preventDefault="@_active">← Menu</a>
+        <h1>Online</h1>
+        @if (_active)
+        {
+            <span class="conn @(_connected ? "up" : "down")" title="@(_connected ? "Připojeno" : "Spojení přerušeno")">●</span>
+        }
+    </header>
+
+    @if (!_active)
+    {
+        @* ============ LOBBY ============ *@
+        <section class="panel">
+            <label class="lbl" for="name">Tvoje jméno</label>
+            <input id="name" class="input" maxlength="12" placeholder="např. Jirka" @bind="_name" @bind:event="oninput" />
+        </section>
+
+        <section class="panel">
+            <h2>Založit hru</h2>
+            <div class="seg">
+                <button class="@(_mode == "A" ? "on" : "")" @onclick='() => _mode = "A"'>Střídání</button>
+                <button class="@(_mode == "B" ? "on" : "")" @onclick='() => _mode = "B"'>Zadání slova</button>
+            </div>
+            <p class="muted small">
+                @if (_mode == "A")
+                {
+                    <text>Hádáte stejné slovo na střídačku. Správné písmeno = body a hraješ dál, chyba předá tah soupeři.</text>
+                }
+                else
+                {
+                    <text>Jeden zadá tajné slovo a druhý ho hádá. V dalším kole se role prohodí.</text>
+                }
+            </p>
+            <button class="big-btn" @onclick="StartHost">Vytvořit místnost</button>
+        </section>
+
+        <section class="panel">
+            <h2>Připojit se</h2>
+            <input class="input code-in" maxlength="6" placeholder="KÓD" autocapitalize="characters" autocomplete="off"
+                   @bind="_joinCode" @bind:event="oninput" />
+            <button class="big-btn" @onclick="StartGuest">Připojit</button>
+        </section>
+    }
+    else if (!HasState)
+    {
+        @* ============ ČEKÁNÍ ============ *@
+        <section class="panel center">
+            @if (_isHost)
+            {
+                <p class="muted">Kód místnosti</p>
+                <div class="room-code">@_code</div>
+                <p class="muted small">Soupeř zadá tento kód v menu <strong>Online → Připojit se</strong>, nebo mu pošli odkaz.</p>
+                <button class="big-btn" @onclick="ShareAsync">📤 Sdílet odkaz</button>
+                <p class="muted">Čekám na soupeře…</p>
+            }
+            else
+            {
+                <p class="muted">Připojuji do místnosti</p>
+                <div class="room-code">@_code</div>
+                <p class="muted">Čekám na hostitele…</p>
+            }
+            <button class="secondary" @onclick="Leave">Zrušit</button>
+        </section>
+    }
+    else
+    {
+        @* ============ HRA ============ *@
+        var r = Cur;
+        <section class="scoreboard">
+            @for (var i = 0; i < 2; i++)
+            {
+                var idx = i;
+                <div class="pl @(_s.Phase == "playing" && _s.Turn == idx ? "turn" : "")">
+                    <span class="pn">@Nm(idx)@(idx == _me ? " (ty)" : "")</span>
+                    <span class="ps">@_s.Scores[idx]</span>
+                </div>
+            }
+        </section>
+        <p class="muted center small">Kolo @_s.Round · @(_s.Mode == "A" ? "střídání" : "zadání slova")</p>
+
+        @if (_s.Phase == "setting")
+        {
+            @if (CanSet)
+            {
+                @if (_s.Mode == "A")
+                {
+                    <section class="panel">
+                        <h2>Vyber kategorii</h2>
+                        <p class="muted small">Slovo se vybere náhodně. Začínáš ty.</p>
+                        <div class="cat-grid">
+                            @foreach (var cat in _categories)
+                            {
+                                var c = cat;
+                                <button class="chip" @onclick="() => BeginRandom(c)">@c</button>
+                            }
+                        </div>
+                    </section>
+                }
+                else
+                {
+                    <section class="panel">
+                        <h2>Zadej tajné slovo</h2>
+                        <input class="input" maxlength="30" placeholder="slovo nebo fráze" autocomplete="off"
+                               @bind="_wordInput" @bind:event="oninput" />
+                        <input class="input" maxlength="20" placeholder="nápověda / kategorie (nepovinné)" autocomplete="off"
+                               @bind="_hintInput" @bind:event="oninput" />
+                        @if (_wordError is not null)
+                        {
+                            <p class="err">@_wordError</p>
+                        }
+                        <button class="big-btn" @onclick="BeginWithWord">Zadat slovo</button>
+                    </section>
+                }
+            }
+            else
+            {
+                <section class="panel center">
+                    <p>@Nm(SetterIdx) @(_s.Mode == "A" ? "vybírá kategorii…" : "zadává slovo…")</p>
+                    <p class="muted small">Hra pokračuje, jakmile to dokončí.</p>
+                </section>
+            }
+        }
+        else
+        {
+            var reveal = _s.Phase == "over" || (_s.Mode == "B" && _me == SetterIdx);
+            <section class="stage">
+                <Gallows Wrong="@r.Wrong" />
+            </section>
+
+            <p class="category">@(string.IsNullOrWhiteSpace(_s.Category) ? "" : _s.Category)</p>
+
+            <div class="word" aria-live="polite">
+                @foreach (var ch in _s.Word)
+                {
+                    if (ch == ' ')
+                    {
+                        <span class="gap"></span>
+                    }
+                    else
+                    {
+                        var shown = reveal || r.IsRevealed(ch);
+                        <span class="letter @(reveal && !r.IsRevealed(ch) && _s.Phase == "over" ? "missed" : "")">@(shown ? ch.ToString() : "")</span>
+                    }
+                }
+            </div>
+
+            <p class="banner @(_s.Phase == "playing" && _s.Turn == _me ? "mine" : "")">@TurnText</p>
+
+            @if (!(_s.Mode == "B" && _me == SetterIdx))
+            {
+                <div class="keyboard">
+                    @foreach (var k in Alphabet)
+                    {
+                        var key = k;
+                        var used = r.Guessed.Contains(key);
+                        var good = used && r.Contains(key);
+                        <button class="key @(used ? (good ? "good" : "bad") : "")"
+                                disabled="@(used || _s.Phase != "playing" || _s.Turn != _me)"
+                                @onclick="() => GuessAsync(key)">@key</button>
+                    }
+                </div>
+            }
+
+            @if (_s.Phase == "over")
+            {
+                <div class="overlay">
+                    <div class="dialog @(r.Won ? "win" : "lose")">
+                        <h2>@(r.Won ? "Slovo odhaleno! 🎉" : "Šibenice! 😕")</h2>
+                        <p>@OverText(r)</p>
+                        <p class="muted small">@Nm(0): @_s.Scores[0] · @Nm(1): @_s.Scores[1]</p>
+                        @if (CanNext)
+                        {
+                            <button @onclick="NextRound">Další kolo</button>
+                        }
+                        else
+                        {
+                            <p class="muted">Čekám, až @Nm(NextSetterIdx) začne další kolo…</p>
+                        }
+                    </div>
+                </div>
+            }
+        }
+
+        <div class="actions">
+            <button class="secondary" @onclick="Leave">Odejít ze hry</button>
+        </div>
+    }
+
+    @if (_error is not null)
+    {
+        <p class="err center">@_error</p>
+    }
+    @if (_info is not null)
+    {
+        <p class="muted center small">@_info</p>
+    }
+</div>
+
+@code {
+    private static readonly char[] Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+    private const string CodeChars = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
+
+    private readonly List<string> _categories = [.. WordBank.Words.Keys, WordBank.AllCategories];
+    private readonly string _myId = Guid.NewGuid().ToString("N")[..10];
+    private readonly Random _rng = new();
+
+    [SupplyParameterFromQuery(Name = "kod")] public string? KodParam { get; set; }
+
+    private DotNetObjectReference<Online>? _ref;
+    private GameSync _s = NewState("A", "");
+    private string _name = "";
+    private string _mode = "A";
+    private string _code = "";
+    private string _joinCode = "";
+    private string _topic = "";
+    private string _wordInput = "";
+    private string _hintInput = "";
+    private string? _wordError;
+    private string? _error;
+    private string? _info;
+    private bool _active;
+    private bool _isHost;
+    private bool _connected;
+    private int _me;
+
+    private static GameSync NewState(string mode, string hostName) =>
+        new() { Mode = mode, Names = [hostName, ""], Scores = [0, 0] };
+
+    private bool HasState => _s.Round > 0 && !string.IsNullOrWhiteSpace(_s.Names[1]);
+    private WordRound Cur => new(_s.Word, _s.Category, _s.Guessed);
+    private int SetterIdx => OnlineGame.SetterOf(_s.Round);
+    private int NextSetterIdx => _s.Round % 2;
+    private bool CanSet => SetterIdx == _me;
+    private bool CanNext => NextSetterIdx == _me;
+
+    private string Nm(int i) => string.IsNullOrWhiteSpace(_s.Names[i]) ? $"Hráč {i + 1}" : _s.Names[i];
+
+    private string TurnText
+    {
+        get
+        {
+            if (_s.Phase != "playing") return "";
+            if (_s.Mode == "B")
+            {
+                return _me == SetterIdx
+                    ? $"{Nm(_s.Turn)} hádá tvoje slovo…"
+                    : $"Hádej slovo, které zadal(a) {Nm(SetterIdx)}";
+            }
+
+            return _s.Turn == _me ? "Jsi na tahu" : $"Hraje {Nm(_s.Turn)}…";
+        }
+    }
+
+    private string OverText(WordRound r)
+    {
+        var word = $"Slovo bylo: {_s.Word}";
+        if (_s.Mode == "B")
+        {
+            return r.Won ? $"{Nm(_s.Turn)} slovo uhádl(a). {word}" : $"{Nm(_s.Turn)} neuhádl(a). {word}";
+        }
+
+        return r.Won ? $"Slovo je odhaleno. {word}" : $"Nikdo slovo neuhodl. {word}";
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try { _name = await JS.InvokeAsync<string>("net.getStr", "sibenice.name"); } catch { }
+        if (!string.IsNullOrWhiteSpace(KodParam))
+        {
+            _joinCode = CleanCode(KodParam);
+        }
+    }
+
+    private static string CleanCode(string s) =>
+        new(s.ToUpperInvariant().Where(CodeChars.Contains).ToArray());
+
+    private string GenCode() =>
+        new(Enumerable.Range(0, 6).Select(_ => CodeChars[_rng.Next(CodeChars.Length)]).ToArray());
+
+    private async Task<bool> PrepareName()
+    {
+        _name = (_name ?? "").Trim();
+        if (_name.Length > 12) _name = _name[..12];
+        if (_name.Length == 0)
+        {
+            _error = "Nejdřív vyplň své jméno.";
+            return false;
+        }
+
+        try { await JS.InvokeVoidAsync("net.setStr", "sibenice.name", _name); } catch { }
+        return true;
+    }
+
+    private async Task Connect()
+    {
+        _topic = "sibenice-" + _code;
+        _ref ??= DotNetObjectReference.Create(this);
+        _connected = false;
+        _active = true;
+        await JS.InvokeVoidAsync("net.connect", _topic, _ref);
+    }
+
+    private async Task StartHost()
+    {
+        _error = null;
+        if (!await PrepareName()) return;
+        _isHost = true;
+        _me = 0;
+        _code = GenCode();
+        _s = NewState(_mode, _name);
+        await Connect();
+    }
+
+    private async Task StartGuest()
+    {
+        _error = null;
+        if (!await PrepareName()) return;
+        _joinCode = CleanCode(_joinCode ?? "");
+        if (_joinCode.Length != 6)
+        {
+            _error = "Kód má 6 znaků.";
+            return;
+        }
+
+        _isHost = false;
+        _me = 1;
+        _code = _joinCode;
+        _s = NewState("A", "");
+        await Connect();
+        _ = WatchJoin();
+    }
+
+    private async Task WatchJoin()
+    {
+        await Task.Delay(12000);
+        if (_active && !_isHost && !HasState)
+        {
+            _error = "Hostitel se neozývá. Zkontroluj kód a že má hostitel hru otevřenou.";
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+
+    private async Task Leave()
+    {
+        if (!_active) return;
+        try { await JS.InvokeVoidAsync("net.close"); } catch { }
+        _active = false;
+        _connected = false;
+        _s = NewState("A", "");
+        _error = null;
+        _info = null;
+    }
+
+    private async Task ShareAsync()
+    {
+        var url = Nav.BaseUri + "online?kod=" + _code;
+        try
+        {
+            var res = await JS.InvokeAsync<string>("net.share", "Šibenice", $"Pojď si zahrát Šibenici! Kód: {_code}", url);
+            _info = res == "copied" ? "Odkaz je zkopírovaný do schránky." : null;
+        }
+        catch { _info = null; }
+    }
+
+    // ---------- komunikace ----------
+
+    private async Task Send(Msg m)
+    {
+        try
+        {
+            var ok = await JS.InvokeAsync<bool>("net.send", _topic, JsonSerializer.Serialize(m));
+            _error = ok ? null : "Zprávu se nepodařilo odeslat (síť, nebo limit služby ntfy.sh). Zkus to za chvíli.";
+        }
+        catch
+        {
+            _error = "Zprávu se nepodařilo odeslat.";
+        }
+    }
+
+    private Task SendSync() => Send(new Msg { K = "sync", From = _myId, S = _s });
+
+    [JSInvokable]
+    public async Task OnOpen()
+    {
+        _connected = true;
+        await Send(new Msg { K = _isHost ? "req" : "hello", From = _myId, Name = _name });
+        await InvokeAsync(StateHasChanged);
+    }
+
+    [JSInvokable]
+    public async Task OnError()
+    {
+        _connected = false;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    [JSInvokable]
+    public async Task OnMessage(string text)
+    {
+        Msg? m;
+        try { m = JsonSerializer.Deserialize<Msg>(text); }
+        catch { return; }
+
+        if (m is null || m.From == _myId || !_active) return;
+
+        switch (m.K)
+        {
+            case "hello" when _isHost:
+                _s.Names[1] = string.IsNullOrWhiteSpace(m.Name) ? "Hráč 2" : m.Name.Trim()[..Math.Min(12, m.Name.Trim().Length)];
+                if (_s.Round == 0) OnlineGame.EnterSetting(_s);
+                else _s.V++;
+                await SendSync();
+                break;
+
+            case "req" when HasState:
+                await SendSync();
+                break;
+
+            case "sync" when m.S is not null && m.S.V > _s.V && m.S.Names.Length == 2 && m.S.Scores.Length == 2:
+                var before = (_s.Guessed, _s.Phase, _s.Round);
+                _s = m.S;
+                _error = null;
+                await FeedbackFor(before);
+                break;
+        }
+
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private async Task FeedbackFor((string Guessed, string Phase, int Round) before)
+    {
+        if (_s.Round != before.Round || _s.Guessed.Length <= before.Guessed.Length) return;
+
+        var r = Cur;
+        var key = _s.Guessed[^1];
+        var sound = _s.Phase == "over" && before.Phase != "over"
+            ? (r.Won ? "win" : "lose")
+            : (r.Contains(key) ? "ok" : "bad");
+        await Fx(sound);
+    }
+
+    private async Task Fx(string name)
+    {
+        try { await JS.InvokeVoidAsync("fx.play", name); } catch { }
+    }
+
+    // ---------- tahy ----------
+
+    private async Task BeginRandom(string category)
+    {
+        if (!CanSet || _s.Phase != "setting") return;
+        var pool = WordBank.Pick(category).ToList();
+        var pick = pool[_rng.Next(pool.Count)];
+        OnlineGame.Begin(_s, pick.Word, pick.Category);
+        await Fx("hint");
+        await SendSync();
+    }
+
+    private async Task BeginWithWord()
+    {
+        if (!CanSet || _s.Phase != "setting") return;
+        if (!WordBank.TryCleanWord(_wordInput, out var word))
+        {
+            _wordError = "Slovo smí mít jen písmena a mezery (2 až 25 písmen).";
+            return;
+        }
+
+        _wordError = null;
+        OnlineGame.Begin(_s, word, (_hintInput ?? "").Trim());
+        _wordInput = "";
+        _hintInput = "";
+        await Fx("hint");
+        await SendSync();
+    }
+
+    private async Task GuessAsync(char key)
+    {
+        var correct = Cur.Contains(key);
+        if (!OnlineGame.ApplyGuess(_s, key, _me)) return;
+
+        var r = Cur;
+        await Fx(_s.Phase == "over" ? (r.Won ? "win" : "lose") : correct ? "ok" : "bad");
+        await SendSync();
+    }
+
+    private async Task NextRound()
+    {
+        if (!CanNext || _s.Phase != "over") return;
+        OnlineGame.EnterSetting(_s);
+        await SendSync();
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        try { await JS.InvokeVoidAsync("net.close"); } catch { }
+        _ref?.Dispose();
+    }
+}

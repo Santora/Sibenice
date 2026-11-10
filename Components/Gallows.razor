@@ -1,0 +1,25 @@
+<svg viewBox="0 0 200 220" class="gallows" role="img" aria-label="Šibenice, chyb @Wrong">
+    @if (Wrong >= 1) { <line x1="20" y1="205" x2="120" y2="205" /> }
+    @if (Wrong >= 2) { <line x1="50" y1="205" x2="50" y2="20" /> }
+    @if (Wrong >= 3)
+    {
+        <line x1="50" y1="20" x2="140" y2="20" />
+        <line x1="140" y1="20" x2="140" y2="45" />
+    }
+    @if (Wrong >= 4) { <circle cx="140" cy="62" r="17" /> }
+    @if (Wrong >= 5) { <line x1="140" y1="79" x2="140" y2="135" /> }
+    @if (Wrong >= 6)
+    {
+        <line x1="140" y1="95" x2="118" y2="120" />
+        <line x1="140" y1="95" x2="162" y2="120" />
+    }
+    @if (Wrong >= 7)
+    {
+        <line x1="140" y1="135" x2="120" y2="172" />
+        <line x1="140" y1="135" x2="160" y2="172" />
+    }
+</svg>
+
+@code {
+    [Parameter] public int Wrong { get; set; }
+}

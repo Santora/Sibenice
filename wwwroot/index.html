@@ -27,12 +27,11 @@
     <script>
         window.hra = {
             getBest: () => parseInt(localStorage.getItem('sibenice.best') || '0', 10),
-            setBest: v => localStorage.setItem('sibenice.best', String(v)),
-            getDifficulty: () => parseInt(localStorage.getItem('sibenice.difficulty') || '0', 10),
-            setDifficulty: v => localStorage.setItem('sibenice.difficulty', String(v))
+            setBest: v => localStorage.setItem('sibenice.best', String(v))
         };
     </script>
     <script src="js/feedback.js"></script>
+    <script src="js/net.js"></script>
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
 </body>
