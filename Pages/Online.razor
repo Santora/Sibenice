@@ -207,7 +207,8 @@
 
 @code {
     private static readonly char[] Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
-    private const string CodeChars = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
+    private const string PublicUrl = "https://santora.github.io/Sibenice/";
+    private const string CodeChars ="ABCDEFGHJKMNPQRSTUVWXYZ23456789";
 
     private readonly List<string> _categories = [.. WordBank.Words.Keys, WordBank.AllCategories];
     private readonly string _myId = Guid.NewGuid().ToString("N")[..10];
@@ -362,10 +363,13 @@
 
     private async Task ShareAsync()
     {
-        var url = Nav.BaseUri + "online?kod=" + _code;
+        // Při testu na PC běží hra na localhost, který soupeř neotevře. Tam sdílíme adresu nasazené verze.
+        var host = new Uri(Nav.BaseUri).Host;
+        var local = host == "localhost" || host == "127.0.0.1" || host.StartsWith("192.168.") || host.StartsWith("10.");
+        var url = (local ? PublicUrl : Nav.BaseUri) + "online?kod=" + _code;
         try
         {
-            var res = await JS.InvokeAsync<string>("net.share", "Šibenice", $"Pojď si zahrát Šibenici! Kód: {_code}", url);
+            var res = await JS.InvokeAsync<string>("net.share", "Šibenice", $"Pojď si zahrát Šibenici! Kód místnosti: {_code}", url);
             _info = res == "copied" ? "Odkaz je zkopírovaný do schránky." : null;
         }
         catch { _info = null; }
