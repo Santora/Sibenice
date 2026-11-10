@@ -50,20 +50,14 @@
                     <line x1="48" y1="205" x2="48" y2="18" />
                     <line x1="48" y1="18" x2="145" y2="18" />
                     <line x1="48" y1="48" x2="78" y2="18" />
-                    <line x1="145" y1="18" x2="145" y2="43" />
                 </g>
-                @if (_wrong >= 1) { <circle cx="145" cy="62" r="17" class="gallows-person" /> }
-                @if (_wrong >= 2) { <line x1="145" y1="79" x2="145" y2="135" class="gallows-person" /> }
-                @if (_wrong >= 3)
-                {
-                    <line x1="145" y1="95" x2="122" y2="119" class="gallows-person" />
-                    <line x1="145" y1="95" x2="168" y2="119" class="gallows-person" />
-                }
-                @if (_wrong >= 4)
-                {
-                    <line x1="145" y1="135" x2="123" y2="174" class="gallows-person" />
-                    <line x1="145" y1="135" x2="167" y2="174" class="gallows-person" />
-                }
+                @if (_wrong >= 1) { <line x1="145" y1="18" x2="145" y2="43" class="gallows-person gallows-draw" /> }
+                @if (_wrong >= 2) { <circle cx="145" cy="62" r="17" class="gallows-person gallows-head gallows-pop" /> }
+                @if (_wrong >= 3) { <line x1="145" y1="79" x2="145" y2="135" class="gallows-person gallows-draw" /> }
+                @if (_wrong >= 4) { <line x1="145" y1="95" x2="122" y2="119" class="gallows-person gallows-draw" /> }
+                @if (_wrong >= 5) { <line x1="145" y1="95" x2="168" y2="119" class="gallows-person gallows-draw" /> }
+                @if (_wrong >= 6) { <line x1="145" y1="135" x2="123" y2="174" class="gallows-person gallows-draw" /> }
+                @if (_wrong >= 7) { <line x1="145" y1="135" x2="167" y2="174" class="gallows-person gallows-draw" /> }
             </svg>
             <div class="solo-scene-caption">Každý tip se počítá</div>
         </section>

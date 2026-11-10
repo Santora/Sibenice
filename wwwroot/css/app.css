@@ -269,6 +269,18 @@ html, body {
 .solo-page .gallows .gallows-frame { stroke: #bd7b32; stroke-width: 11; }
 .solo-page .gallows .gallows-frame line { stroke: #bd7b32; stroke-width: 10; }
 .solo-page .gallows .gallows-person { stroke: #ffdc8a; stroke-width: 5; stroke-linecap: round; fill: none; filter: drop-shadow(0 0 5px rgba(255, 208, 112, .8)); }
+.solo-page .gallows .gallows-draw {
+    stroke-dasharray: 90;
+    stroke-dashoffset: 0;
+    animation: gallows-draw-in .38s ease-out both;
+}
+.solo-page .gallows .gallows-head {
+    transform-box: fill-box;
+    transform-origin: center;
+}
+.solo-page .gallows .gallows-pop { animation: gallows-head-in .32s cubic-bezier(.2, .8, .25, 1.25) both; }
+@keyframes gallows-draw-in { from { stroke-dashoffset: 90; opacity: .25; } to { stroke-dashoffset: 0; opacity: 1; } }
+@keyframes gallows-head-in { from { transform: scale(.35); opacity: .25; } to { transform: scale(1); opacity: 1; } }
 .solo-scene-caption { position: absolute; bottom: 18px; color: rgba(206, 220, 241, .55); font-size: .82rem; letter-spacing: .06em; }
 .solo-play-area { display: flex; flex-direction: column; justify-content: center; gap: clamp(18px, 2.5vh, 28px); min-width: 0; }
 .solo-word-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: stretch; }
