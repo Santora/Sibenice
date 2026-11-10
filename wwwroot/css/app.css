@@ -364,3 +364,110 @@ html, body {
 @media (prefers-reduced-motion: no-preference) {
     .solo-page .chip, .solo-page .solo-action, .solo-page .key { transition: transform .12s ease, box-shadow .12s ease, background .18s ease; }
 }
+
+/* ---------- solo game: responsive and keyboard-accessibility refinements ---------- */
+.solo-page button:focus-visible,
+.solo-page a:focus-visible {
+    outline: 3px solid var(--solo-gold-bright);
+    outline-offset: 3px;
+    position: relative;
+    z-index: 2;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .solo-page .key:not(:disabled):hover,
+    .solo-page .solo-action:not(:disabled):hover,
+    .solo-page .solo-icon-button:hover {
+        filter: brightness(1.12);
+        transform: translateY(-1px);
+    }
+
+    .solo-page .chip:hover {
+        border-color: rgba(255, 228, 154, .75);
+    }
+}
+
+/* Portrait tablets: keep the gallows above the actual game controls. */
+@media (min-width: 621px) and (max-width: 760px) {
+    .solo-board {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .solo-illustration {
+        min-height: 210px;
+        max-height: 230px;
+    }
+
+    .solo-page .gallows {
+        width: auto;
+        height: 195px;
+    }
+
+    .solo-word-row {
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .solo-lives-panel {
+        min-width: 130px;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 620px) {
+    .solo-icon-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .solo-page .key {
+        min-height: 44px;
+    }
+
+    .solo-page .chip {
+        min-height: 38px;
+    }
+}
+
+@media (max-width: 360px) {
+    .solo-page {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .solo-page .solo-header {
+        gap: 6px;
+    }
+
+    .solo-header h1 {
+        font-size: 2.1rem;
+    }
+
+    .solo-stats {
+        gap: 6px;
+        font-size: .72rem;
+    }
+
+    .solo-page .keyboard {
+        gap: 5px;
+    }
+
+    .solo-page .key {
+        font-size: .92rem;
+    }
+
+    .solo-page .solo-action {
+        font-size: .8rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .solo-page *,
+    .solo-page *::before,
+    .solo-page *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
